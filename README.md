@@ -7,3 +7,4 @@ Current Tasks:
 
 
 Future Tasks:
+Create a netlist from output of file, to assist in creating schematic from output.
