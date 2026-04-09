@@ -1,253 +1,453 @@
-import cv2
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from matplotlib.collections import LineCollection
-import re
-import math
-import networkx as nx
-from shapely.geometry import Polygon, Point
-from centerline.geometry import Centerline
-import os
-from itertools import tee
-import operator
-from datetime import datetime
+# =========================
+# Imports
+# =========================
+
+import cv2                          # OpenCV: image reading and basic image handling
+import pandas as pd                 # Pandas: used to load CSV annotation files
+import numpy as np                  # NumPy: arrays, vector math, and numeric operations
+import matplotlib.pyplot as plt     # Matplotlib: plotting figures
+import matplotlib.patches as patches  # Matplotlib patches: rectangles, circles, polygons, etc.
+from matplotlib.collections import LineCollection  # Imported for grouped line drawing (not used in this file)
+import re                           # Regular expressions: parse numeric coordinates from strings
+import math                         # Standard math functions
+import networkx as nx               # Graph library: used to model PCB connectivity/nets
+from shapely.geometry import Polygon, Point  # Geometric objects for pads/traces/vias
+from centerline.geometry import Centerline   # Used to estimate centerlines of trace polygons
+import os                           # Filesystem/path handling
+from itertools import tee           # Utility for creating offset iterators
+import operator                     # Utility for vector subtraction in tuple form
+from datetime import datetime       # Imported but not used in this file
+
 
 class PCBCoordinateMappingVisualizer:
-    """Visualizes before/after coordinate mapping with correction logic from main code"""
-    
+    """
+    Main class for:
+    - loading image/CSV PCB layer data
+    - extracting pads, vias, and traces
+    - correcting trace endpoint coordinates
+    - building a connectivity graph (nets)
+    - exporting the geometry to KiCad
+    - generating before/after visualizations and reports
+    """
+
     def __init__(self, img_path='boardImgs/', csv_path='boardCSV/'):
+        """
+        Store default input folders.
+
+        Parameters:
+            img_path : folder containing grayscale layer images like l0.png, l1.png, ...
+            csv_path : folder containing CSV annotation files like l0.csv, l1.csv, ...
+        """
         self.img_path = img_path
         self.csv_path = csv_path
+
+        # KiCad internal coordinate scale:
+        # 1 mm = 1,000,000 internal units (nanometer-style scaling)
         self.IU_PER_MM = 1000000
-        
+
     def distanceBetween(self, a, b):
+        """
+        Return Euclidean distance between points a and b.
+
+        a and b are expected to be 2D points like:
+            (x, y)
+        """
         return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
-    
+
     def getPointX(self, pointList):
+        """
+        Given a list of points, find the minimum and maximum x values.
+
+        Returns:
+            [xMin, xMax]
+        """
         xMax = 0
         xMin = 150000
+
         for i in pointList:
             if i[0] > xMax:
                 xMax = i[0]
             if i[0] < xMin:
                 xMin = i[0]
+
         return [xMin, xMax]
-    
+
     def anti_clockwise(self, p1, p2):
+        """
+        Compute the angle from p1 to p2 in degrees, measured counterclockwise,
+        normalized into the range [0, 360).
+
+        Used later for snapping trace segments to 45-degree increments.
+        """
         alpha = math.degrees(math.atan2(p2[1] - p1[1], p2[0] - p1[0]))
         return (alpha + 360) % 360
-    
+
     def pairwise(self, iterable):
+        """
+        Return adjacent pairs from an iterable.
+
+        Example:
+            [a, b, c, d] -> [(a, b), (b, c), (c, d)]
+
+        Used when analyzing sequences of centerline points and segments.
+        """
         a, b = tee(iterable)
         next(b, None)
         return list(zip(a, b))
-    
+
     def getAbsoluteAngle(self, edge1, edge2):
+        """
+        Compute the absolute angle between two edges.
+
+        Each edge is expected as:
+            ((x1, y1), (x2, y2))
+
+        Internally forms vectors and uses determinant/dot-product angle formula.
+        Used to measure how sharply a trace path bends.
+        """
         v1 = tuple(map(operator.sub, edge1[0], edge1[1]))
         v2 = tuple(map(operator.sub, edge2[0], edge2[1]))
         return abs(np.degrees(math.atan2(np.linalg.det([v1, v2]), np.dot(v1, v2))))
-    
+
     def process_board_data(self, fileName, boardX, boardY, layerCount):
-        """Process data with correction logic from main code"""
-        
-        print("="*60)
+        """
+        Main processing pipeline.
+
+        Inputs:
+            fileName   : base output name
+            boardX     : board width in mm
+            boardY     : board height in mm
+            layerCount : total number of PCB layers
+
+        Workflow:
+            1. Load each image layer and its annotation CSV.
+            2. Parse annotations into pads, vias, and traces.
+            3. Extract centerlines from trace polygons.
+            4. Simplify traces into line segments.
+            5. Snap trace directions to 45-degree angles.
+            6. Build a connectivity graph linking pads/vias/tracks.
+            7. Correct track endpoints so they snap onto connected pads/vias.
+            8. Return all processed geometry and metadata.
+        """
+
+        print("=" * 60)
         print("PROCESSING DATA WITH CORRECTION LOGIC")
-        print("="*60)
-        
-        # Load images and CSVs
-        imgs = []
-        anns = []
+        print("=" * 60)
+
+        # -----------------------------------------
+        # Load all layer images and CSV annotations
+        # -----------------------------------------
+        imgs = []   # List of grayscale images, one per layer
+        anns = []   # List of DataFrames, one per layer
+
         for i in range(layerCount):
+            # Load grayscale image for layer i
             img = cv2.imread(os.path.join(self.img_path, f'l{i}.png'), cv2.IMREAD_GRAYSCALE)
+
+            # Load annotation CSV for layer i
             ann = pd.read_csv(os.path.join(self.csv_path, f'l{i}.csv'))
+
             imgs.append(img)
             anns.append(ann)
+
             print(f"Loaded layer {i}: image shape {img.shape}, {len(ann)} annotations")
-        
-        # Initialize storage
-        pad_positions = []
-        pad_points = []
-        via_positions = []
-        via_diameters = []
-        linesList = []
-        updatedLinesList = []
-        
+
+        # -----------------------------------------
+        # Initialize per-layer storage
+        # -----------------------------------------
+        pad_positions = []     # Per layer: list of pad centers
+        pad_points = []        # Per layer: raw pad polygons
+        via_positions = []     # Per layer: list of via centers
+        via_diameters = []     # Per layer: via diameters
+        linesList = []         # Per layer: extracted trace line data before snapping
+        updatedLinesList = []  # Per layer: trace lines after 45-degree snapping
+
+        # -----------------------------------------
         # Process each layer
+        # -----------------------------------------
         for im_num, (img, ann) in enumerate(zip(imgs, anns)):
             print(f"\nProcessing layer {im_num}...")
+
+            # Add empty containers for this layer
             pad_positions.append([])
             pad_points.append([])
             via_positions.append([])
             via_diameters.append([])
             linesList.append([])
             updatedLinesList.append([])
-            
+
+            # -----------------------------------------
+            # Parse each annotation row
+            # -----------------------------------------
             for index, row in ann.iterrows():
-                coords = row['Vertices']
+                coords = row['Vertices']  # Vertices are stored as a string in the CSV
+
+                # Extract all numbers from the vertex string
                 coords = re.findall(r'\d+', coords)
-                coords = [[int(coords[i]), int(coords[i+1])] for i in range(0, len(coords)-1, 2)]
-                component_type = row['Type']
-                
+
+                # Group numbers into [x, y] coordinate pairs
+                coords = [[int(coords[i]), int(coords[i + 1])] for i in range(0, len(coords) - 1, 2)]
+
+                component_type = row['Type']  # Expected values: 'pad', 'via', or 'trace'
+
+                # Needed for via diameter estimate
                 xMin, xMax = self.getPointX(coords)
-                
+
+                # =========================
+                # PAD handling
+                # =========================
                 if component_type == 'pad':
+                    # Compute pad center by averaging polygon vertices
                     x = [i[0] for i in coords]
                     y = [i[1] for i in coords]
                     x = sum(x) / len(x)
                     y = sum(y) / len(y)
                     x = round(x)
                     y = round(y)
+
+                    # Store center as [(x, y)] for consistency with via storage format
                     pad_positions[-1].append([(x, y)])
+
+                    # Store original polygon
                     pad_points[-1].append(coords)
-                    
+
+                # =========================
+                # VIA handling
+                # =========================
                 elif component_type == 'via':
+                    # Use image moments to estimate via center from polygon points
                     M = cv2.moments(np.array(coords))
+
                     if M['m00'] != 0:
                         cx = int(M['m10'] / M['m00'])
                         cy = int(M['m01'] / M['m00'])
+
+                        # Store via center
                         via_positions[-1].append([(cx, cy)])
+
+                        # Approximate via diameter from x-range
                         via_diameters[-1].append(xMax - xMin)
-                        
+
+                # =========================
+                # TRACE handling
+                # =========================
                 elif component_type == 'trace':
                     try:
+                        # Convert polygon vertices into a Shapely polygon
                         poly = Polygon(coords)
+
+                        # Compute centerline geometry from the trace polygon
                         centerline = Centerline(poly, interpolation_distance=8)
-                        
-                        xList = list()
-                        points = list()
-                        edges = list()
-                        G = nx.Graph()
+
+                        # Temporary containers
+                        xList = list()    # raw centerline segments
+                        points = list()   # unique points appearing in centerline graph
+                        edges = list()    # graph edges with length
+                        G = nx.Graph()    # graph representation of the trace centerline
+
+                        # The centerline object can contain multiple line segments
                         coordList = centerline.geometry.geoms
-                        
+
+                        # -----------------------------------------
+                        # Extract centerline segments and endpoints
+                        # -----------------------------------------
                         for i in coordList:
                             x, y = i.coords.xy
                             x = list(x)
                             y = list(y)
+
+                            # Store segment endpoints
                             xList.append(tuple([tuple([x[0], y[0]]), tuple([x[1], y[1]])]))
+
+                            # Build a unique point list
                             if not tuple([x[0], y[0]]) in points:
                                 points.append(tuple([x[0], y[0]]))
                             if not tuple([x[1], y[1]]) in points:
                                 points.append(tuple([x[1], y[1]]))
-                        
+
+                        # -----------------------------------------
+                        # Convert centerline into graph edges
+                        # -----------------------------------------
                         for i in xList:
-                            edges.append([points.index(i[0]), points.index(i[1]), self.distanceBetween(i[0], i[1])])
-                        
+                            edges.append([
+                                points.index(i[0]),
+                                points.index(i[1]),
+                                self.distanceBetween(i[0], i[1])
+                            ])
+
+                        # Add weighted edges to graph
                         for i in range(len(edges)):
                             G.add_edge(points[edges[i][0]], points[edges[i][1]], length=edges[i][2])
-                        
+
+                        # -----------------------------------------
+                        # Find longest likely path through the graph
+                        # -----------------------------------------
                         maxDist = 0
                         pathList = list()
+
                         lengths = nx.all_pairs_dijkstra_path_length(G, weight='length')
                         for i in lengths:
                             node = max(i[1], key=i[1].get)
                             if nx.shortest_path_length(G, i[0], node, weight='length') > maxDist:
                                 maxDist = nx.shortest_path_length(G, i[0], node, weight='length')
-                        
+
+                        # Search for paths close to the global maximum path length
                         lengths2 = nx.all_pairs_dijkstra_path_length(G, weight='length')
                         for i in lengths2:
                             node = max(i[1], key=i[1].get)
                             localMax = i[1][node]
+
                             for key in i[1]:
+                                # Keep paths nearly as long as the local max
                                 if localMax - i[1][key] < 0.15 * localMax:
                                     temp = maxDist - nx.shortest_path_length(G, i[0], key, weight='length')
+
+                                    # Keep if also close to the global max path
                                     if temp < 0.09 * maxDist:
                                         pathList.append(nx.shortest_path(G, i[0], key, weight='length'))
-                        
+
+                        # -----------------------------------------
+                        # Pick the path with the smallest total bend angle
+                        # -----------------------------------------
                         minAngle = 999999
                         minPath = list()
+
                         for i in pathList:
                             angle = 0
                             for j in self.pairwise(self.pairwise(i)):
                                 angle += self.getAbsoluteAngle(j[0], j[1])
+
                             if angle < minAngle:
                                 minAngle = angle
                                 minPath = i
-                        
+
+                        # -----------------------------------------
+                        # Convert selected path into simplified line segments
+                        # -----------------------------------------
                         if len(minPath) > 0:
                             pathNew = list()
+
+                            # Sample every third point to simplify the centerline
                             for i in self.pairwise(minPath[::3]):
                                 pathNew.append(i)
-                            
+
+                            # Detect sharp turns
                             sharpTurns = list()
                             for i in self.pairwise(pathNew):
                                 angle = self.getAbsoluteAngle(i[0], i[1])
                                 if angle > 20:
                                     sharpTurns.append(i)
-                            
+
+                            # Build simplified trace polyline
                             newLine = list()
+
                             if len(sharpTurns) != 0:
+                                # If there are corners, break the path into segments around them
                                 newLine.append((minPath[0], sharpTurns[0][0][1]))
+
                                 for i in self.pairwise(sharpTurns):
                                     newLine.append((i[0][1][0], i[1][1][0]))
+
                                 newLine.append((sharpTurns[-1][1][0], minPath[-1]))
                             else:
+                                # If no turns, just connect first and last points
                                 newLine.append((minPath[0], minPath[-1]))
-                            
+
+                            # -----------------------------------------
+                            # Estimate a width for each trace segment
+                            # -----------------------------------------
                             newLineWidth = list()
+
                             for i in newLine:
                                 minDist = 999999
+
+                                # Approximate width by nearest distance from segment endpoints
+                                # to the original polygon boundary points
                                 for j in list(coords):
                                     if self.distanceBetween(i[0], j) < minDist:
                                         minDist = self.distanceBetween(i[0], j)
                                     if self.distanceBetween(i[1], j) < minDist:
                                         minDist = self.distanceBetween(i[1], j)
+
                                 newLineWidth.append((i, minDist))
-                            
+
                             linesList[-1].append(newLineWidth)
+
                     except Exception as e:
+                        # Skip any problematic trace while printing debug info
                         print(f"  Error processing trace: {e}")
-            
-            # Apply 45-degree angle snapping
+
+            # -----------------------------------------
+            # Snap each trace segment direction to the nearest 45 degrees
+            # -----------------------------------------
             for i in linesList[-1]:
-                latestEnd = i[0][0][0]
+                latestEnd = i[0][0][0]  # starting point of first segment
                 line = list()
+
                 for j in i:
+                    # Compute angle from current point to next endpoint
                     angle = self.anti_clockwise(latestEnd, j[0][1])
+
+                    # Round to nearest 45-degree increment
                     mod = angle % 45
                     if mod >= 22.5:
-                        rounded_angle = (angle//45+1)*45
+                        rounded_angle = (angle // 45 + 1) * 45
                     else:
-                        rounded_angle = (angle//45)*45
+                        rounded_angle = (angle // 45) * 45
+
+                    # Preserve segment length but change direction to snapped angle
                     length = self.distanceBetween(latestEnd, j[0][1])
-                    final = ((latestEnd[0] + (length*math.cos(math.radians(rounded_angle)))), 
-                            (latestEnd[1] + (length*math.sin(math.radians(rounded_angle)))))
+                    final = (
+                        (latestEnd[0] + (length * math.cos(math.radians(rounded_angle)))),
+                        (latestEnd[1] + (length * math.sin(math.radians(rounded_angle))))
+                    )
+
+                    # Save snapped segment with same width estimate
                     line.append(((latestEnd, final), j[1]))
+
+                    # Move to next segment start
                     latestEnd = final
+
                 updatedLinesList[-1].append(line)
-            
+
             print(f"  Layer {im_num}: {len(pad_positions[-1])} pads, {len(via_positions[-1])} vias, {len(updatedLinesList[-1])} traces")
-        
-        # Calculate coordinate transformations
+
+        # -----------------------------------------
+        # Convert pixel dimensions to mm/pixel
+        # -----------------------------------------
         y0, x0 = 0, 0
         y1, x1 = imgs[0].shape
-        MMpixelX = float(boardX) / (x1 - x0)
-        MMpixelY = float(boardY) / (y1 - y0)
-        MMpixel = (MMpixelX + MMpixelY) / 2
-        
+
+        MMpixelX = float(boardX) / (x1 - x0)  # mm per pixel horizontally
+        MMpixelY = float(boardY) / (y1 - y0)  # mm per pixel vertically
+        MMpixel = (MMpixelX + MMpixelY) / 2   # average scale
+
         print(f"\nCoordinate transformation:")
         print(f"  Image size: {x1}x{y1} pixels")
         print(f"  Board size: {boardX}x{boardY} mm")
         print(f"  MM per pixel X: {MMpixelX:.6f}")
         print(f"  MM per pixel Y: {MMpixelY:.6f}")
-        
-        # Build connectivity graph
+
+        # -----------------------------------------
+        # Build inter-layer / component connectivity graph
+        # -----------------------------------------
         print("\nBuilding connectivity graph...")
         interConnectivity = nx.Graph()
-        
+
+        # Connect vias between adjacent layers when close enough
         for i in range(len(via_positions)):
             for j in range(len(via_positions[i])):
                 for k in range(len(via_positions)):
                     for l in range(len(via_positions[k])):
-                        if abs(i - k) == 1:
+                        if abs(i - k) == 1:  # only neighboring layers
                             for m in via_positions[i][j]:
                                 for n in via_positions[k][l]:
                                     if self.distanceBetween(m, n) < 10:
                                         node1 = f"Via_{i}_{via_positions[i][j][0]}"
                                         node2 = f"Via_{k}_{via_positions[k][l][0]}"
                                         interConnectivity.add_edge(node1, node2)
-        
+
+        # Connect pads to nearby vias on the same layer
         for i in range(len(via_positions)):
             for j in range(len(via_positions[i])):
                 for k in range(len(pad_positions[i])):
@@ -257,21 +457,27 @@ class PCBCoordinateMappingVisualizer:
                                 node1 = f"Pad_{i}_{pad_positions[i][k][0]}"
                                 node2 = f"Via_{i}_{via_positions[i][j][0]}"
                                 interConnectivity.add_edge(node1, node2)
-        
+
+        # Connect trace endpoints to nearby pads or vias
         self.connect_tracks(interConnectivity, updatedLinesList, pad_positions, pad_points, via_positions, via_diameters)
-        
-        # NOW THE KEY PART: Update trace endpoints to connect to pads/vias (main code correction logic)
+
+        # -----------------------------------------
+        # Correct trace endpoints to match connected pads/vias exactly
+        # -----------------------------------------
         print("\nApplying endpoint corrections...")
         new_updatedLinesList = []
+
         for i in range(len(updatedLinesList)):
             new_updatedLinesList.append([])
+
             for j in updatedLinesList[i]:
                 new_segment_list = []
+
                 for k in j:
                     start_point = k[0][0]
                     end_point = k[0][1]
-                    
-                    # Find connected pad/via for start point
+
+                    # If the start point is connected to a pad/via, snap it to that exact coordinate
                     for node in interConnectivity.neighbors(f"Track_{i}_{start_point}"):
                         if node.startswith("Pad"):
                             layer, pos = node.split("_")[1:]
@@ -281,8 +487,8 @@ class PCBCoordinateMappingVisualizer:
                             layer, pos = node.split("_")[1:]
                             pos = tuple(float(s) for s in pos.strip("()").split(","))
                             start_point = pos
-                    
-                    # Find connected pad/via for end point
+
+                    # Do the same for the end point
                     for node in interConnectivity.neighbors(f"Track_{i}_{end_point}"):
                         if node.startswith("Pad"):
                             layer, pos = node.split("_")[1:]
@@ -292,21 +498,23 @@ class PCBCoordinateMappingVisualizer:
                             layer, pos = node.split("_")[1:]
                             pos = tuple(float(s) for s in pos.strip("()").split(","))
                             end_point = pos
-                    
+
                     new_segment_list.append(((start_point, end_point), k[1]))
+
                 new_updatedLinesList[-1].append(new_segment_list)
-        
+
         print(f"Connectivity graph: {interConnectivity.number_of_nodes()} nodes, {interConnectivity.number_of_edges()} edges")
         print(f"Connected components (nets): {nx.number_connected_components(interConnectivity)}")
-        
+
+        # Return everything needed for export and visualization
         return {
             'imgs': imgs,
             'pad_positions': pad_positions,
             'pad_points': pad_points,
             'via_positions': via_positions,
             'via_diameters': via_diameters,
-            'traces_before': updatedLinesList,
-            'traces_after': new_updatedLinesList,
+            'traces_before': updatedLinesList,      # snapped traces before final endpoint correction
+            'traces_after': new_updatedLinesList,   # traces after snapping endpoints to pads/vias
             'interConnectivity': interConnectivity,
             'MMpixelX': MMpixelX,
             'MMpixelY': MMpixelY,
@@ -315,51 +523,96 @@ class PCBCoordinateMappingVisualizer:
             'boardY': boardY,
             'layerCount': layerCount
         }
-    
+
     def connect_tracks(self, G, tracks, pad_positions, pad_points, via_positions, via_diameters):
-        """Same connect_tracks logic from main code"""
+        """
+        Connect track endpoints into the global connectivity graph.
+
+        For each trace endpoint:
+            - if it is near a pad border, connect it to that pad
+            - if it is near a via border, connect it to that via
+
+        Also adds track segment endpoints as graph nodes connected by edges.
+        """
+
         def distance_to_pad_border(point, pad_polygon):
+            """
+            Distance from a point to the outer boundary of a pad polygon.
+            """
             point_geom = Point(point)
             return point_geom.distance(pad_polygon.exterior)
-        
+
         def distance_to_via_border(point, via_center, via_radius):
+            """
+            Distance from a point to the boundary of a via circle.
+            """
             return self.distanceBetween(point, via_center) - via_radius
-        
+
+        # -----------------------------------------
+        # Add all track segments as graph edges
+        # -----------------------------------------
         for layer in range(len(tracks)):
             for track in tracks[layer]:
                 for i in range(len(track)):
                     G.add_edge(f"Track_{layer}_{track[i][0][0]}", f"Track_{layer}_{track[i][0][1]}")
-        
+
+        # -----------------------------------------
+        # For each track endpoint with graph degree 1,
+        # attach it to nearest pad or via if close enough
+        # -----------------------------------------
         for layer in range(len(tracks)):
             for track in tracks[layer]:
                 for i in range(len(track)):
-                    if f"Track_{layer}_{track[i][0][0]}" in G and G.degree[f"Track_{layer}_{track[i][0][0]}"] == 1:
+                    endpoint_node = f"Track_{layer}_{track[i][0][0]}"
+
+                    # Only consider "loose" endpoints (degree 1 means line end, not middle junction)
+                    if endpoint_node in G and G.degree[endpoint_node] == 1:
                         min_distance = float('inf')
                         nearest_pad_via = None
                         nearest_type = None
-                        
+
+                        # Search nearest pad on same layer
                         for pad_idx, pad in enumerate(pad_positions[layer]):
                             pad_polygon = Polygon(pad_points[layer][pad_idx])
                             distance = distance_to_pad_border(track[i][0][0], pad_polygon)
+
                             if distance < min_distance:
                                 min_distance = distance
                                 nearest_pad_via = pad_positions[layer][pad_idx][0]
                                 nearest_type = 'Pad'
-                        
+
+                        # Search nearest via on same layer
                         for via_idx, via in enumerate(via_positions[layer]):
                             via_center = via[0]
                             via_radius = via_diameters[layer][via_idx] / 2
                             distance = distance_to_via_border(track[i][0][0], via_center, via_radius)
+
                             if distance < min_distance:
                                 min_distance = distance
                                 nearest_pad_via = via_center
                                 nearest_type = 'Via'
-                        
+
+                        # If something is close enough, connect graph node
                         if nearest_pad_via is not None and min_distance < 40:
-                            G.add_edge(f"Track_{layer}_{track[i][0][0]}", f"{nearest_type}_{layer}_{nearest_pad_via}")
-    
+                            G.add_edge(
+                                f"Track_{layer}_{track[i][0][0]}",
+                                f"{nearest_type}_{layer}_{nearest_pad_via}"
+                            )
+
     def get_kicad_layer_name(self, layer_idx, total_layers):
-        """Get KiCad layer name based on index and total layer count"""
+        """
+        Map numeric layer index to KiCad copper layer name.
+
+        Rules:
+            2-layer board:
+                0 -> F.Cu
+                1 -> B.Cu
+
+            Multilayer:
+                0 -> F.Cu
+                last -> B.Cu
+                middle -> In1.Cu, In2.Cu, ...
+        """
         if total_layers == 2:
             return "F.Cu" if layer_idx == 0 else "B.Cu"
         else:
@@ -368,49 +621,67 @@ class PCBCoordinateMappingVisualizer:
             elif layer_idx == total_layers - 1:
                 return "B.Cu"
             else:
-                # Internal layers are In1.Cu, In2.Cu, etc.
                 return f"In{layer_idx}.Cu"
-    
+
     def export_layers_to_kicad(self, data, layer_indices, output_filename):
-        """Export selected layers to KiCad PCB format"""
-        
-        print(f"\n{'='*60}")
+        """
+        Export selected layers into a KiCad .kicad_pcb file.
+
+        This writes:
+            - board outline
+            - layer stack definition
+            - net list from the connectivity graph
+            - pads
+            - vias
+            - traces
+
+        Parameters:
+            data           : dictionary returned by process_board_data()
+            layer_indices  : list of layers to export
+            output_filename: target KiCad board file name
+        """
+
+        print(f"\n{'=' * 60}")
         print(f"EXPORTING LAYERS {layer_indices} TO KICAD")
-        print(f"{'='*60}")
-        
+        print(f"{'=' * 60}")
+
         MMpixelX = data['MMpixelX']
         MMpixelY = data['MMpixelY']
         MMpixel = data['MMpixel']
         boardX = data['boardX']
         boardY = data['boardY']
         layerCount = data['layerCount']
-        
-        # KiCad uses nanometers internally (1mm = 1000000 nm)
+
+        # KiCad internal units per mm
         IU_PER_MM = self.IU_PER_MM
-        
+
         with open(output_filename, 'w') as f:
-            # Write KiCad PCB header
+            # -----------------------------------------
+            # File header
+            # -----------------------------------------
             f.write('(kicad_pcb (version 20221018) (generator pcbnew)\n\n')
-            
-            # General settings
+
+            # General board settings
             f.write('  (general\n')
             f.write('    (thickness 1.6)\n')
             f.write('  )\n\n')
-            
-            # Paper settings
+
+            # Page size
             f.write('  (paper "A4")\n\n')
-            
-            # Layers definition - include all necessary layers for multilayer PCB
+
+            # -----------------------------------------
+            # Define KiCad layers
+            # -----------------------------------------
             f.write('  (layers\n')
             f.write('    (0 "F.Cu" signal)\n')
-            
-            # Add internal layers if we have more than 2 layers
+
+            # Add internal layers for multilayer boards
             if layerCount > 2:
                 for i in range(1, layerCount - 1):
                     layer_num = i
                     f.write(f'    ({layer_num} "In{i}.Cu" signal)\n')
-            
-            # Back copper and other standard layers
+
+            # Back copper and standard utility layers
             back_layer_num = layerCount - 1 if layerCount > 1 else 31
             f.write(f'    ({back_layer_num} "B.Cu" signal)\n')
             f.write('    (32 "B.Adhes" user "B.Adhesive")\n')
@@ -432,8 +703,10 @@ class PCBCoordinateMappingVisualizer:
             f.write('    (48 "B.Fab" user)\n')
             f.write('    (49 "F.Fab" user)\n')
             f.write('  )\n\n')
-            
-            # Setup
+
+            # -----------------------------------------
+            # KiCad setup block
+            # -----------------------------------------
             f.write('  (setup\n')
             f.write('    (pad_to_mask_clearance 0)\n')
             f.write('    (pcbplotparams\n')
@@ -471,185 +744,234 @@ class PCBCoordinateMappingVisualizer:
             f.write('      (outputdirectory "")\n')
             f.write('    )\n')
             f.write('  )\n\n')
-            
-            # Board outline on Edge.Cuts layer
-            f.write('  (gr_rect (start 12 12) (end {} {}) (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp {}))\n\n'.format(
-                12 + boardX, 12 + boardY, self.generate_uuid()
-            ))
-            
-            # Generate nets from connectivity graph
+
+            # -----------------------------------------
+            # Draw board outline on Edge.Cuts
+            # Offset board by 12 mm for margin
+            # -----------------------------------------
+            f.write(
+                '  (gr_rect (start 12 12) (end {} {}) (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp {}))\n\n'.format(
+                    12 + boardX, 12 + boardY, self.generate_uuid()
+                )
+            )
+
+            # -----------------------------------------
+            # Build KiCad nets from connectivity graph
+            # -----------------------------------------
             print("Generating nets...")
             nets = list(nx.connected_components(data['interConnectivity']))
             net_mapping = {}
-            
-            f.write('  (net 0 "")\n')  # Net 0 is always empty
-            
+
+            # KiCad requires an empty net 0
+            f.write('  (net 0 "")\n')
+
+            # Assign a net number to every connected component
             for net_idx, net_nodes in enumerate(nets, start=1):
                 f.write(f'  (net {net_idx} "Net-{net_idx}")\n')
                 for node in net_nodes:
                     net_mapping[node] = net_idx
-            
+
             f.write('\n')
-            
             print(f"Created {len(nets)} nets")
-            
-            # Export components for each selected layer
+
+            # -----------------------------------------
+            # Export selected layers
+            # -----------------------------------------
             for layer_idx in layer_indices:
                 kicad_layer = self.get_kicad_layer_name(layer_idx, layerCount)
                 print(f"\nExporting Layer {layer_idx} ({kicad_layer})...")
-                
+
+                # =========================
                 # Export pads
+                # =========================
                 print(f"  Exporting {len(data['pad_positions'][layer_idx])} pads...")
-                for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx], 
-                                                                 data['pad_positions'][layer_idx])):
-                    # Calculate pad center in KiCad coordinates
+
+                for pad_idx, (pad_pts, pad_pos) in enumerate(zip(
+                    data['pad_points'][layer_idx],
+                    data['pad_positions'][layer_idx]
+                )):
+                    # Compute pad center from polygon average
                     sumX = sum([p[0] for p in pad_pts])
                     sumY = sum([p[1] for p in pad_pts])
                     avgPoint = (sumX / len(pad_pts), sumY / len(pad_pts))
-                    
+
+                    # Convert center to KiCad mm coordinates
                     center_x = avgPoint[0] * MMpixelX + 12
                     center_y = avgPoint[1] * MMpixelY + 12
-                    
-                    # Calculate pad size
+
+                    # Estimate pad size from bounding box
                     x_coords = [p[0] for p in pad_pts]
                     y_coords = [p[1] for p in pad_pts]
                     pad_width = (max(x_coords) - min(x_coords)) * MMpixelX
                     pad_height = (max(y_coords) - min(y_coords)) * MMpixelY
-                    
-                    # Get net number
+
+                    # Look up the net number for this pad in the connectivity graph
                     node_name = f"Pad_{layer_idx}_{pad_pos[0]}"
                     net_num = net_mapping.get(node_name, 0)
-                    
-                    # Write footprint with pad
+
+                    # Write a simple single-pad footprint
                     f.write(f'  (footprint "Pad_L{layer_idx}_{pad_idx}" (layer "{kicad_layer}")\n')
                     f.write(f'    (tstamp {self.generate_uuid()})\n')
                     f.write(f'    (at {center_x} {center_y})\n')
                     f.write(f'    (attr smd)\n')
-                    f.write(f'    (pad "1" smd rect (at 0 0) (size {pad_width} {pad_height}) (layers "{kicad_layer}" "*.Paste" "*.Mask")\n')
+                    f.write(
+                        f'    (pad "1" smd rect (at 0 0) (size {pad_width} {pad_height}) (layers "{kicad_layer}" "*.Paste" "*.Mask")\n'
+                    )
                     f.write(f'      (net {net_num} "Net-{net_num}") (tstamp {self.generate_uuid()}))\n')
                     f.write(f'  )\n\n')
-                
-                # Export vias (vias span all layers, but we only write them once from first selected layer)
+
+                # =========================
+                # Export vias
+                # Only write once from first selected layer
+                # =========================
                 if layer_idx == layer_indices[0]:
                     via_count = sum(len(data['via_positions'][l]) for l in layer_indices)
                     print(f"  Exporting {via_count} vias (span all layers)...")
-                    
+
                     for via_layer_idx in layer_indices:
                         for via_idx, via_pos in enumerate(data['via_positions'][via_layer_idx]):
                             for pos in via_pos:
                                 center_x = pos[0] * MMpixelX + 12
                                 center_y = pos[1] * MMpixelY + 12
+
                                 diameter = data['via_diameters'][via_layer_idx][via_idx] * MMpixel
-                                drill = diameter * 0.6  # Drill is typically 60% of via diameter
-                                
-                                # Get net number
+                                drill = diameter * 0.6  # simple default drill ratio
+
                                 node_name = f"Via_{via_layer_idx}_{pos}"
                                 net_num = net_mapping.get(node_name, 0)
-                                
+
+                                # Write through-hole via spanning front/back copper
                                 f.write(f'  (via (at {center_x} {center_y}) (size {diameter}) (drill {drill}) ')
                                 f.write(f'(layers "F.Cu" "B.Cu") (net {net_num}) (tstamp {self.generate_uuid()}))\n')
-                    
+
                     f.write('\n')
-                
-                # Export traces (using corrected coordinates)
+
+                # =========================
+                # Export traces
+                # Uses corrected trace endpoints
+                # =========================
                 print(f"  Exporting {len(data['traces_after'][layer_idx])} traces...")
+
                 for trace_idx, trace in enumerate(data['traces_after'][layer_idx]):
                     for segment in trace:
                         start, end = segment[0]
                         width = segment[1]
-                        
+
+                        # Convert endpoints to KiCad mm coordinates
                         start_x = start[0] * MMpixelX + 12
                         start_y = start[1] * MMpixelY + 12
                         end_x = end[0] * MMpixelX + 12
                         end_y = end[1] * MMpixelY + 12
                         trace_width = width * MMpixel
-                        
-                        # Try to find net number from connectivity
+
+                        # Attempt to recover net number from connectivity graph
                         net_num = 0
                         start_node = f"Track_{layer_idx}_{start}"
+
                         if start_node in data['interConnectivity']:
                             for neighbor in data['interConnectivity'].neighbors(start_node):
                                 if neighbor in net_mapping:
                                     net_num = net_mapping[neighbor]
                                     break
-                        
+
+                        # Write a KiCad segment
                         f.write(f'  (segment (start {start_x} {start_y}) (end {end_x} {end_y}) ')
                         f.write(f'(width {trace_width}) (layer "{kicad_layer}") (net {net_num}) (tstamp {self.generate_uuid()}))\n')
-            
-            # Close the file
+
+            # Close KiCad PCB file
             f.write(')\n')
-        
-        print(f"\n{'='*60}")
+
+        print(f"\n{'=' * 60}")
         print(f"KiCad export complete!")
         print(f"Saved to: {output_filename}")
         print(f"Layers exported: {[self.get_kicad_layer_name(i, layerCount) for i in layer_indices]}")
         print(f"You can now open this file in KiCad PCB Editor")
-        print(f"{'='*60}\n")
-    
+        print(f"{'=' * 60}\n")
+
     def generate_uuid(self):
-        """Generate a UUID for KiCad timestamps"""
+        """
+        Generate a unique ID string used as a KiCad timestamp/tstamp.
+        """
         import uuid
         return str(uuid.uuid4())
-    
+
     def visualize_before_after_mapping(self, data, layer_idx):
-        """Show before/after correction mapping"""
-        
+        """
+        Create a 2x2 matplotlib figure showing:
+
+            top-left     : original image + traces before endpoint correction
+            top-right    : original image + traces after endpoint correction
+            bottom-left  : KiCad-space rendering before correction
+            bottom-right : KiCad-space rendering after correction
+
+        Returns:
+            matplotlib figure object
+        """
+
         fig, axes = plt.subplots(2, 2, figsize=(20, 18))
         fig.suptitle(f'Layer {layer_idx}: Before vs After Coordinate Correction', fontsize=16)
-        
+
         MMpixelX = data['MMpixelX']
         MMpixelY = data['MMpixelY']
         MMpixel = data['MMpixel']
         boardX = data['boardX']
         boardY = data['boardY']
-        
-        # TOP LEFT: Before correction (pixel space)
+
+        # -----------------------------------------
+        # TOP LEFT: before correction in pixel space
+        # -----------------------------------------
         ax = axes[0, 0]
         ax.imshow(data['imgs'][layer_idx], cmap='gray', alpha=0.5)
         ax.set_title('BEFORE Correction: Original Pixel Coordinates')
         ax.set_xlabel('Pixels (X)')
         ax.set_ylabel('Pixels (Y)')
-        
+
+        # Draw pads
         for pad_pts in data['pad_points'][layer_idx]:
-            pts = np.array(pad_pts + [pad_pts[0]])
+            pts = np.array(pad_pts + [pad_pts[0]])  # close polygon loop
             ax.plot(pts[:, 0], pts[:, 1], 'r-', linewidth=2, alpha=0.7)
-        
+
+        # Draw vias
         for i, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
-                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i]/2, 
-                                  fill=False, color='blue', linewidth=2)
+                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i] / 2,
+                                    fill=False, color='blue', linewidth=2)
                 ax.add_patch(circle)
-        
-        # Draw BEFORE traces
+
+        # Draw traces before correction
         for trace in data['traces_before'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
                 ax.plot([start[0], end[0]], [start[1], end[1]], 'g-', linewidth=2, alpha=0.6)
-        
-        # TOP RIGHT: After correction (pixel space)
+
+        # -----------------------------------------
+        # TOP RIGHT: after correction in pixel space
+        # -----------------------------------------
         ax = axes[0, 1]
         ax.imshow(data['imgs'][layer_idx], cmap='gray', alpha=0.5)
         ax.set_title('AFTER Correction: Endpoints Snapped to Pads/Vias')
         ax.set_xlabel('Pixels (X)')
         ax.set_ylabel('Pixels (Y)')
-        
+
         for pad_pts in data['pad_points'][layer_idx]:
             pts = np.array(pad_pts + [pad_pts[0]])
             ax.plot(pts[:, 0], pts[:, 1], 'r-', linewidth=2, alpha=0.7)
-        
+
         for i, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
-                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i]/2, 
-                                  fill=False, color='blue', linewidth=2)
+                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i] / 2,
+                                    fill=False, color='blue', linewidth=2)
                 ax.add_patch(circle)
-        
-        # Draw AFTER traces
+
+        # Draw traces after correction
         for trace in data['traces_after'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
                 ax.plot([start[0], end[0]], [start[1], end[1]], 'orange', linewidth=2, alpha=0.8)
-        
-        # BOTTOM LEFT: Before correction (KiCad MM space)
+
+        # -----------------------------------------
+        # BOTTOM LEFT: before correction in KiCad-space mm coordinates
+        # -----------------------------------------
         ax = axes[1, 0]
         ax.set_xlim(0, boardX + 24)
         ax.set_ylim(boardY + 24, 0)
@@ -658,47 +980,60 @@ class PCBCoordinateMappingVisualizer:
         ax.set_xlabel('MM (X)')
         ax.set_ylabel('MM (Y)')
         ax.grid(True, alpha=0.3)
-        
-        board_rect = patches.Rectangle((12, 12), boardX, boardY, 
-                                      fill=False, edgecolor='black', linewidth=2)
+
+        # Draw board outline
+        board_rect = patches.Rectangle((12, 12), boardX, boardY,
+                                       fill=False, edgecolor='black', linewidth=2)
         ax.add_patch(board_rect)
-        
-        for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx], 
+
+        # Draw pads transformed into mm space
+        for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx],
                                                          data['pad_positions'][layer_idx])):
             sumX = sum([p[0] for p in pad_pts])
             sumY = sum([p[1] for p in pad_pts])
             avgPoint = (sumX / len(pad_pts), sumY / len(pad_pts))
+
+            # Shift pad points so transform happens around center
             adjusted_points = [(p[0] - avgPoint[0], p[1] - avgPoint[1]) for p in pad_pts]
-            transformed_pts = [((p[0] * MMpixelX) + avgPoint[0] * MMpixelX + 12,
-                              (p[1] * MMpixelY) + avgPoint[1] * MMpixelY + 12) 
-                             for p in adjusted_points]
-            
-            pad_polygon = patches.Polygon(transformed_pts, closed=True, 
-                                        facecolor='red', edgecolor='darkred', alpha=0.7)
+
+            transformed_pts = [
+                ((p[0] * MMpixelX) + avgPoint[0] * MMpixelX + 12,
+                 (p[1] * MMpixelY) + avgPoint[1] * MMpixelY + 12)
+                for p in adjusted_points
+            ]
+
+            pad_polygon = patches.Polygon(transformed_pts, closed=True,
+                                          facecolor='red', edgecolor='darkred', alpha=0.7)
             ax.add_patch(pad_polygon)
-        
+
+        # Draw vias in mm space
         for via_idx, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
                 center_x = pos[0] * MMpixelX + 12
                 center_y = pos[1] * MMpixelY + 12
                 radius = (data['via_diameters'][layer_idx][via_idx] * MMpixelX) / 2
-                circle = patches.Circle((center_x, center_y), radius, 
-                                      facecolor='blue', edgecolor='darkblue', alpha=0.7)
+
+                circle = patches.Circle((center_x, center_y), radius,
+                                        facecolor='blue', edgecolor='darkblue', alpha=0.7)
                 ax.add_patch(circle)
-        
+
+        # Draw traces before correction in mm space
         for trace in data['traces_before'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
                 width = segment[1]
+
                 start_x = start[0] * MMpixelX + 12
                 start_y = start[1] * MMpixelY + 12
                 end_x = end[0] * MMpixelX + 12
                 end_y = end[1] * MMpixelY + 12
+
                 line_width = max(0.5, width * MMpixel)
-                ax.plot([start_x, end_x], [start_y, end_y], 'g-', 
-                       linewidth=line_width, alpha=0.6)
-        
-        # BOTTOM RIGHT: After correction (KiCad MM space)
+                ax.plot([start_x, end_x], [start_y, end_y], 'g-', linewidth=line_width, alpha=0.6)
+
+        # -----------------------------------------
+        # BOTTOM RIGHT: after correction in KiCad-space mm coordinates
+        # -----------------------------------------
         ax = axes[1, 1]
         ax.set_xlim(0, boardX + 24)
         ax.set_ylim(boardY + 24, 0)
@@ -707,352 +1042,411 @@ class PCBCoordinateMappingVisualizer:
         ax.set_xlabel('MM (X)')
         ax.set_ylabel('MM (Y)')
         ax.grid(True, alpha=0.3)
-        
-        board_rect = patches.Rectangle((12, 12), boardX, boardY, 
-                                      fill=False, edgecolor='black', linewidth=2)
+
+        board_rect = patches.Rectangle((12, 12), boardX, boardY,
+                                       fill=False, edgecolor='black', linewidth=2)
         ax.add_patch(board_rect)
-        
-        for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx], 
+
+        for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx],
                                                          data['pad_positions'][layer_idx])):
             sumX = sum([p[0] for p in pad_pts])
             sumY = sum([p[1] for p in pad_pts])
             avgPoint = (sumX / len(pad_pts), sumY / len(pad_pts))
             adjusted_points = [(p[0] - avgPoint[0], p[1] - avgPoint[1]) for p in pad_pts]
-            transformed_pts = [((p[0] * MMpixelX) + avgPoint[0] * MMpixelX + 12,
-                              (p[1] * MMpixelY) + avgPoint[1] * MMpixelY + 12) 
-                             for p in adjusted_points]
-            
-            pad_polygon = patches.Polygon(transformed_pts, closed=True, 
-                                        facecolor='red', edgecolor='darkred', alpha=0.7)
+
+            transformed_pts = [
+                ((p[0] * MMpixelX) + avgPoint[0] * MMpixelX + 12,
+                 (p[1] * MMpixelY) + avgPoint[1] * MMpixelY + 12)
+                for p in adjusted_points
+            ]
+
+            pad_polygon = patches.Polygon(transformed_pts, closed=True,
+                                          facecolor='red', edgecolor='darkred', alpha=0.7)
             ax.add_patch(pad_polygon)
-        
+
         for via_idx, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
                 center_x = pos[0] * MMpixelX + 12
                 center_y = pos[1] * MMpixelY + 12
                 radius = (data['via_diameters'][layer_idx][via_idx] * MMpixelX) / 2
-                circle = patches.Circle((center_x, center_y), radius, 
-                                      facecolor='blue', edgecolor='darkblue', alpha=0.7)
+
+                circle = patches.Circle((center_x, center_y), radius,
+                                        facecolor='blue', edgecolor='darkblue', alpha=0.7)
                 ax.add_patch(circle)
-        
+
+        # Draw traces after correction in mm space
         for trace in data['traces_after'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
                 width = segment[1]
+
                 start_x = start[0] * MMpixelX + 12
                 start_y = start[1] * MMpixelY + 12
                 end_x = end[0] * MMpixelX + 12
                 end_y = end[1] * MMpixelY + 12
+
                 line_width = max(0.5, width * MMpixel)
-                ax.plot([start_x, end_x], [start_y, end_y], 'orange', 
-                       linewidth=line_width, alpha=0.8)
-        
+                ax.plot([start_x, end_x], [start_y, end_y], 'orange', linewidth=line_width, alpha=0.8)
+
         plt.tight_layout()
         return fig
-    
+
     def compare_original_vs_kicad(self, data, layer_idx):
-        """Compare original image with KiCad coordinate output"""
-        
+        """
+        Create a side-by-side comparison figure with 3 panels:
+
+            left   : original image with detected pads/vias/traces
+            middle : corrected "KiCad output" version
+            right  : overlay showing original vs corrected traces
+
+        Returns:
+            matplotlib figure object
+        """
+
         fig, axes = plt.subplots(1, 3, figsize=(24, 8))
         fig.suptitle(f'Layer {layer_idx}: Original vs KiCad Comparison', fontsize=16)
-        
+
         MMpixelX = data['MMpixelX']
         MMpixelY = data['MMpixelY']
         MMpixel = data['MMpixel']
         boardX = data['boardX']
         boardY = data['boardY']
-        
-        # LEFT: Original image with detected components
+
+        # -----------------------------------------
+        # LEFT: original image with detections
+        # -----------------------------------------
         ax = axes[0]
         ax.imshow(data['imgs'][layer_idx], cmap='gray', alpha=0.8)
         ax.set_title('Original Image with Detections')
         ax.set_xlabel('Pixels (X)')
         ax.set_ylabel('Pixels (Y)')
-        
-        # Draw original detected components
+
         for pad_pts in data['pad_points'][layer_idx]:
             pts = np.array(pad_pts + [pad_pts[0]])
             ax.plot(pts[:, 0], pts[:, 1], 'r-', linewidth=2, alpha=0.7, label='Pads')
-        
+
         for i, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
-                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i]/2, 
-                                  fill=False, color='blue', linewidth=2, label='Vias')
+                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i] / 2,
+                                    fill=False, color='blue', linewidth=2, label='Vias')
                 ax.add_patch(circle)
-        
+
         for trace in data['traces_before'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
-                ax.plot([start[0], end[0]], [start[1], end[1]], 'g-', 
-                       linewidth=2, alpha=0.6, label='Traces (Before)')
-        
-        # Remove duplicate labels
+                ax.plot([start[0], end[0]], [start[1], end[1]], 'g-',
+                        linewidth=2, alpha=0.6, label='Traces (Before)')
+
+        # Remove duplicate legend entries
         handles, labels = ax.get_legend_handles_labels()
         by_label = dict(zip(labels, handles))
         ax.legend(by_label.values(), by_label.keys(), loc='upper right')
-        
-        # MIDDLE: KiCad output (corrected, in pixel space for comparison)
+
+        # -----------------------------------------
+        # MIDDLE: corrected KiCad-style result
+        # -----------------------------------------
         ax = axes[1]
         ax.imshow(data['imgs'][layer_idx], cmap='gray', alpha=0.3)
         ax.set_title('KiCad Output (Corrected Coordinates)')
         ax.set_xlabel('Pixels (X)')
         ax.set_ylabel('Pixels (Y)')
-        
-        # Draw corrected components (what will appear in KiCad)
+
         for pad_pts in data['pad_points'][layer_idx]:
             pts = np.array(pad_pts + [pad_pts[0]])
             ax.plot(pts[:, 0], pts[:, 1], 'r-', linewidth=2, alpha=0.7, label='Pads')
-        
+
         for i, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
-                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i]/2, 
-                                  fill=False, color='blue', linewidth=2, label='Vias')
+                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i] / 2,
+                                    fill=False, color='blue', linewidth=2, label='Vias')
                 ax.add_patch(circle)
-        
-        # Draw AFTER traces (corrected)
+
         for trace in data['traces_after'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
-                ax.plot([start[0], end[0]], [start[1], end[1]], 'orange', 
-                       linewidth=2, alpha=0.8, label='Traces (Corrected)')
-        
+                ax.plot([start[0], end[0]], [start[1], end[1]], 'orange',
+                        linewidth=2, alpha=0.8, label='Traces (Corrected)')
+
         handles, labels = ax.get_legend_handles_labels()
         by_label = dict(zip(labels, handles))
         ax.legend(by_label.values(), by_label.keys(), loc='upper right')
-        
-        # RIGHT: Overlay showing differences
+
+        # -----------------------------------------
+        # RIGHT: overlay original vs corrected
+        # -----------------------------------------
         ax = axes[2]
         ax.imshow(data['imgs'][layer_idx], cmap='gray', alpha=0.3)
         ax.set_title('Overlay: Green=Original, Orange=Corrected')
         ax.set_xlabel('Pixels (X)')
         ax.set_ylabel('Pixels (Y)')
-        
-        # Draw pads and vias (reference)
+
+        # Pads and vias as reference geometry
         for pad_pts in data['pad_points'][layer_idx]:
             pts = np.array(pad_pts + [pad_pts[0]])
             ax.plot(pts[:, 0], pts[:, 1], 'r-', linewidth=1, alpha=0.5)
-        
+
         for i, via_pos in enumerate(data['via_positions'][layer_idx]):
             for pos in via_pos:
-                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i]/2, 
-                                  fill=False, color='cyan', linewidth=1, alpha=0.5)
+                circle = plt.Circle(pos, data['via_diameters'][layer_idx][i] / 2,
+                                    fill=False, color='cyan', linewidth=1, alpha=0.5)
                 ax.add_patch(circle)
-        
-        # Draw both before and after traces to show differences
+
+        # Original traces
         for trace in data['traces_before'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
-                ax.plot([start[0], end[0]], [start[1], end[1]], 'g-', 
-                       linewidth=2, alpha=0.5, label='Original')
-        
+                ax.plot([start[0], end[0]], [start[1], end[1]], 'g-',
+                        linewidth=2, alpha=0.5, label='Original')
+
+        # Corrected traces
         for trace in data['traces_after'][layer_idx]:
             for segment in trace:
                 start, end = segment[0]
-                ax.plot([start[0], end[0]], [start[1], end[1]], 'orange', 
-                       linewidth=2, alpha=0.7, label='KiCad Output')
-        
+                ax.plot([start[0], end[0]], [start[1], end[1]], 'orange',
+                        linewidth=2, alpha=0.7, label='KiCad Output')
+
         handles, labels = ax.get_legend_handles_labels()
         by_label = dict(zip(labels, handles))
         ax.legend(by_label.values(), by_label.keys(), loc='upper right')
-        
+
         plt.tight_layout()
         return fig
-    
+
     def generate_coordinate_comparison_report(self, data, layer_idx, output_filename):
-        """Generate detailed text report comparing original vs corrected coordinates"""
-        
+        """
+        Generate a text report summarizing:
+            - pad coordinates in pixels and mm
+            - via coordinates and sizes
+            - trace coordinates before/after correction
+            - how many segments changed during correction
+
+        Saves report to output_filename.
+        """
+
         MMpixelX = data['MMpixelX']
         MMpixelY = data['MMpixelY']
-        
+
         with open(output_filename, 'w') as f:
             f.write(f"COORDINATE COMPARISON REPORT - Layer {layer_idx}\n")
-            f.write("="*80 + "\n\n")
-            
+            f.write("=" * 80 + "\n\n")
+
             f.write(f"Board Dimensions: {data['boardX']} x {data['boardY']} mm\n")
             f.write(f"Conversion Factor: {MMpixelX:.6f} mm/pixel (X), {MMpixelY:.6f} mm/pixel (Y)\n\n")
-            
-            # Pad comparison
+
+            # -----------------------------------------
+            # Pad section
+            # -----------------------------------------
             f.write(f"PADS ({len(data['pad_positions'][layer_idx])} total)\n")
-            f.write("-"*80 + "\n")
-            for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx], 
-                                                             data['pad_positions'][layer_idx])):
+            f.write("-" * 80 + "\n")
+
+            for pad_idx, (pad_pts, pad_pos) in enumerate(zip(
+                data['pad_points'][layer_idx],
+                data['pad_positions'][layer_idx]
+            )):
                 sumX = sum([p[0] for p in pad_pts])
                 sumY = sum([p[1] for p in pad_pts])
                 avgPoint = (sumX / len(pad_pts), sumY / len(pad_pts))
-                
-                # Pixel coordinates
+
                 pixel_x = avgPoint[0]
                 pixel_y = avgPoint[1]
-                
-                # KiCad coordinates (mm)
+
                 kicad_x = pixel_x * MMpixelX + 12
                 kicad_y = pixel_y * MMpixelY + 12
-                
-                # Pad size
+
                 x_coords = [p[0] for p in pad_pts]
                 y_coords = [p[1] for p in pad_pts]
                 pad_width = (max(x_coords) - min(x_coords)) * MMpixelX
                 pad_height = (max(y_coords) - min(y_coords)) * MMpixelY
-                
+
                 f.write(f"\nPad {pad_idx}:\n")
                 f.write(f"  Original (pixels): ({pixel_x:.2f}, {pixel_y:.2f})\n")
                 f.write(f"  KiCad (mm):        ({kicad_x:.3f}, {kicad_y:.3f})\n")
                 f.write(f"  Size (mm):         {pad_width:.3f} x {pad_height:.3f}\n")
-            
-            # Via comparison
+
+            # -----------------------------------------
+            # Via section
+            # -----------------------------------------
             f.write(f"\n\nVIAS ({len(data['via_positions'][layer_idx])} total)\n")
-            f.write("-"*80 + "\n")
+            f.write("-" * 80 + "\n")
+
             for via_idx, via_pos in enumerate(data['via_positions'][layer_idx]):
                 for pos in via_pos:
                     pixel_x = pos[0]
                     pixel_y = pos[1]
-                    
+
                     kicad_x = pixel_x * MMpixelX + 12
                     kicad_y = pixel_y * MMpixelY + 12
-                    
+
                     diameter = data['via_diameters'][layer_idx][via_idx] * MMpixelX
                     drill = diameter * 0.6
-                    
+
                     f.write(f"\nVia {via_idx}:\n")
                     f.write(f"  Original (pixels): ({pixel_x:.2f}, {pixel_y:.2f})\n")
                     f.write(f"  KiCad (mm):        ({kicad_x:.3f}, {kicad_y:.3f})\n")
                     f.write(f"  Diameter (mm):     {diameter:.3f}\n")
                     f.write(f"  Drill (mm):        {drill:.3f}\n")
-            
-            # Trace comparison
+
+            # -----------------------------------------
+            # Trace section
+            # -----------------------------------------
             f.write(f"\n\nTRACES ({len(data['traces_after'][layer_idx])} total)\n")
-            f.write("-"*80 + "\n")
-            
+            f.write("-" * 80 + "\n")
+
             corrections_made = 0
             total_segments = 0
-            
+
             for trace_idx, (trace_before, trace_after) in enumerate(zip(
-                data['traces_before'][layer_idx], 
+                data['traces_before'][layer_idx],
                 data['traces_after'][layer_idx]
             )):
                 f.write(f"\nTrace {trace_idx} ({len(trace_after)} segments):\n")
-                
+
                 for seg_idx, (seg_before, seg_after) in enumerate(zip(trace_before, trace_after)):
                     total_segments += 1
-                    
+
                     start_before, end_before = seg_before[0]
                     start_after, end_after = seg_after[0]
                     width = seg_after[1]
-                    
-                    # Check if correction was made
+
+                    # Check whether either endpoint changed during correction
                     start_changed = (start_before != start_after)
                     end_changed = (end_before != end_after)
-                    
+
                     if start_changed or end_changed:
                         corrections_made += 1
                         f.write(f"  Segment {seg_idx}: ** CORRECTED **\n")
                     else:
                         f.write(f"  Segment {seg_idx}:\n")
-                    
-                    # Original coordinates
+
                     f.write(f"    Original Start (pixels): ({start_before[0]:.2f}, {start_before[1]:.2f})\n")
                     f.write(f"    Original End (pixels):   ({end_before[0]:.2f}, {end_before[1]:.2f})\n")
-                    
-                    # KiCad coordinates
+
                     kicad_start_x = start_after[0] * MMpixelX + 12
                     kicad_start_y = start_after[1] * MMpixelY + 12
                     kicad_end_x = end_after[0] * MMpixelX + 12
                     kicad_end_y = end_after[1] * MMpixelY + 12
-                    
+
                     f.write(f"    KiCad Start (mm):        ({kicad_start_x:.3f}, {kicad_start_y:.3f})\n")
                     f.write(f"    KiCad End (mm):          ({kicad_end_x:.3f}, {kicad_end_y:.3f})\n")
                     f.write(f"    Width (mm):              {width * MMpixelX:.3f}\n")
-                    
+
                     if start_changed or end_changed:
-                        # Calculate movement
+                        # Report how much endpoints moved in pixel space
                         if start_changed:
                             start_movement = math.sqrt(
-                                (start_after[0] - start_before[0])**2 + 
-                                (start_after[1] - start_before[1])**2
+                                (start_after[0] - start_before[0]) ** 2 +
+                                (start_after[1] - start_before[1]) ** 2
                             )
                             f.write(f"    Start moved: {start_movement:.2f} pixels\n")
-                        
+
                         if end_changed:
                             end_movement = math.sqrt(
-                                (end_after[0] - end_before[0])**2 + 
-                                (end_after[1] - end_before[1])**2
+                                (end_after[0] - end_before[0]) ** 2 +
+                                (end_after[1] - end_before[1]) ** 2
                             )
                             f.write(f"    End moved:   {end_movement:.2f} pixels\n")
-            
-            # Summary
+
+            # -----------------------------------------
+            # Summary section
+            # -----------------------------------------
             f.write(f"\n\nSUMMARY\n")
-            f.write("="*80 + "\n")
+            f.write("=" * 80 + "\n")
             f.write(f"Total segments:      {total_segments}\n")
             f.write(f"Segments corrected:  {corrections_made}\n")
+
             if total_segments > 0:
-                f.write(f"Correction rate:     {100*corrections_made/total_segments:.1f}%\n")
+                f.write(f"Correction rate:     {100 * corrections_made / total_segments:.1f}%\n")
             else:
                 f.write(f"Correction rate:     N/A (no traces on this layer)\n")
-        
+
         print(f"Saved comparison report to: {output_filename}")
 
 
 def parse_layer_input(user_input, total_layers):
-    """Parse user input for layer selection
-    
-    Examples:
-        "0" -> [0]
-        "0,2,4" -> [0, 2, 4]
-        "0-3" -> [0, 1, 2, 3]
-        "all" -> [0, 1, 2, ..., total_layers-1]
+    """
+    Parse a user string describing which layers to use.
+
+    Supported formats:
+        "0"       -> [0]
+        "0,2,4"   -> [0, 2, 4]
+        "0-3"     -> [0, 1, 2, 3]
+        "all"     -> [0, 1, ..., total_layers-1]
+
+    Returns:
+        sorted list of unique layer indices
     """
     user_input = user_input.strip().lower()
-    
+
     if user_input == 'all':
         return list(range(total_layers))
-    
+
     layers = []
     parts = user_input.split(',')
-    
+
     for part in parts:
         part = part.strip()
+
         if '-' in part:
-            # Range like "0-3"
+            # Handle a range like "0-3"
             start, end = part.split('-')
             start = int(start.strip())
             end = int(end.strip())
             layers.extend(range(start, end + 1))
         else:
-            # Single layer
+            # Handle a single layer number
             layers.append(int(part))
-    
+
     # Remove duplicates and sort
     layers = sorted(list(set(layers)))
-    
-    # Validate
+
+    # Validate range
     for layer in layers:
         if layer < 0 or layer >= total_layers:
-            raise ValueError(f"Layer {layer} is out of range (0-{total_layers-1})")
-    
+            raise ValueError(f"Layer {layer} is out of range (0-{total_layers - 1})")
+
     return layers
 
 
 def main():
+    """
+    Command-line entry point.
+
+    Asks user for:
+        - output filename
+        - board dimensions
+        - number of layers
+
+    Then:
+        1. processes data
+        2. optionally exports KiCad files
+        3. optionally generates before/after visualizations
+        4. optionally generates comparison images/reports
+    """
+
     print("PCB to KiCad Exporter")
-    print("="*60)
-    
+    print("=" * 60)
+
     visualizer = PCBCoordinateMappingVisualizer()
-    
-    # Get inputs
+
+    # -----------------------------------------
+    # Gather required user input
+    # -----------------------------------------
     fileName = input("Enter the output file name: ")
     boardX = int(input("Enter the board width in mm: "))
     boardY = int(input("Enter the board height in mm: "))
     layerCount = int(input("How many layers are there? "))
-    
-    # Process data
+
+    # Process the board layers
     data = visualizer.process_board_data(fileName, boardX, boardY, layerCount)
-    
-    # Export to KiCad
-    print("\n" + "="*60)
+
+    # -----------------------------------------
+    # KiCad export option
+    # -----------------------------------------
+    print("\n" + "=" * 60)
     print("KICAD EXPORT OPTIONS")
-    print("="*60)
+    print("=" * 60)
     export_choice = input("Export layers to KiCad? (y/n): ").lower()
-    
+
     if export_choice == 'y':
         print("\nWhich layers would you like to export?")
         print(f"Available layers: 0 to {layerCount - 1}")
@@ -1061,13 +1455,14 @@ def main():
         print("  - Multiple layers: 0,2,4")
         print("  - Range: 0-3")
         print("  - All layers: all")
-        
+
         layer_input = input("\nEnter layers to export: ").strip()
-        
+
         try:
             layers_to_export = parse_layer_input(layer_input, layerCount)
             print(f"\nExporting layers: {layers_to_export}")
-            
+
+            # Choose output filename based on selection
             if len(layers_to_export) == 1:
                 output_kicad = f"{fileName}_layer_{layers_to_export[0]}.kicad_pcb"
             elif len(layers_to_export) == layerCount:
@@ -1075,82 +1470,91 @@ def main():
             else:
                 layer_str = "_".join(map(str, layers_to_export))
                 output_kicad = f"{fileName}_layers_{layer_str}.kicad_pcb"
-            
+
             visualizer.export_layers_to_kicad(data, layers_to_export, output_kicad)
-            
+
             print("\nTo open in KiCad:")
             print("1. Open KiCad PCB Editor")
             print(f"2. File > Open > Select '{output_kicad}'")
             print("3. The board should load with all pads, vias, and traces")
-            
+
         except ValueError as e:
             print(f"Error: {e}")
-    
-    # Ask if user wants visualizations too
-    print("\n" + "="*60)
+
+    # -----------------------------------------
+    # Before/after visualization option
+    # -----------------------------------------
+    print("\n" + "=" * 60)
     print("VISUALIZATION OPTIONS")
-    print("="*60)
+    print("=" * 60)
     viz_choice = input("Generate before/after visualizations? (y/n): ").lower()
-    
+
     if viz_choice == 'y':
         print("\nWhich layers would you like to visualize?")
         print(f"Available layers: 0 to {layerCount - 1}")
         layer_input = input("Enter layers (same format as above): ").strip()
-        
+
         try:
             layers_to_viz = parse_layer_input(layer_input, layerCount)
             print(f"\nCreating visualizations for layers: {layers_to_viz}")
-            
+
             for layer_idx in layers_to_viz:
                 print(f"\nGenerating visualization for layer {layer_idx}...")
+
                 fig = visualizer.visualize_before_after_mapping(data, layer_idx)
-                
+
                 output_file = f"before_after_{fileName}_layer_{layer_idx}.png"
                 fig.savefig(output_file, dpi=300, bbox_inches='tight')
                 print(f"Saved: {output_file}")
-                
+
                 plt.close(fig)
-                
+
         except ValueError as e:
             print(f"Error: {e}")
-    
-    # Ask if user wants comparison visualizations
-    print("\n" + "="*60)
+
+    # -----------------------------------------
+    # Comparison visualization/report option
+    # -----------------------------------------
+    print("\n" + "=" * 60)
     print("COMPARISON OPTIONS")
-    print("="*60)
+    print("=" * 60)
     print("Compare original image with KiCad output")
     comp_choice = input("Generate comparison visualizations? (y/n): ").lower()
-    
+
     if comp_choice == 'y':
         print("\nWhich layers would you like to compare?")
         print(f"Available layers: 0 to {layerCount - 1}")
         layer_input = input("Enter layers (same format as above): ").strip()
-        
+
         try:
             layers_to_compare = parse_layer_input(layer_input, layerCount)
             print(f"\nCreating comparisons for layers: {layers_to_compare}")
-            
+
             for layer_idx in layers_to_compare:
                 print(f"\nGenerating comparison for layer {layer_idx}...")
-                
-                # Visual comparison
+
+                # Save image comparison
                 fig = visualizer.compare_original_vs_kicad(data, layer_idx)
                 output_file = f"comparison_{fileName}_layer_{layer_idx}.png"
                 fig.savefig(output_file, dpi=300, bbox_inches='tight')
                 print(f"Saved visual comparison: {output_file}")
                 plt.close(fig)
-                
-                # Text report
+
+                # Save text coordinate comparison report
                 report_file = f"comparison_{fileName}_layer_{layer_idx}_report.txt"
                 visualizer.generate_coordinate_comparison_report(data, layer_idx, report_file)
-                
+
         except ValueError as e:
             print(f"Error: {e}")
-    
-    print("\n" + "="*60)
+
+    # -----------------------------------------
+    # Final summary
+    # -----------------------------------------
+    print("\n" + "=" * 60)
     print("Complete!")
     print(f"Total nets created: {nx.number_connected_components(data['interConnectivity'])}")
 
 
+# Run main() only if this file is executed directly
 if __name__ == "__main__":
     main()
