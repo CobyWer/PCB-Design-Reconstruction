@@ -1,0 +1,66 @@
+PCB RAW NETLIST (Coordinate Based)
+========================================
+
+Net 20:
+  Pad [Layer 5 @ (1094, 1058)]
+  <--->  Pad [Layer 5 @ (1004, 1064)]
+
+Net 34:
+  Pad [Layer 5 @ (1037, 273)]
+  <--->  Pad [Layer 5 @ (1038, 190)]
+  <--->  Pad [Layer 5 @ (1072, 274)]
+
+Net 48:
+  Pad [Layer 5 @ (768, 926)]
+  <--->  Pad [Layer 5 @ (755, 1045)]
+  <--->  Pad [Layer 5 @ (788, 845)]
+  <--->  Pad [Layer 5 @ (818, 1183)]
+
+Net 51:
+  Pad [Layer 5 @ (1037, 388)]
+  <--->  Pad [Layer 5 @ (1031, 310)]
+
+Net 60:
+  Pad [Layer 5 @ (637, 237)]
+  <--->  Pad [Layer 5 @ (484, 492)]
+
+Net 61:
+  Pad [Layer 5 @ (647, 279)]
+  <--->  Pad [Layer 5 @ (597, 438)]
+
+Net 62:
+  Pad [Layer 5 @ (647, 324)]
+  <--->  Pad [Layer 5 @ (637, 692)]
+
+Net 63:
+  Pad [Layer 5 @ (1003, 1158)]
+  <--->  Pad [Layer 5 @ (1094, 1153)]
+
+Net 64:
+  Pad [Layer 5 @ (820, 1048)]
+  <--->  Pad [Layer 5 @ (931, 909)]
+  <--->  Pad [Layer 5 @ (944, 373)]
+  <--->  Pad [Layer 5 @ (831, 1088)]
+  <--->  Pad [Layer 5 @ (979, 920)]
+  <--->  Pad [Layer 5 @ (945, 1079)]
+
+Net 65:
+  Pad [Layer 5 @ (971, 1248)]
+  <--->  Pad [Layer 5 @ (818, 1139)]
+  <--->  Pad [Layer 5 @ (945, 1159)]
+
+Net 66:
+  Pad [Layer 5 @ (754, 322)]
+  <--->  Pad [Layer 5 @ (860, 322)]
+  <--->  Pad [Layer 5 @ (954, 324)]
+
+Net 67:
+  Pad [Layer 5 @ (467, 201)]
+  <--->  Pad [Layer 5 @ (702, 229)]
+  <--->  Pad [Layer 5 @ (463, 314)]
+
+Net 68:
+  Pad [Layer 5 @ (755, 275)]
+  <--->  Pad [Layer 5 @ (861, 131)]
+  <--->  Pad [Layer 5 @ (866, 232)]
+

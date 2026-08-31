@@ -1,0 +1,365 @@
+import cv2
+import pandas as pd
+import numpy as np
+import re
+import math
+import networkx as nx
+from shapely.geometry import Polygon, Point, LineString
+from shapely.ops import linemerge
+from centerline.geometry import Centerline
+import os
+import uuid
+
+class PCBCoordinateMappingVisualizer:
+    def __init__(self, img_path='', csv_path=''):
+        self.img_path = img_path
+        self.csv_path = csv_path
+        
+    def distanceBetween(self, a, b):
+        return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
+    
+    def getPointX(self, pointList):
+        xMax = 0
+        xMin = 150000
+        for i in pointList:
+            if i[0] > xMax: xMax = i[0]
+            if i[0] < xMin: xMin = i[0]
+        return [xMin, xMax]
+    
+    def process_board_data(self, fileName, boardX, boardY, layerCount):
+        print("="*60)
+        print("PROCESSING DATA (ENDPOINT EXTENSION & PROTECTED T-JUNCTIONS)")
+        print("="*60)
+        
+        imgs, anns = [], []
+        for i in range(layerCount):
+            try:
+                img_file = os.path.join(self.img_path, f'l{i}.png')
+                if not os.path.exists(img_file):
+                    img_file = os.path.join(self.img_path, f'l{i}.jpg')
+                img = cv2.imread(img_file, cv2.IMREAD_GRAYSCALE)
+                if img is None: img = np.zeros((2550, 2560), dtype=np.uint8)
+            except Exception:
+                img = np.zeros((2550, 2560), dtype=np.uint8)
+                
+            ann = pd.read_csv(os.path.join(self.csv_path, f'l{i}.csv'))
+            imgs.append(img)
+            anns.append(ann)
+            print(f"Loaded layer {i}: {len(ann)} elements")
+        
+        pad_positions, pad_points = [], []
+        via_positions, via_diameters = [], []
+        traces_data = [] 
+        
+        interConnectivity = nx.Graph()
+        
+        for im_num, (img, ann) in enumerate(zip(imgs, anns)):
+            print(f"Processing layer {im_num}...")
+            pad_positions.append([])
+            pad_points.append([])
+            via_positions.append([])
+            via_diameters.append([])
+            traces_data.append([])
+            
+            for index, row in ann.iterrows():
+                coords = str(row['Vertices'])
+                coords = re.findall(r'\d+', coords)
+                if len(coords) < 2: continue
+                coords = [[int(coords[i]), int(coords[i+1])] for i in range(0, len(coords)-1, 2)]
+                component_type = str(row['Type']).lower().strip()
+                xMin, xMax = self.getPointX(coords)
+                
+                if component_type == 'pad':
+                    x = sum(p[0] for p in coords) / len(coords)
+                    y = sum(p[1] for p in coords) / len(coords)
+                    pad_positions[-1].append([(round(x), round(y))])
+                    pad_points[-1].append(coords)
+                    
+                elif component_type == 'via':
+                    M = cv2.moments(np.array(coords))
+                    if M['m00'] != 0:
+                        cx, cy = int(M['m10'] / M['m00']), int(M['m01'] / M['m00'])
+                        via_positions[-1].append([(cx, cy)])
+                        via_diameters[-1].append(xMax - xMin)
+                        
+                elif component_type == 'trace':
+                    try:
+                        raw_poly = Polygon(coords)
+                        if not raw_poly.is_valid: raw_poly = raw_poly.buffer(0)
+                        
+                        # IMPROVED CENTERLINE: Pre-smooth the polygon to remove edge noise
+                        poly = raw_poly.simplify(tolerance=2.0, preserve_topology=True)
+                        
+                        # 1. WIDTH CALCULATION
+                        P = poly.length
+                        A = poly.area
+                        calculated_width_px = (2 * A) / P if P > 0 else 1.0
+                        calculated_width_px = max(1.0, calculated_width_px)
+                        
+                        # 2. RAW CENTERLINE
+                        center_obj = Centerline(poly, interpolation_distance=4)
+                        merged = linemerge(center_obj.geometry)
+                        
+                        if merged.geom_type == 'MultiLineString':
+                            lines = list(merged.geoms)
+                        elif merged.geom_type == 'LineString':
+                            lines = [merged]
+                        else:
+                            continue
+                            
+                        # Build the graph
+                        G_prune = nx.MultiGraph()
+                        for idx, line in enumerate(lines):
+                            G_prune.add_edge(line.coords[0], line.coords[-1], key=idx, line_obj=line, length=line.length)
+                            
+                        # ==========================================
+                        # 3. PROTECTED DOG-BONE AVERAGING
+                        # ==========================================
+                        changed_db = True
+                        while changed_db:
+                            changed_db = False
+                            for node in list(G_prune.nodes()):
+                                if G_prune.degree(node) == 3:
+                                    neighbors = list(G_prune.neighbors(node))
+                                    leaves = [n for n in neighbors if G_prune.degree(n) == 1]
+                                    
+                                    if len(leaves) == 2:
+                                        L1, L2 = leaves[0], leaves[1]
+                                        
+                                        # ONLY merge if the branches are tiny (Dog-bones). 
+                                        # This protects real, longer T-junctions from turning into Ys!
+                                        d1 = math.hypot(L1[0]-node[0], L1[1]-node[1])
+                                        d2 = math.hypot(L2[0]-node[0], L2[1]-node[1])
+                                        
+                                        if d1 < (calculated_width_px * 2) and d2 < (calculated_width_px * 2):
+                                            mid_x = (L1[0] + L2[0]) / 2.0
+                                            mid_y = (L1[1] + L2[1]) / 2.0
+                                            midpoint = (mid_x, mid_y)
+                                            
+                                            G_prune.remove_node(L1)
+                                            G_prune.remove_node(L2)
+                                            
+                                            new_line = LineString([node, midpoint])
+                                            G_prune.add_edge(node, midpoint, key=0, line_obj=new_line, length=new_line.length)
+                                            changed_db = True
+                                            break 
+                                        
+                        # ==========================================
+                        # 4. SMART PRUNING
+                        # ==========================================
+                        changed = True
+                        while changed:
+                            changed = False
+                            for node in list(G_prune.nodes()):
+                                if G_prune.degree(node) == 1:  
+                                    is_protected = False
+                                    pt = Point(node)
+                                    for pad_pts in pad_points[-1]:
+                                        if Polygon(pad_pts).distance(pt) < 10: 
+                                            is_protected = True
+                                            break
+                                    if not is_protected:
+                                        for via_idx, via_pos in enumerate(via_positions[-1]):
+                                            v_pt = Point(via_pos[0])
+                                            v_rad = via_diameters[-1][via_idx] / 2
+                                            if v_pt.distance(pt) <= v_rad + 10:
+                                                is_protected = True
+                                                break
+                                    if is_protected: continue 
+
+                                    neighbor = list(G_prune.neighbors(node))[0]
+                                    for key, data in list(G_prune[node][neighbor].items()):
+                                        if data['length'] < 15: 
+                                            G_prune.remove_edge(node, neighbor, key=key)
+                                            changed = True
+                                            break
+                                            
+                        valid_lines = [data['line_obj'] for u, v, data in G_prune.edges(data=True)]
+                            
+                        # ==========================================
+                        # 5. STRAIGHTENING & ENDPOINT EXTENSION
+                        # ==========================================
+                        # Find the absolute endpoints of the trace graph
+                        endpoints = set([n for n in G_prune.nodes() if G_prune.degree(n) == 1])
+                        
+                        segments = []
+                        for line in valid_lines:
+                            # Tolerance 3.0 gives straight lines without cutting corners too aggressively
+                            clean_line = line.simplify(tolerance=3.0, preserve_topology=False)
+                            pts = list(clean_line.coords)
+                            
+                            for i in range(len(pts)-1):
+                                start = pts[i]
+                                end = pts[i+1]
+                                length = math.hypot(end[0]-start[0], end[1]-start[1])
+                                
+                                if length > 1:
+                                    ext_start = start
+                                    ext_end = end
+                                    
+                                    # Extend the trace outward by its radius so it connects completely to pads
+                                    ext_amt = calculated_width_px * 0.75 
+                                    
+                                    if start in endpoints and i == 0:
+                                        ext_start = (start[0] - ((end[0]-start[0])/length)*ext_amt,
+                                                     start[1] - ((end[1]-start[1])/length)*ext_amt)
+                                    if end in endpoints and i == len(pts)-2:
+                                        ext_end = (end[0] + ((end[0]-start[0])/length)*ext_amt,
+                                                   end[1] + ((end[1]-start[1])/length)*ext_amt)
+
+                                    segments.append({
+                                        'start': ext_start,
+                                        'end': ext_end,
+                                        'width': calculated_width_px
+                                    })
+                                    
+                        if segments:
+                            traces_data[-1].append({'original_poly': poly, 'segments': segments})
+                    except Exception as e:
+                        continue
+            
+            # --- CONNECTIVITY LOGIC ---
+            if im_num > 0:
+                for j in range(len(via_positions[im_num])):
+                    for l in range(len(via_positions[im_num - 1])):
+                        if self.distanceBetween(via_positions[im_num][j][0], via_positions[im_num - 1][l][0]) < 10:
+                            interConnectivity.add_edge(f"Via_{im_num}_{via_positions[im_num][j][0]}", f"Via_{im_num-1}_{via_positions[im_num-1][l][0]}")
+            
+            for j in range(len(via_positions[im_num])):
+                for k in range(len(pad_positions[im_num])):
+                    if self.distanceBetween(pad_positions[im_num][k][0], via_positions[im_num][j][0]) < 30:
+                        interConnectivity.add_edge(f"Pad_{im_num}_{pad_positions[im_num][k][0]}", f"Via_{im_num}_{via_positions[im_num][j][0]}")
+            
+            for trace_idx, trace_info in enumerate(traces_data[-1]):
+                try:
+                    t_poly = trace_info['original_poly']
+                    trace_node = f"Trace_{im_num}_{trace_idx}"
+                    
+                    for pad_idx, pad_pts in enumerate(pad_points[-1]):
+                        if t_poly.intersects(Polygon(pad_pts)) or t_poly.contains(Polygon(pad_pts)):
+                            interConnectivity.add_edge(trace_node, f"Pad_{im_num}_{pad_positions[-1][pad_idx][0]}")
+                            
+                    for via_idx, via_pos in enumerate(via_positions[-1]):
+                        if t_poly.distance(Point(via_pos[0])) <= (via_diameters[-1][via_idx] / 2) + 2: 
+                            interConnectivity.add_edge(trace_node, f"Via_{im_num}_{via_pos[0]}")
+                except Exception as e: continue
+                    
+            print(f"  Result: {len(pad_positions[-1])} pads, {len(via_positions[-1])} vias, {len(traces_data[-1])} traces")
+        
+        y0, x0 = 0, 0
+        y1, x1 = imgs[0].shape
+        MMpixelX = float(boardX) / (x1 - x0)
+        MMpixelY = float(boardY) / (y1 - y0)
+        MMpixel = (MMpixelX + MMpixelY) / 2
+        
+        return {
+            'pad_positions': pad_positions, 'pad_points': pad_points,
+            'via_positions': via_positions, 'via_diameters': via_diameters,
+            'traces_data': traces_data, 'interConnectivity': interConnectivity,
+            'MMpixelX': MMpixelX, 'MMpixelY': MMpixelY, 'MMpixel': MMpixel,
+            'boardX': boardX, 'boardY': boardY, 'layerCount': layerCount
+        }
+    
+    def get_kicad_layer_name(self, layer_idx, total_layers):
+        if total_layers == 2: return "F.Cu" if layer_idx == 0 else "B.Cu"
+        else:
+            if layer_idx == 0: return "F.Cu"
+            elif layer_idx == total_layers - 1: return "B.Cu"
+            else: return f"In{layer_idx}.Cu"
+            
+    def export_generic_netlist(self, data, output_filename):
+        print(f"\n{'='*60}\nEXTRACTING GENERIC NETLIST\n{'='*60}")
+        nets = list(nx.connected_components(data['interConnectivity']))
+        with open(output_filename, "w") as f:
+            f.write("PCB RAW NETLIST (Coordinate Based)\n")
+            f.write("="*40 + "\n\n")
+            for net_idx, net_nodes in enumerate(nets, start=1):
+                pads_in_net = [node for node in net_nodes if str(node).startswith('Pad_')]
+                if len(pads_in_net) > 1:
+                    clean_pads = [f"Pad [Layer {p.split('_')[1]} @ {p.split('_')[2]}]" if len(p.split('_'))>=3 else p for p in pads_in_net]
+                    f.write(f"Net {net_idx}:\n  " + "\n  <--->  ".join(clean_pads) + "\n\n")
+        print(f"Saved netlist to: {output_filename}")
+
+    def export_layers_to_kicad(self, data, layer_indices, output_filename):
+        print(f"\n{'='*60}\nEXPORTING LAYERS TO KICAD\n{'='*60}")
+        MMpixelX, MMpixelY, MMpixel = data['MMpixelX'], data['MMpixelY'], data['MMpixel']
+        
+        with open(output_filename, 'w') as f:
+            f.write('(kicad_pcb (version 20221018) (generator pcbnew)\n  (general\n    (thickness 1.6)\n  )\n  (paper "A4")\n  (layers\n    (0 "F.Cu" signal)\n')
+            if data['layerCount'] > 2:
+                for i in range(1, data['layerCount'] - 1): f.write(f'    ({i} "In{i}.Cu" signal)\n')
+            back_layer_num = data['layerCount'] - 1 if data['layerCount'] > 1 else 31
+            f.write(f'    ({back_layer_num} "B.Cu" signal)\n    (44 "Edge.Cuts" user)\n  )\n  (setup\n    (pad_to_mask_clearance 0)\n  )\n')
+            
+            f.write(f'  (gr_rect (start 12 12) (end {12 + data["boardX"]:.4f} {12 + data["boardY"]:.4f}) (stroke (width 0.1) (type solid)) (layer "Edge.Cuts") (tstamp {str(uuid.uuid4())}))\n\n')
+            
+            nets = list(nx.connected_components(data['interConnectivity']))
+            net_map = {}
+            f.write('  (net 0 "")\n')
+            for net_idx, net_nodes in enumerate(nets, start=1):
+                f.write(f'  (net {net_idx} "Net-{net_idx}")\n')
+                for node in net_nodes: net_map[node] = net_idx
+            f.write('\n')
+            
+            for layer_idx in layer_indices:
+                kicad_layer = self.get_kicad_layer_name(layer_idx, data['layerCount'])
+                print(f"Exporting Layer {layer_idx} ({kicad_layer})...")
+                
+                for pad_idx, (pad_pts, pad_pos) in enumerate(zip(data['pad_points'][layer_idx], data['pad_positions'][layer_idx])):
+                    cx = round(pad_pos[0][0] * MMpixelX + 12, 3)
+                    cy = round(pad_pos[0][1] * MMpixelY + 12, 3)
+                    pad_width = round(max(0.2, (max(p[0] for p in pad_pts) - min(p[0] for p in pad_pts)) * MMpixelX), 3)
+                    pad_height = round(max(0.2, (max(p[1] for p in pad_pts) - min(p[1] for p in pad_pts)) * MMpixelY), 3)
+                    net_num = net_map.get(f"Pad_{layer_idx}_{pad_pos[0]}", 0)
+                    
+                    f.write(f'  (footprint "Pad_L{layer_idx}_{pad_idx}" (layer "{kicad_layer}") (tstamp {str(uuid.uuid4())}) (at {cx} {cy}) (attr smd)\n')
+                    f.write(f'    (pad "1" smd rect (at 0 0) (size {pad_width} {pad_height}) (layers "{kicad_layer}" "*.Paste" "*.Mask") (net {net_num} "Net-{net_num}") (tstamp {str(uuid.uuid4())}))\n  )\n')
+                
+                if layer_idx == layer_indices[0]:
+                    for v_layer in layer_indices:
+                        for via_idx, via_pos in enumerate(data['via_positions'][v_layer]):
+                            cx = round(via_pos[0][0] * MMpixelX + 12, 3)
+                            cy = round(via_pos[0][1] * MMpixelY + 12, 3)
+                            diameter = round(data['via_diameters'][v_layer][via_idx] * MMpixel, 3)
+                            net_num = net_map.get(f"Via_{v_layer}_{via_pos[0]}", 0)
+                            f.write(f'  (via (at {cx} {cy}) (size {max(0.3, diameter)}) (drill {max(0.15, diameter*0.6)}) (layers "F.Cu" "B.Cu") (net {net_num}) (tstamp {str(uuid.uuid4())}))\n')
+                
+                for trace_idx, trace_info in enumerate(data['traces_data'][layer_idx]):
+                    net_num = net_map.get(f"Trace_{layer_idx}_{trace_idx}", 0)
+                    for seg in trace_info['segments']:
+                        start_x = round(seg['start'][0] * MMpixelX + 12, 3)
+                        start_y = round(seg['start'][1] * MMpixelY + 12, 3)
+                        end_x = round(seg['end'][0] * MMpixelX + 12, 3)
+                        end_y = round(seg['end'][1] * MMpixelY + 12, 3)
+                        
+                        trace_width = round(max(0.15, seg['width'] * MMpixel), 3) 
+                        
+                        if abs(start_x - end_x) > 0.001 or abs(start_y - end_y) > 0.001:
+                            f.write(f'  (segment (start {start_x} {start_y}) (end {end_x} {end_y}) (width {trace_width}) (layer "{kicad_layer}") (net {net_num}) (tstamp {str(uuid.uuid4())}))\n')
+            f.write(')\n')
+        print(f"Saved to: {output_filename}")
+
+def parse_layer_input(user_input, total_layers):
+    if user_input.strip().lower() == 'all': return list(range(total_layers))
+    layers = []
+    for p in user_input.split(','):
+        if '-' in p: layers.extend(range(int(p.split('-')[0]), int(p.split('-')[1]) + 1))
+        else: layers.append(int(p.strip()))
+    return sorted(list(set(layers)))
+
+def main():
+    print("PCB to KiCad Exporter (Extension & T-Junction Fix)")
+    visualizer = PCBCoordinateMappingVisualizer(img_path='.', csv_path='.')
+    fileName = input("Enter output file name: ")
+    boardX = int(input("Enter board width in mm: "))
+    boardY = int(input("Enter board height in mm: "))
+    layerCount = int(input("How many layers are there? "))
+    data = visualizer.process_board_data(fileName, boardX, boardY, layerCount)
+    if input("\nExport layers to KiCad? (y/n): ").lower() == 'y':
+        try:
+            layers_to_export = parse_layer_input(input("Enter layers to export (e.g. '0,1' or 'all'): ").strip(), layerCount)
+            visualizer.export_layers_to_kicad(data, layers_to_export, f"{fileName}_clean.kicad_pcb")
+            visualizer.export_generic_netlist(data, f"{fileName}_netlist.txt")
+        except ValueError as e: print(f"Error: {e}")
+
+if __name__ == "__main__": main()
