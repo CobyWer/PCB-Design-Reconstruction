@@ -1,0 +1,465 @@
+ANNOTATION CONNECTIVITY — coordinate terminals, not component pin identities
+Strict polygon contacts unless a nonzero contact tolerance was requested.
+Missing plane annotations and unresolved gaps can split a physical net.
+
+Net 1 (Net-1):
+  Via V034 @ (640.811, 134.864) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row0:part0, L2:trace:row0:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 2 (Net-2):
+  Copper: L0:trace:row1:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 3 (Net-3):
+  Via V033 @ (799.834, 152.863) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row135:part0 (Instance ID 145) @ (758.311, 233.015) px
+  Copper: L0:trace:row2:part0, L5:trace:row134:part0
+
+Net 4 (Net-4):
+  Copper: L0:trace:row3:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 5 (Net-5):
+  Via V023 @ (929.335, 165.849) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row4:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 6 (Net-6):
+  Via V050 @ (982.000, 201.864) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row136:part0 (Instance ID 146) @ (936.150, 232.010) px
+  Copper: L0:trace:row5:part0, L5:trace:row26:part0
+
+Net 7 (Net-7):
+  Via V054 @ (1200.878, 276.824) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row6:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 8 (Net-8):
+  Via V003 @ (65.000, 308.000) px; layers [0, 1, 2, 3, 4, 5]
+  Via V031 @ (510.000, 280.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row7:part0, L2:trace:row1:part0
+
+Net 9 (Net-9):
+  Via V008 @ (512.000, 334.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row8:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 10 (Net-10):
+  Via V007 @ (1199.878, 502.824) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row9:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 11 (Net-11):
+  Copper: L0:trace:row10:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 12 (Net-12):
+  Copper: L0:trace:row11:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 13 (Net-13):
+  Copper: L0:trace:row12:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 14 (Net-14):
+  Via V012 @ (1027.000, 585.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row13:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 15 (Net-15):
+  Copper: L0:trace:row14:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 16 (Net-16):
+  Via V009 @ (1024.000, 453.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row124:part0 (Instance ID 134) @ (1091.244, 394.692) px
+  Copper: L0:trace:row15:part0, L5:trace:row30:part0
+
+Net 17 (Net-17):
+  Via V055 @ (1200.878, 729.824) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row16:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 18 (Net-18):
+  Via V018 @ (716.000, 872.000) px; layers [0, 1, 2, 3, 4, 5]
+  Via V063 @ (938.000, 844.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row17:part0, L2:trace:row2:part0
+
+Net 19 (Net-19):
+  Copper: L0:trace:row18:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 20 (Net-20):
+  Copper: L0:trace:row19:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 21 (Net-21):
+  Copper: L0:trace:row20:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 22 (Net-22):
+  Via V015 @ (716.000, 793.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row21:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 23 (Net-23):
+  Via V019 @ (619.000, 875.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row22:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 24 (Net-24):
+  Copper: L0:trace:row23:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 25 (Net-25):
+  Via V010 @ (547.000, 546.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row24:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 26 (Net-26):
+  Via V024 @ (512.834, 610.863) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row127:part0 (Instance ID 137) @ (484.463, 549.969) px
+  Copper: L0:trace:row25:part0, L5:trace:row41:part0
+
+Net 27 (Net-27):
+  Via V026 @ (514.000, 674.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row126:part0 (Instance ID 136) @ (591.348, 495.755) px
+  Copper: L0:trace:row26:part0, L5:trace:row23:part0
+
+Net 28 (Net-28):
+  Via V045 @ (592.000, 751.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row115:part0 (Instance ID 124) @ (644.143, 751.754) px
+  Copper: L0:trace:row27:part0, L5:trace:row25:part0
+
+Net 29 (Net-29):
+  Via V056 @ (1200.878, 986.824) px; layers [0, 1, 2, 3, 4, 5]
+  Via V057 @ (1020.000, 1052.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row94:part0 (Instance ID 97) @ (1001.171, 1075.039) px
+  Pad L5:pad:row95:part0 (Instance ID 98) @ (1093.687, 1064.247) px
+  Copper: L0:trace:row28:part0, L5:trace:row96:part0, L5:trace:row97:part0
+
+Net 30 (Net-30):
+  Copper: L0:trace:row29:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 31 (Net-31):
+  Via V011 @ (392.000, 579.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row30:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 32 (Net-32):
+  Via V027 @ (425.000, 701.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row31:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 33 (Net-33):
+  Via V046 @ (648.000, 816.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row32:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 34 (Net-34):
+  Via V064 @ (858.000, 930.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row88:part0 (Instance ID 89) @ (829.813, 922.246) px
+  Copper: L0:trace:row33:part0
+
+Net 35 (Net-35):
+  Via V016 @ (1000.000, 813.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row34:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 36 (Net-36):
+  Via V017 @ (1156.000, 859.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row35:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 37 (Net-37):
+  Copper: L0:trace:row36:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 38 (Net-38):
+  Via V014 @ (362.000, 701.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row37:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 39 (Net-39):
+  Via V025 @ (392.000, 509.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row38:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 40 (Net-40):
+  Copper: L0:trace:row39:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 41 (Net-41):
+  Copper: L0:trace:row40:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 42 (Net-42):
+  Via V035 @ (402.834, 266.863) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: L0:trace:row41:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 43 (Net-43):
+  Copper: L0:trace:row42:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 44 (Net-44):
+  Copper: L0:trace:row43:part0, L0:trace:row45:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 45 (Net-45):
+  Copper: L0:trace:row44:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 46 (Net-46):
+  Copper: L0:trace:row46:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 47 (Net-47):
+  Copper: L0:trace:row47:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 48 (Net-48):
+  Copper: L0:trace:row48:part0
+  Status: 0 annotated terminal(s); retained for review
+
+Net 49 (Net-49):
+  Via V001 @ (292.000, 81.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 50 (Net-50):
+  Via V002 @ (65.000, 82.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 51 (Net-51):
+  Via V004 @ (292.000, 308.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 52 (Net-52):
+  Via V005 @ (65.000, 533.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 53 (Net-53):
+  Via V006 @ (293.000, 534.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 54 (Net-54):
+  Via V013 @ (200.000, 665.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 55 (Net-55):
+  Via V020 @ (976.000, 79.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row154:part0 (Instance ID 171) @ (1037.500, 189.500) px
+  Pad L5:pad:row155:part0 (Instance ID 172) @ (1038.224, 272.256) px
+  Pad L5:pad:row156:part0 (Instance ID 173) @ (1071.216, 273.866) px
+  Copper: L5:trace:row157:part0, L5:trace:row158:part0, L5:trace:row159:part0
+
+Net 56 (Net-56):
+  Via V021 @ (740.000, 80.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row141:part0 (Instance ID 151) @ (860.500, 81.500) px
+  Copper: L5:trace:row27:part0
+
+Net 57 (Net-57):
+  Via V022 @ (510.162, 80.686) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 58 (Net-58):
+  Via V028 @ (371.000, 372.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row128:part0 (Instance ID 138) @ (459.889, 370.268) px
+  Copper: L5:trace:row24:part0
+
+Net 59 (Net-59):
+  Via V029 @ (486.000, 432.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 60 (Net-60):
+  Via V030 @ (356.000, 209.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row137:part0 (Instance ID 147) @ (392.500, 197.000) px
+  Copper: L5:trace:row19:part0
+
+Net 61 (Net-61):
+  Via V032 @ (745.834, 175.863) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 62 (Net-62):
+  Via V036 @ (699.000, 537.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 63 (Net-63):
+  Via V037 @ (698.000, 448.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row133:part0 (Instance ID 143) @ (702.818, 337.166) px
+  Copper: L5:trace:row55:part0
+
+Net 64 (Net-64):
+  Via V038 @ (787.862, 446.882) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 65 (Net-65):
+  Via V039 @ (877.651, 446.663) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row123:part0 (Instance ID 133) @ (861.263, 380.177) px
+  Copper: L5:trace:row58:part0
+
+Net 66 (Net-66):
+  Via V040 @ (789.863, 625.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row114:part0 (Instance ID 123) @ (789.000, 786.500) px
+  Copper: L5:trace:row60:part0
+
+Net 67 (Net-67):
+  Via V041 @ (877.862, 625.882) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 68 (Net-68):
+  Via V042 @ (877.862, 535.882) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 69 (Net-69):
+  Via V043 @ (789.862, 536.882) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 70 (Net-70):
+  Via V044 @ (699.862, 625.882) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 71 (Net-71):
+  Via V047 @ (722.000, 1001.000) px; layers [0, 1, 2, 3, 4, 5]
+  Via V061 @ (927.000, 1239.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row108:part0 (Instance ID 116) @ (836.986, 1180.989) px
+  Pad L5:pad:row118:part0 (Instance ID 127) @ (753.516, 1028.345) px
+  Pad L5:pad:row119:part0 (Instance ID 128) @ (788.000, 845.000) px
+  Pad L5:pad:row120:part0 (Instance ID 129) @ (701.500, 923.500) px
+  Pad L5:pad:row163:part0 (Instance ID 180) @ (771.846, 925.137) px
+  Copper: L2:trace:row3:part0, L5:trace:row84:part0, L5:trace:row121:part0, L5:trace:row122:part0, L5:trace:row161:part0, L5:trace:row162:part0
+
+Net 72 (Net-72):
+  Via V048 @ (644.000, 954.835) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row69:part0 (Instance ID 70) @ (648.006, 926.201) px
+  Copper: (none annotated)
+
+Net 73 (Net-73):
+  Via V049 @ (1121.000, 188.864) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row28:part0 (Instance ID 28) @ (1091.746, 189.981) px
+  Copper: (none annotated)
+
+Net 74 (Net-74):
+  Via V051 @ (1006.000, 309.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row125:part0 (Instance ID 135) @ (1037.000, 388.500) px
+  Pad L5:pad:row160:part0 (Instance ID 177) @ (1035.169, 310.022) px
+  Copper: L5:trace:row73:part0
+
+Net 75 (Net-75):
+  Via V052 @ (1101.000, 309.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row29:part0 (Instance ID 29) @ (1072.518, 304.924) px
+  Copper: (none annotated)
+
+Net 76 (Net-76):
+  Via V053 @ (1199.878, 79.824) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 77 (Net-77):
+  Via V058 @ (1070.000, 1241.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row36:part0 (Instance ID 36) @ (1039.286, 1242.305) px
+  Copper: (none annotated)
+
+Net 78 (Net-78):
+  Via V059 @ (755.000, 1245.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row35:part0 (Instance ID 35) @ (753.979, 1194.027) px
+  Copper: (none annotated)
+
+Net 79 (Net-79):
+  Via V060 @ (611.000, 1249.000) px; layers [0, 1, 2, 3, 4, 5]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 80 (Net-80):
+  Via V062 @ (1201.000, 1214.000) px; layers [0, 1, 2, 3, 4, 5]
+  Pad L5:pad:row90:part0 (Instance ID 91) @ (1094.500, 1153.000) px
+  Pad L5:pad:row91:part0 (Instance ID 92) @ (1002.733, 1157.500) px
+  Copper: L5:trace:row92:part0, L5:trace:row93:part0
+
+Net 81 (Net-81):
+  Pad L5:pad:row129:part0 (Instance ID 139) @ (484.500, 492.000) px
+  Pad L5:pad:row130:part0 (Instance ID 140) @ (642.206, 232.752) px
+  Copper: L5:trace:row20:part0
+
+Net 82 (Net-82):
+  Pad L5:pad:row131:part0 (Instance ID 141) @ (591.754, 437.393) px
+  Pad L5:pad:row132:part0 (Instance ID 142) @ (642.982, 277.995) px
+  Copper: L5:trace:row21:part0
+
+Net 83 (Net-83):
+  Pad L5:pad:row116:part0 (Instance ID 125) @ (643.755, 692.926) px
+  Pad L5:pad:row117:part0 (Instance ID 126) @ (642.986, 321.995) px
+  Copper: L5:trace:row22:part0
+
+Net 84 (Net-84):
+  Pad L5:pad:row31:part0 (Instance ID 31) @ (669.722, 1046.514) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 85 (Net-85):
+  Pad L5:pad:row32:part0 (Instance ID 32) @ (670.270, 1091.525) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 86 (Net-86):
+  Pad L5:pad:row33:part0 (Instance ID 33) @ (670.270, 1136.475) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 87 (Net-87):
+  Pad L5:pad:row34:part0 (Instance ID 34) @ (670.174, 1181.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 88 (Net-88):
+  Pad L5:pad:row98:part0 (Instance ID 104) @ (942.973, 1075.463) px
+  Pad L5:pad:row99:part0 (Instance ID 105) @ (979.000, 920.000) px
+  Pad L5:pad:row100:part0 (Instance ID 106) @ (842.973, 1092.300) px
+  Copper: L5:trace:row101:part0, L5:trace:row102:part0
+
+Net 89 (Net-89):
+  Pad L5:pad:row103:part0 (Instance ID 110) @ (978.186, 1239.782) px
+  Pad L5:pad:row104:part0 (Instance ID 111) @ (942.975, 1162.037) px
+  Pad L5:pad:row105:part0 (Instance ID 112) @ (843.151, 1136.458) px
+  Copper: L5:trace:row106:part0, L5:trace:row107:part0
+
+Net 90 (Net-90):
+  Pad L5:pad:row109:part0 (Instance ID 117) @ (840.019, 1047.119) px
+  Pad L5:pad:row110:part0 (Instance ID 118) @ (921.417, 919.593) px
+  Pad L5:pad:row111:part0 (Instance ID 119) @ (946.408, 384.371) px
+  Copper: L5:trace:row112:part0, L5:trace:row113:part0
+
+Net 91 (Net-91):
+  Pad L5:pad:row138:part0 (Instance ID 148) @ (459.265, 313.856) px
+  Pad L5:pad:row139:part0 (Instance ID 149) @ (463.977, 197.470) px
+  Pad L5:pad:row140:part0 (Instance ID 150) @ (703.461, 219.231) px
+  Copper: L5:trace:row147:part0, L5:trace:row148:part0
+
+Net 92 (Net-92):
+  Pad L5:pad:row142:part0 (Instance ID 152) @ (771.267, 322.478) px
+  Pad L5:pad:row143:part0 (Instance ID 153) @ (944.828, 322.354) px
+  Pad L5:pad:row144:part0 (Instance ID 154) @ (860.000, 322.500) px
+  Copper: L5:trace:row145:part0, L5:trace:row146:part0
+
+Net 93 (Net-93):
+  Pad L5:pad:row149:part0 (Instance ID 165) @ (764.096, 277.529) px
+  Pad L5:pad:row150:part0 (Instance ID 166) @ (865.289, 232.000) px
+  Pad L5:pad:row151:part0 (Instance ID 167) @ (861.000, 139.117) px
+  Copper: L5:trace:row152:part0, L5:trace:row153:part0

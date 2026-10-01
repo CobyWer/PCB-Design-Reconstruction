@@ -1,0 +1,2638 @@
+ANNOTATION CONNECTIVITY — coordinate terminals, not component pin identities
+Strict polygon contacts unless a nonzero contact tolerance was requested.
+Missing plane annotations and unresolved gaps can split a physical net.
+
+Net 1 (Net-1):
+  Via V001 @ (2221.995, 1569.238) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row253:part0 (Instance ID 253) @ (2137.000, 1519.500) px
+  Pad L0:pad:row262:part0 (Instance ID 262) @ (2222.000, 1569.000) px
+  Pad L0:pad:row281:part0 (Instance ID 281) @ (1694.000, 1961.000) px
+  Pad L1:pad:row360:part0 (Instance ID 360) @ (2221.877, 1569.323) px
+  Pad L2:pad:row360:part0 (Instance ID 360) @ (2221.877, 1569.323) px
+  Pad L3:pad:row360:part0 (Instance ID 360) @ (2221.877, 1569.323) px
+  Copper: L0:trace:row970:part0
+
+Net 2 (Net-2):
+  Via V002 @ (2221.994, 1492.994) px; layers [0, 1, 2, 3]
+  Via V004 @ (2298.681, 1492.995) px; layers [0, 1, 2, 3]
+  Via V005 @ (2409.333, 1569.438) px; layers [0, 1, 2, 3]
+  Via V136 @ (2104.152, 243.500) px; layers [0, 1, 2, 3]
+  Via V137 @ (2039.851, 230.582) px; layers [0, 1, 2, 3]
+  Via V138 @ (1925.377, 422.868) px; layers [0, 1, 2, 3]
+  Via V139 @ (1876.543, 396.457) px; layers [0, 1, 2, 3]
+  Via V140 @ (1810.364, 1837.527) px; layers [0, 1, 2, 3]
+  Via V141 @ (1465.626, 1836.374) px; layers [0, 1, 2, 3]
+  Via V142 @ (1483.675, 880.325) px; layers [0, 1, 2, 3]
+  Via V143 @ (1876.520, 562.740) px; layers [0, 1, 2, 3]
+  Via V203 @ (2086.663, 226.708) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row263:part0 (Instance ID 263) @ (2222.000, 1493.000) px
+  Pad L0:pad:row265:part0 (Instance ID 265) @ (2299.000, 1493.000) px
+  Pad L0:pad:row266:part0 (Instance ID 266) @ (2409.500, 1569.500) px
+  Pad L0:pad:row520:part0 (Instance ID 520) @ (1466.000, 1809.500) px
+  Pad L0:pad:row583:part0 (Instance ID 583) @ (2085.500, 195.500) px
+  Pad L0:pad:row585:part0 (Instance ID 585) @ (2040.000, 195.500) px
+  Pad L0:pad:row612:part0 (Instance ID 612) @ (1877.500, 1868.000) px
+  Pad L0:pad:row613:part0 (Instance ID 613) @ (1934.000, 1868.000) px
+  Pad L0:pad:row614:part0 (Instance ID 614) @ (1990.000, 1868.000) px
+  Pad L0:pad:row663:part0 (Instance ID 663) @ (1482.000, 821.500) px
+  Pad L0:pad:row763:part0 (Instance ID 763) @ (2104.264, 243.501) px
+  Pad L0:pad:row764:part0 (Instance ID 764) @ (2039.665, 230.612) px
+  Pad L0:pad:row765:part0 (Instance ID 765) @ (1925.408, 423.000) px
+  Pad L0:pad:row766:part0 (Instance ID 766) @ (1876.516, 396.370) px
+  Pad L0:pad:row767:part0 (Instance ID 767) @ (1810.316, 1837.500) px
+  Pad L0:pad:row768:part0 (Instance ID 768) @ (1465.583, 1836.267) px
+  Pad L0:pad:row769:part0 (Instance ID 769) @ (1483.892, 880.216) px
+  Pad L0:pad:row770:part0 (Instance ID 770) @ (1876.581, 562.864) px
+  Pad L0:pad:row830:part0 (Instance ID 830) @ (2086.630, 226.630) px
+  Pad L1:pad:row267:part0 (Instance ID 267) @ (2104.264, 243.501) px
+  Pad L1:pad:row268:part0 (Instance ID 268) @ (2039.665, 230.612) px
+  Pad L1:pad:row269:part0 (Instance ID 269) @ (1925.408, 423.000) px
+  Pad L1:pad:row270:part0 (Instance ID 270) @ (1876.516, 396.370) px
+  Pad L1:pad:row271:part0 (Instance ID 271) @ (1810.316, 1837.500) px
+  Pad L1:pad:row272:part0 (Instance ID 272) @ (1465.583, 1836.267) px
+  Pad L1:pad:row273:part0 (Instance ID 273) @ (1483.892, 880.216) px
+  Pad L1:pad:row274:part0 (Instance ID 274) @ (1876.581, 562.864) px
+  Pad L1:pad:row334:part0 (Instance ID 334) @ (2086.630, 226.630) px
+  Pad L1:pad:row361:part0 (Instance ID 361) @ (2221.877, 1492.677) px
+  Pad L1:pad:row363:part0 (Instance ID 363) @ (2299.000, 1493.000) px
+  Pad L1:pad:row364:part0 (Instance ID 364) @ (2409.333, 1569.438) px
+  Pad L2:pad:row267:part0 (Instance ID 267) @ (2104.264, 243.501) px
+  Pad L2:pad:row268:part0 (Instance ID 268) @ (2039.665, 230.612) px
+  Pad L2:pad:row269:part0 (Instance ID 269) @ (1925.408, 423.000) px
+  Pad L2:pad:row270:part0 (Instance ID 270) @ (1876.516, 396.370) px
+  Pad L2:pad:row271:part0 (Instance ID 271) @ (1810.316, 1837.500) px
+  Pad L2:pad:row272:part0 (Instance ID 272) @ (1465.583, 1836.267) px
+  Pad L2:pad:row273:part0 (Instance ID 273) @ (1483.892, 880.216) px
+  Pad L2:pad:row274:part0 (Instance ID 274) @ (1876.581, 562.864) px
+  Pad L2:pad:row334:part0 (Instance ID 334) @ (2086.630, 226.630) px
+  Pad L2:pad:row361:part0 (Instance ID 361) @ (2221.877, 1492.677) px
+  Pad L2:pad:row363:part0 (Instance ID 363) @ (2299.000, 1493.000) px
+  Pad L2:pad:row364:part0 (Instance ID 364) @ (2409.333, 1569.438) px
+  Pad L3:pad:row267:part0 (Instance ID 267) @ (2104.264, 243.501) px
+  Pad L3:pad:row268:part0 (Instance ID 268) @ (2039.665, 230.612) px
+  Pad L3:pad:row269:part0 (Instance ID 269) @ (1925.408, 423.000) px
+  Pad L3:pad:row270:part0 (Instance ID 270) @ (1876.516, 396.370) px
+  Pad L3:pad:row271:part0 (Instance ID 271) @ (1810.316, 1837.500) px
+  Pad L3:pad:row272:part0 (Instance ID 272) @ (1465.583, 1836.267) px
+  Pad L3:pad:row273:part0 (Instance ID 273) @ (1483.892, 880.216) px
+  Pad L3:pad:row274:part0 (Instance ID 274) @ (1876.581, 562.864) px
+  Pad L3:pad:row334:part0 (Instance ID 334) @ (2086.630, 226.630) px
+  Pad L3:pad:row361:part0 (Instance ID 361) @ (2221.877, 1492.677) px
+  Pad L3:pad:row363:part0 (Instance ID 363) @ (2299.000, 1493.000) px
+  Pad L3:pad:row364:part0 (Instance ID 364) @ (2409.333, 1569.438) px
+  Copper: L0:trace:row930:part0, L0:trace:row942:part0, L0:trace:row1006:part0, L0:trace:row1025:part0, L0:trace:row1038:part0, L3:trace:row465:part0, L3:trace:row466:part0, L3:trace:row468:part0, L3:trace:row469:part0
+
+Net 3 (Net-3):
+  Via V003 @ (2298.688, 1569.212) px; layers [0, 1, 2, 3]
+  Via V119 @ (1501.500, 1960.500) px; layers [0, 1, 2, 3]
+  Via V120 @ (1735.496, 1935.932) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row255:part0 (Instance ID 255) @ (2042.000, 1519.500) px
+  Pad L0:pad:row264:part0 (Instance ID 264) @ (2299.000, 1569.000) px
+  Pad L0:pad:row290:part0 (Instance ID 290) @ (1468.500, 1961.000) px
+  Pad L0:pad:row746:part0 (Instance ID 746) @ (1501.461, 1960.539) px
+  Pad L0:pad:row747:part0 (Instance ID 747) @ (1735.500, 1936.000) px
+  Pad L1:pad:row250:part0 (Instance ID 250) @ (1501.461, 1960.539) px
+  Pad L1:pad:row251:part0 (Instance ID 251) @ (1735.500, 1936.000) px
+  Pad L1:pad:row362:part0 (Instance ID 362) @ (2298.569, 1569.339) px
+  Pad L2:pad:row250:part0 (Instance ID 250) @ (1501.461, 1960.539) px
+  Pad L2:pad:row251:part0 (Instance ID 251) @ (1735.500, 1936.000) px
+  Pad L2:pad:row362:part0 (Instance ID 362) @ (2298.569, 1569.339) px
+  Pad L3:pad:row250:part0 (Instance ID 250) @ (1501.461, 1960.539) px
+  Pad L3:pad:row251:part0 (Instance ID 251) @ (1735.500, 1936.000) px
+  Pad L3:pad:row362:part0 (Instance ID 362) @ (2298.569, 1569.339) px
+  Copper: L0:trace:row928:part0, L0:trace:row991:part0, L3:trace:row464:part0
+
+Net 4 (Net-4):
+  Via V006 @ (2298.681, 1645.995) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row267:part0 (Instance ID 267) @ (2299.000, 1646.000) px
+  Pad L1:pad:row365:part0 (Instance ID 365) @ (2298.569, 1645.661) px
+  Pad L2:pad:row365:part0 (Instance ID 365) @ (2298.569, 1645.661) px
+  Pad L3:pad:row365:part0 (Instance ID 365) @ (2298.569, 1645.661) px
+  Copper: (none annotated)
+
+Net 5 (Net-5):
+  Via V007 @ (2221.994, 1645.994) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row268:part0 (Instance ID 268) @ (2222.000, 1646.000) px
+  Pad L1:pad:row366:part0 (Instance ID 366) @ (2221.877, 1645.677) px
+  Pad L2:pad:row366:part0 (Instance ID 366) @ (2221.877, 1645.677) px
+  Pad L3:pad:row366:part0 (Instance ID 366) @ (2221.877, 1645.677) px
+  Copper: (none annotated)
+
+Net 6 (Net-6):
+  Via V008 @ (2403.890, 1277.494) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row606:part0 (Instance ID 606) @ (2404.000, 1277.000) px
+  Pad L1:pad:row367:part0 (Instance ID 367) @ (2403.878, 1277.500) px
+  Pad L2:pad:row367:part0 (Instance ID 367) @ (2403.878, 1277.500) px
+  Pad L3:pad:row367:part0 (Instance ID 367) @ (2403.878, 1277.500) px
+  Copper: (none annotated)
+
+Net 7 (Net-7):
+  Via V009 @ (2403.895, 1167.810) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row605:part0 (Instance ID 605) @ (2404.000, 1168.000) px
+  Pad L1:pad:row368:part0 (Instance ID 368) @ (2403.882, 1167.843) px
+  Pad L2:pad:row368:part0 (Instance ID 368) @ (2403.882, 1167.843) px
+  Pad L3:pad:row368:part0 (Instance ID 368) @ (2403.882, 1167.843) px
+  Copper: (none annotated)
+
+Net 8 (Net-8):
+  Via V010 @ (2216.521, 1222.695) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row314:part0 (Instance ID 314) @ (2078.000, 1123.000) px
+  Pad L0:pad:row315:part0 (Instance ID 315) @ (2078.000, 1106.500) px
+  Pad L0:pad:row604:part0 (Instance ID 604) @ (2216.500, 1222.500) px
+  Pad L1:pad:row369:part0 (Instance ID 369) @ (2216.608, 1222.808) px
+  Pad L2:pad:row369:part0 (Instance ID 369) @ (2216.608, 1222.808) px
+  Pad L3:pad:row369:part0 (Instance ID 369) @ (2216.608, 1222.808) px
+  Copper: L0:trace:row1031:part0
+
+Net 9 (Net-9):
+  Via V011 @ (2293.212, 1222.688) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row603:part0 (Instance ID 603) @ (2293.500, 1222.500) px
+  Pad L1:pad:row370:part0 (Instance ID 370) @ (2293.500, 1222.500) px
+  Pad L2:pad:row370:part0 (Instance ID 370) @ (2293.500, 1222.500) px
+  Pad L3:pad:row370:part0 (Instance ID 370) @ (2293.500, 1222.500) px
+  Copper: (none annotated)
+
+Net 10 (Net-10):
+  Via V012 @ (2216.519, 970.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row316:part0 (Instance ID 316) @ (2078.000, 1090.000) px
+  Pad L0:pad:row317:part0 (Instance ID 317) @ (2078.000, 1073.500) px
+  Pad L0:pad:row721:part0 (Instance ID 721) @ (2216.500, 970.000) px
+  Pad L1:pad:row371:part0 (Instance ID 371) @ (2216.606, 970.000) px
+  Pad L2:pad:row371:part0 (Instance ID 371) @ (2216.606, 970.000) px
+  Pad L3:pad:row371:part0 (Instance ID 371) @ (2216.606, 970.000) px
+  Copper: L0:trace:row1032:part0
+
+Net 11 (Net-11):
+  Via V013 @ (2403.895, 915.190) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row722:part0 (Instance ID 722) @ (2404.000, 915.000) px
+  Pad L1:pad:row372:part0 (Instance ID 372) @ (2403.882, 915.157) px
+  Pad L2:pad:row372:part0 (Instance ID 372) @ (2403.882, 915.157) px
+  Pad L3:pad:row372:part0 (Instance ID 372) @ (2403.882, 915.157) px
+  Copper: (none annotated)
+
+Net 12 (Net-12):
+  Via V014 @ (2403.895, 1024.810) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row723:part0 (Instance ID 723) @ (2404.000, 1025.000) px
+  Pad L1:pad:row373:part0 (Instance ID 373) @ (2403.882, 1024.843) px
+  Pad L2:pad:row373:part0 (Instance ID 373) @ (2403.882, 1024.843) px
+  Pad L3:pad:row373:part0 (Instance ID 373) @ (2403.882, 1024.843) px
+  Copper: (none annotated)
+
+Net 13 (Net-13):
+  Via V015 @ (2293.238, 970.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row720:part0 (Instance ID 720) @ (2293.500, 970.000) px
+  Pad L1:pad:row374:part0 (Instance ID 374) @ (2293.500, 970.000) px
+  Pad L2:pad:row374:part0 (Instance ID 374) @ (2293.500, 970.000) px
+  Pad L3:pad:row374:part0 (Instance ID 374) @ (2293.500, 970.000) px
+  Copper: (none annotated)
+
+Net 14 (Net-14):
+  Via V016 @ (437.499, 1522.149) px; layers [0, 1, 2, 3]
+  Via V107 @ (2351.805, 1763.135) px; layers [0, 1, 2, 3]
+  Via V117 @ (2005.161, 1272.499) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row236:part0 (Instance ID 236) @ (437.500, 1522.500) px
+  Pad L0:pad:row320:part0 (Instance ID 320) @ (2005.500, 1131.500) px
+  Pad L0:pad:row338:part0 (Instance ID 338) @ (2004.000, 981.000) px
+  Pad L0:pad:row340:part0 (Instance ID 340) @ (2004.000, 865.500) px
+  Pad L0:pad:row474:part0 (Instance ID 474) @ (2315.000, 221.000) px
+  Pad L0:pad:row475:part0 (Instance ID 475) @ (2290.500, 152.000) px
+  Pad L0:pad:row486:part0 (Instance ID 486) @ (2222.500, 195.500) px
+  Pad L0:pad:row490:part0 (Instance ID 490) @ (2177.000, 195.500) px
+  Pad L0:pad:row514:part0 (Instance ID 514) @ (1996.000, 228.000) px
+  Pad L0:pad:row515:part0 (Instance ID 515) @ (1971.500, 159.000) px
+  Pad L0:pad:row616:part0 (Instance ID 616) @ (1795.500, 2047.000) px
+  Pad L0:pad:row652:part0 (Instance ID 652) @ (1283.000, 301.500) px
+  Pad L0:pad:row703:part0 (Instance ID 703) @ (1903.000, 202.500) px
+  Pad L0:pad:row705:part0 (Instance ID 705) @ (1858.000, 202.500) px
+  Pad L0:pad:row734:part0 (Instance ID 734) @ (2351.803, 1763.079) px
+  Pad L0:pad:row744:part0 (Instance ID 744) @ (2005.204, 1272.374) px
+  Pad L1:pad:row238:part0 (Instance ID 238) @ (2351.803, 1763.079) px
+  Pad L1:pad:row248:part0 (Instance ID 248) @ (2005.204, 1272.374) px
+  Pad L1:pad:row375:part0 (Instance ID 375) @ (437.500, 1522.190) px
+  Pad L2:pad:row238:part0 (Instance ID 238) @ (2351.803, 1763.079) px
+  Pad L2:pad:row248:part0 (Instance ID 248) @ (2005.204, 1272.374) px
+  Pad L2:pad:row375:part0 (Instance ID 375) @ (437.500, 1522.190) px
+  Pad L3:pad:row238:part0 (Instance ID 238) @ (2351.803, 1763.079) px
+  Pad L3:pad:row248:part0 (Instance ID 248) @ (2005.204, 1272.374) px
+  Pad L3:pad:row375:part0 (Instance ID 375) @ (437.500, 1522.190) px
+  Copper: L0:trace:row921:part0, L0:trace:row990:part0, L0:trace:row1022:part0, L0:trace:row1024:part0, L0:trace:row1037:part0, L3:trace:row456:part0
+
+Net 15 (Net-15):
+  Via V017 @ (1289.499, 893.123) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row642:part0 (Instance ID 642) @ (1289.500, 893.500) px
+  Pad L1:pad:row376:part0 (Instance ID 376) @ (1289.436, 893.213) px
+  Pad L2:pad:row376:part0 (Instance ID 376) @ (1289.436, 893.213) px
+  Pad L3:pad:row376:part0 (Instance ID 376) @ (1289.500, 893.000) px
+  Copper: (none annotated)
+
+Net 16 (Net-16):
+  Via V018 @ (360.891, 1522.158) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row237:part0 (Instance ID 237) @ (360.500, 1522.500) px
+  Pad L1:pad:row377:part0 (Instance ID 377) @ (360.500, 1522.500) px
+  Pad L2:pad:row377:part0 (Instance ID 377) @ (360.500, 1522.500) px
+  Pad L3:pad:row377:part0 (Instance ID 377) @ (360.500, 1522.500) px
+  Copper: (none annotated)
+
+Net 17 (Net-17):
+  Via V019 @ (1324.442, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row414:part0 (Instance ID 414) @ (1324.000, 2315.500) px
+  Pad L1:pad:row378:part0 (Instance ID 378) @ (1324.284, 2315.604) px
+  Pad L2:pad:row378:part0 (Instance ID 378) @ (1324.284, 2315.604) px
+  Pad L3:pad:row378:part0 (Instance ID 378) @ (1324.284, 2315.604) px
+  Copper: (none annotated)
+
+Net 18 (Net-18):
+  Via V020 @ (1500.944, 2388.149) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row415:part0 (Instance ID 415) @ (1501.000, 2388.000) px
+  Pad L1:pad:row379:part0 (Instance ID 379) @ (1500.994, 2388.228) px
+  Pad L2:pad:row379:part0 (Instance ID 379) @ (1500.994, 2388.228) px
+  Pad L3:pad:row379:part0 (Instance ID 379) @ (1500.994, 2388.228) px
+  Copper: (none annotated)
+
+Net 19 (Net-19):
+  Via V021 @ (265.995, 694.319) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row528:part0 (Instance ID 528) @ (266.000, 694.500) px
+  Pad L1:pad:row380:part0 (Instance ID 380) @ (265.500, 694.500) px
+  Pad L2:pad:row380:part0 (Instance ID 380) @ (265.500, 694.500) px
+  Pad L3:pad:row380:part0 (Instance ID 380) @ (265.500, 694.500) px
+  Copper: (none annotated)
+
+Net 20 (Net-20):
+  Via V022 @ (491.000, 402.479) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row459:part0 (Instance ID 459) @ (491.000, 402.000) px
+  Pad L1:pad:row381:part0 (Instance ID 381) @ (491.000, 402.085) px
+  Pad L2:pad:row381:part0 (Instance ID 381) @ (491.000, 402.085) px
+  Pad L3:pad:row381:part0 (Instance ID 381) @ (491.000, 402.322) px
+  Copper: (none annotated)
+
+Net 21 (Net-21):
+  Via V023 @ (337.500, 402.483) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row460:part0 (Instance ID 460) @ (337.500, 402.000) px
+  Pad L1:pad:row382:part0 (Instance ID 382) @ (337.394, 402.076) px
+  Pad L2:pad:row382:part0 (Instance ID 382) @ (337.394, 402.076) px
+  Pad L3:pad:row382:part0 (Instance ID 382) @ (337.494, 402.338) px
+  Copper: (none annotated)
+
+Net 22 (Net-22):
+  Via V024 @ (892.263, 402.477) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row617:part0 (Instance ID 617) @ (892.000, 402.000) px
+  Pad L1:pad:row383:part0 (Instance ID 383) @ (892.085, 402.085) px
+  Pad L2:pad:row383:part0 (Instance ID 383) @ (892.085, 402.085) px
+  Pad L3:pad:row383:part0 (Instance ID 383) @ (892.103, 402.323) px
+  Copper: (none annotated)
+
+Net 23 (Net-23):
+  Via V025 @ (738.500, 402.483) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row618:part0 (Instance ID 618) @ (738.500, 402.000) px
+  Pad L1:pad:row384:part0 (Instance ID 384) @ (738.606, 402.076) px
+  Pad L2:pad:row384:part0 (Instance ID 384) @ (738.606, 402.076) px
+  Pad L3:pad:row384:part0 (Instance ID 384) @ (738.500, 402.346) px
+  Copper: (none annotated)
+
+Net 24 (Net-24):
+  Via V026 @ (1571.501, 2388.161) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row416:part0 (Instance ID 416) @ (1571.500, 2388.000) px
+  Pad L1:pad:row385:part0 (Instance ID 385) @ (1571.686, 2388.225) px
+  Pad L2:pad:row385:part0 (Instance ID 385) @ (1571.686, 2388.225) px
+  Pad L3:pad:row385:part0 (Instance ID 385) @ (1571.686, 2388.225) px
+  Copper: (none annotated)
+
+Net 25 (Net-25):
+  Via V027 @ (1712.850, 2388.150) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row417:part0 (Instance ID 417) @ (1713.000, 2388.000) px
+  Pad L1:pad:row386:part0 (Instance ID 386) @ (1712.768, 2388.232) px
+  Pad L2:pad:row386:part0 (Instance ID 386) @ (1712.768, 2388.232) px
+  Pad L3:pad:row386:part0 (Instance ID 386) @ (1712.768, 2388.232) px
+  Copper: (none annotated)
+
+Net 26 (Net-26):
+  Via V028 @ (1818.828, 2315.570) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row418:part0 (Instance ID 418) @ (1819.000, 2315.500) px
+  Pad L1:pad:row387:part0 (Instance ID 387) @ (1818.774, 2315.598) px
+  Pad L2:pad:row387:part0 (Instance ID 387) @ (1818.774, 2315.598) px
+  Pad L3:pad:row387:part0 (Instance ID 387) @ (1818.774, 2315.598) px
+  Copper: (none annotated)
+
+Net 27 (Net-27):
+  Via V029 @ (1224.499, 893.123) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row643:part0 (Instance ID 643) @ (1224.500, 893.500) px
+  Pad L1:pad:row388:part0 (Instance ID 388) @ (1224.436, 893.213) px
+  Pad L2:pad:row388:part0 (Instance ID 388) @ (1224.436, 893.213) px
+  Pad L3:pad:row388:part0 (Instance ID 388) @ (1224.436, 893.213) px
+  Copper: (none annotated)
+
+Net 28 (Net-28):
+  Via V030 @ (1256.933, 893.152) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row644:part0 (Instance ID 644) @ (1257.000, 893.500) px
+  Pad L1:pad:row389:part0 (Instance ID 389) @ (1256.874, 893.207) px
+  Pad L2:pad:row389:part0 (Instance ID 389) @ (1256.874, 893.207) px
+  Pad L3:pad:row389:part0 (Instance ID 389) @ (1256.874, 893.207) px
+  Copper: (none annotated)
+
+Net 29 (Net-29):
+  Via V031 @ (1159.499, 893.123) px; layers [0, 1, 2, 3]
+  Via V041 @ (1159.500, 925.500) px; layers [0, 1, 2, 3]
+  Via V224 @ (1284.197, 1068.701) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row366:part0 (Instance ID 366) @ (1465.000, 1408.000) px
+  Pad L0:pad:row468:part0 (Instance ID 468) @ (1160.000, 752.000) px
+  Pad L0:pad:row469:part0 (Instance ID 469) @ (1160.000, 591.500) px
+  Pad L0:pad:row645:part0 (Instance ID 645) @ (1159.500, 893.500) px
+  Pad L0:pad:row649:part0 (Instance ID 649) @ (1159.500, 925.500) px
+  Pad L0:pad:row694:part0 (Instance ID 694) @ (1160.000, 814.500) px
+  Pad L0:pad:row851:part0 (Instance ID 851) @ (1284.335, 1068.612) px
+  Pad L1:pad:row355:part0 (Instance ID 355) @ (1284.335, 1068.612) px
+  Pad L1:pad:row390:part0 (Instance ID 390) @ (1159.374, 893.214) px
+  Pad L1:pad:row400:part0 (Instance ID 400) @ (1159.391, 925.564) px
+  Pad L2:pad:row355:part0 (Instance ID 355) @ (1284.335, 1068.612) px
+  Pad L2:pad:row390:part0 (Instance ID 390) @ (1159.374, 893.214) px
+  Pad L2:pad:row400:part0 (Instance ID 400) @ (1159.391, 925.564) px
+  Pad L3:pad:row355:part0 (Instance ID 355) @ (1284.335, 1068.612) px
+  Pad L3:pad:row390:part0 (Instance ID 390) @ (1159.374, 893.214) px
+  Pad L3:pad:row400:part0 (Instance ID 400) @ (1159.391, 925.564) px
+  Copper: L0:trace:row903:part0, L0:trace:row913:part0, L3:trace:row462:part0
+
+Net 30 (Net-30):
+  Via V032 @ (1889.500, 2315.559) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row419:part0 (Instance ID 419) @ (1889.500, 2315.500) px
+  Pad L0:pad:row609:part0 (Instance ID 609) @ (1934.000, 2047.000) px
+  Pad L1:pad:row391:part0 (Instance ID 391) @ (1889.541, 2315.604) px
+  Pad L2:pad:row391:part0 (Instance ID 391) @ (1889.541, 2315.604) px
+  Pad L3:pad:row391:part0 (Instance ID 391) @ (1889.541, 2315.604) px
+  Copper: L0:trace:row1008:part0
+
+Net 31 (Net-31):
+  Via V033 @ (1924.785, 2388.137) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row420:part0 (Instance ID 420) @ (1925.000, 2388.000) px
+  Pad L0:pad:row610:part0 (Instance ID 610) @ (1877.500, 2047.000) px
+  Pad L1:pad:row392:part0 (Instance ID 392) @ (1925.000, 2388.000) px
+  Pad L2:pad:row392:part0 (Instance ID 392) @ (1925.000, 2388.000) px
+  Pad L3:pad:row392:part0 (Instance ID 392) @ (1925.000, 2388.000) px
+  Copper: L0:trace:row988:part0
+
+Net 32 (Net-32):
+  Via V034 @ (360.881, 1445.994) px; layers [0, 1, 2, 3]
+  Via V135 @ (1568.031, 1578.105) px; layers [0, 1, 2, 3]
+  Via V217 @ (1579.500, 1459.848) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row238:part0 (Instance ID 238) @ (360.500, 1446.000) px
+  Pad L0:pad:row353:part0 (Instance ID 353) @ (1542.000, 1408.000) px
+  Pad L0:pad:row402:part0 (Instance ID 402) @ (1555.000, 1408.000) px
+  Pad L0:pad:row685:part0 (Instance ID 685) @ (1567.000, 1484.000) px
+  Pad L0:pad:row689:part0 (Instance ID 689) @ (1567.500, 1526.000) px
+  Pad L0:pad:row762:part0 (Instance ID 762) @ (1568.132, 1578.329) px
+  Pad L0:pad:row844:part0 (Instance ID 844) @ (1579.473, 1459.877) px
+  Pad L1:pad:row266:part0 (Instance ID 266) @ (1568.132, 1578.329) px
+  Pad L1:pad:row348:part0 (Instance ID 348) @ (1579.473, 1459.877) px
+  Pad L1:pad:row393:part0 (Instance ID 393) @ (360.851, 1445.923) px
+  Pad L2:pad:row266:part0 (Instance ID 266) @ (1568.132, 1578.329) px
+  Pad L2:pad:row348:part0 (Instance ID 348) @ (1579.473, 1459.877) px
+  Pad L2:pad:row393:part0 (Instance ID 393) @ (360.851, 1445.923) px
+  Pad L3:pad:row266:part0 (Instance ID 266) @ (1568.132, 1578.329) px
+  Pad L3:pad:row348:part0 (Instance ID 348) @ (1579.473, 1459.877) px
+  Pad L3:pad:row393:part0 (Instance ID 393) @ (360.851, 1445.923) px
+  Copper: L0:trace:row954:part0, L0:trace:row956:part0, L3:trace:row458:part0
+
+Net 33 (Net-33):
+  Via V035 @ (437.500, 1445.997) px; layers [0, 1, 2, 3]
+  Via V216 @ (1613.896, 1474.104) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row239:part0 (Instance ID 239) @ (437.500, 1446.000) px
+  Pad L0:pad:row401:part0 (Instance ID 401) @ (1567.500, 1408.000) px
+  Pad L0:pad:row843:part0 (Instance ID 843) @ (1613.796, 1474.343) px
+  Pad L1:pad:row347:part0 (Instance ID 347) @ (1613.796, 1474.343) px
+  Pad L1:pad:row394:part0 (Instance ID 394) @ (437.500, 1445.925) px
+  Pad L2:pad:row347:part0 (Instance ID 347) @ (1613.796, 1474.343) px
+  Pad L2:pad:row394:part0 (Instance ID 394) @ (437.500, 1445.925) px
+  Pad L3:pad:row347:part0 (Instance ID 347) @ (1613.796, 1474.343) px
+  Pad L3:pad:row394:part0 (Instance ID 394) @ (437.500, 1445.925) px
+  Copper: L0:trace:row955:part0, L3:trace:row457:part0
+
+Net 34 (Net-34):
+  Via V036 @ (250.105, 1577.190) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row240:part0 (Instance ID 240) @ (250.000, 1577.000) px
+  Pad L1:pad:row395:part0 (Instance ID 395) @ (250.226, 1577.159) px
+  Pad L2:pad:row395:part0 (Instance ID 395) @ (250.226, 1577.159) px
+  Pad L3:pad:row395:part0 (Instance ID 395) @ (250.226, 1577.159) px
+  Copper: (none annotated)
+
+Net 35 (Net-35):
+  Via V037 @ (250.105, 1391.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row241:part0 (Instance ID 241) @ (250.000, 1391.000) px
+  Pad L1:pad:row396:part0 (Instance ID 396) @ (250.230, 1391.000) px
+  Pad L2:pad:row396:part0 (Instance ID 396) @ (250.230, 1391.000) px
+  Pad L3:pad:row396:part0 (Instance ID 396) @ (250.230, 1391.000) px
+  Copper: (none annotated)
+
+Net 36 (Net-36):
+  Via V038 @ (1191.933, 893.152) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row646:part0 (Instance ID 646) @ (1192.000, 893.500) px
+  Pad L1:pad:row397:part0 (Instance ID 397) @ (1191.874, 893.207) px
+  Pad L2:pad:row397:part0 (Instance ID 397) @ (1191.874, 893.207) px
+  Pad L3:pad:row397:part0 (Instance ID 397) @ (1191.874, 893.207) px
+  Copper: (none annotated)
+
+Net 37 (Net-37):
+  Via V039 @ (1191.950, 925.501) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row647:part0 (Instance ID 647) @ (1192.000, 925.500) px
+  Pad L1:pad:row398:part0 (Instance ID 398) @ (1191.883, 925.571) px
+  Pad L2:pad:row398:part0 (Instance ID 398) @ (1191.883, 925.571) px
+  Pad L3:pad:row398:part0 (Instance ID 398) @ (1191.883, 925.571) px
+  Copper: (none annotated)
+
+Net 38 (Net-38):
+  Via V040 @ (1289.500, 925.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row368:part0 (Instance ID 368) @ (1414.000, 1115.000) px
+  Pad L0:pad:row648:part0 (Instance ID 648) @ (1289.500, 925.500) px
+  Pad L1:pad:row399:part0 (Instance ID 399) @ (1289.446, 925.554) px
+  Pad L2:pad:row399:part0 (Instance ID 399) @ (1289.446, 925.554) px
+  Pad L3:pad:row399:part0 (Instance ID 399) @ (1289.446, 925.554) px
+  Copper: L0:trace:row917:part0
+
+Net 39 (Net-39):
+  Via V042 @ (1224.500, 925.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row369:part0 (Instance ID 369) @ (1337.000, 1242.000) px
+  Pad L0:pad:row650:part0 (Instance ID 650) @ (1224.500, 925.500) px
+  Pad L1:pad:row401:part0 (Instance ID 401) @ (1224.446, 925.554) px
+  Pad L2:pad:row401:part0 (Instance ID 401) @ (1224.446, 925.554) px
+  Pad L3:pad:row401:part0 (Instance ID 401) @ (1224.446, 925.554) px
+  Copper: L0:trace:row898:part0
+
+Net 40 (Net-40):
+  Via V043 @ (1256.950, 925.501) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row367:part0 (Instance ID 367) @ (1337.000, 1166.000) px
+  Pad L0:pad:row651:part0 (Instance ID 651) @ (1257.000, 925.500) px
+  Pad L1:pad:row402:part0 (Instance ID 402) @ (1256.883, 925.571) px
+  Pad L2:pad:row402:part0 (Instance ID 402) @ (1256.883, 925.571) px
+  Pad L3:pad:row402:part0 (Instance ID 402) @ (1256.883, 925.571) px
+  Copper: L0:trace:row914:part0
+
+Net 41 (Net-41):
+  Via V044 @ (1674.499, 2005.839) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row279:part0 (Instance ID 279) @ (1674.500, 2006.000) px
+  Pad L1:pad:row403:part0 (Instance ID 403) @ (1674.499, 2005.839) px
+  Pad L2:pad:row403:part0 (Instance ID 403) @ (1674.499, 2005.839) px
+  Pad L3:pad:row403:part0 (Instance ID 403) @ (1674.499, 2005.839) px
+  Copper: (none annotated)
+
+Net 42 (Net-42):
+  Via V045 @ (1597.501, 2005.839) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row280:part0 (Instance ID 280) @ (1597.500, 2006.000) px
+  Pad L1:pad:row404:part0 (Instance ID 404) @ (1597.501, 2005.839) px
+  Pad L2:pad:row404:part0 (Instance ID 404) @ (1597.501, 2005.839) px
+  Pad L3:pad:row404:part0 (Instance ID 404) @ (1597.501, 2005.839) px
+  Copper: (none annotated)
+
+Net 43 (Net-43):
+  Via V046 @ (1449.499, 2005.839) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row288:part0 (Instance ID 288) @ (1449.500, 2006.000) px
+  Pad L1:pad:row405:part0 (Instance ID 405) @ (1449.499, 2005.839) px
+  Pad L2:pad:row405:part0 (Instance ID 405) @ (1449.499, 2005.839) px
+  Pad L3:pad:row405:part0 (Instance ID 405) @ (1449.499, 2005.839) px
+  Copper: (none annotated)
+
+Net 44 (Net-44):
+  Via V047 @ (1372.501, 2005.839) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row289:part0 (Instance ID 289) @ (1372.500, 2006.000) px
+  Pad L1:pad:row406:part0 (Instance ID 406) @ (1372.501, 2005.839) px
+  Pad L2:pad:row406:part0 (Instance ID 406) @ (1372.501, 2005.839) px
+  Pad L3:pad:row406:part0 (Instance ID 406) @ (1372.501, 2005.839) px
+  Copper: (none annotated)
+
+Net 45 (Net-45):
+  Via V048 @ (1854.428, 2388.137) px; layers [0, 1, 2, 3]
+  Via V061 @ (1677.500, 2315.559) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row324:part0 (Instance ID 324) @ (1635.500, 2151.500) px
+  Pad L0:pad:row329:part0 (Instance ID 329) @ (1427.000, 2151.000) px
+  Pad L0:pad:row421:part0 (Instance ID 421) @ (1854.000, 2388.000) px
+  Pad L0:pad:row434:part0 (Instance ID 434) @ (1677.500, 2315.500) px
+  Pad L1:pad:row407:part0 (Instance ID 407) @ (1854.296, 2388.233) px
+  Pad L1:pad:row420:part0 (Instance ID 420) @ (1677.604, 2315.604) px
+  Pad L2:pad:row407:part0 (Instance ID 407) @ (1854.296, 2388.233) px
+  Pad L2:pad:row420:part0 (Instance ID 420) @ (1677.604, 2315.604) px
+  Pad L3:pad:row407:part0 (Instance ID 407) @ (1854.296, 2388.233) px
+  Pad L3:pad:row420:part0 (Instance ID 420) @ (1677.604, 2315.604) px
+  Copper: L0:trace:row926:part0, L0:trace:row967:part0
+
+Net 46 (Net-46):
+  Via V049 @ (1006.499, 2388.161) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row422:part0 (Instance ID 422) @ (1006.500, 2388.000) px
+  Pad L1:pad:row408:part0 (Instance ID 408) @ (1006.314, 2388.225) px
+  Pad L2:pad:row408:part0 (Instance ID 408) @ (1006.314, 2388.225) px
+  Pad L3:pad:row408:part0 (Instance ID 408) @ (1006.314, 2388.225) px
+  Copper: (none annotated)
+
+Net 47 (Net-47):
+  Via V050 @ (1218.430, 2388.151) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row423:part0 (Instance ID 423) @ (1218.000, 2388.000) px
+  Pad L1:pad:row409:part0 (Instance ID 409) @ (1218.296, 2388.233) px
+  Pad L2:pad:row409:part0 (Instance ID 409) @ (1218.296, 2388.233) px
+  Pad L3:pad:row409:part0 (Instance ID 409) @ (1218.296, 2388.233) px
+  Copper: (none annotated)
+
+Net 48 (Net-48):
+  Via V051 @ (1642.430, 2388.151) px; layers [0, 1, 2, 3]
+  Via V062 @ (1606.931, 2315.579) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row424:part0 (Instance ID 424) @ (1642.000, 2388.000) px
+  Pad L0:pad:row435:part0 (Instance ID 435) @ (1607.000, 2315.500) px
+  Pad L0:pad:row590:part0 (Instance ID 590) @ (1216.500, 1911.000) px
+  Pad L1:pad:row410:part0 (Instance ID 410) @ (1642.296, 2388.233) px
+  Pad L1:pad:row421:part0 (Instance ID 421) @ (1606.888, 2315.597) px
+  Pad L2:pad:row410:part0 (Instance ID 410) @ (1642.296, 2388.233) px
+  Pad L2:pad:row421:part0 (Instance ID 421) @ (1606.888, 2315.597) px
+  Pad L3:pad:row410:part0 (Instance ID 410) @ (1642.296, 2388.233) px
+  Pad L3:pad:row421:part0 (Instance ID 421) @ (1606.888, 2315.597) px
+  Copper: L0:trace:row891:part0
+
+Net 49 (Net-49):
+  Via V052 @ (1536.442, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row425:part0 (Instance ID 425) @ (1536.000, 2315.500) px
+  Pad L0:pad:row593:part0 (Instance ID 593) @ (1122.500, 1911.000) px
+  Pad L1:pad:row411:part0 (Instance ID 411) @ (1536.284, 2315.604) px
+  Pad L2:pad:row411:part0 (Instance ID 411) @ (1536.284, 2315.604) px
+  Pad L3:pad:row411:part0 (Instance ID 411) @ (1536.284, 2315.604) px
+  Copper: L0:trace:row890:part0
+
+Net 50 (Net-50):
+  Via V053 @ (1783.501, 2388.161) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row327:part0 (Instance ID 327) @ (1385.000, 2151.000) px
+  Pad L0:pad:row426:part0 (Instance ID 426) @ (1783.500, 2388.000) px
+  Pad L1:pad:row412:part0 (Instance ID 412) @ (1783.536, 2388.226) px
+  Pad L2:pad:row412:part0 (Instance ID 412) @ (1783.536, 2388.226) px
+  Pad L3:pad:row412:part0 (Instance ID 412) @ (1783.536, 2388.226) px
+  Copper: L0:trace:row905:part0
+
+Net 51 (Net-51):
+  Via V054 @ (1430.430, 2388.151) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row427:part0 (Instance ID 427) @ (1430.000, 2388.000) px
+  Pad L1:pad:row413:part0 (Instance ID 413) @ (1430.296, 2388.233) px
+  Pad L2:pad:row413:part0 (Instance ID 413) @ (1430.296, 2388.233) px
+  Pad L3:pad:row413:part0 (Instance ID 413) @ (1430.296, 2388.233) px
+  Copper: (none annotated)
+
+Net 52 (Net-52):
+  Via V055 @ (1359.501, 2388.161) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row428:part0 (Instance ID 428) @ (1359.500, 2388.000) px
+  Pad L1:pad:row414:part0 (Instance ID 414) @ (1359.686, 2388.225) px
+  Pad L2:pad:row414:part0 (Instance ID 414) @ (1359.686, 2388.225) px
+  Pad L3:pad:row414:part0 (Instance ID 414) @ (1359.686, 2388.225) px
+  Copper: (none annotated)
+
+Net 53 (Net-53):
+  Via V056 @ (1289.000, 2388.148) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row429:part0 (Instance ID 429) @ (1289.000, 2388.000) px
+  Pad L1:pad:row415:part0 (Instance ID 415) @ (1288.994, 2388.228) px
+  Pad L2:pad:row415:part0 (Instance ID 415) @ (1288.994, 2388.228) px
+  Pad L3:pad:row415:part0 (Instance ID 415) @ (1288.994, 2388.228) px
+  Copper: (none annotated)
+
+Net 54 (Net-54):
+  Via V057 @ (1147.570, 2388.151) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row430:part0 (Instance ID 430) @ (1148.000, 2388.000) px
+  Pad L1:pad:row416:part0 (Instance ID 416) @ (1147.704, 2388.233) px
+  Pad L2:pad:row416:part0 (Instance ID 416) @ (1147.704, 2388.233) px
+  Pad L3:pad:row416:part0 (Instance ID 416) @ (1147.704, 2388.233) px
+  Copper: (none annotated)
+
+Net 55 (Net-55):
+  Via V058 @ (1077.000, 2388.148) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row431:part0 (Instance ID 431) @ (1077.000, 2388.000) px
+  Pad L1:pad:row417:part0 (Instance ID 417) @ (1077.006, 2388.228) px
+  Pad L2:pad:row417:part0 (Instance ID 417) @ (1077.006, 2388.228) px
+  Pad L3:pad:row417:part0 (Instance ID 417) @ (1077.006, 2388.228) px
+  Copper: (none annotated)
+
+Net 56 (Net-56):
+  Via V059 @ (723.570, 2388.151) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row432:part0 (Instance ID 432) @ (724.000, 2388.000) px
+  Pad L1:pad:row418:part0 (Instance ID 418) @ (723.704, 2388.233) px
+  Pad L2:pad:row418:part0 (Instance ID 418) @ (723.704, 2388.233) px
+  Pad L3:pad:row418:part0 (Instance ID 418) @ (723.704, 2388.233) px
+  Copper: (none annotated)
+
+Net 57 (Net-57):
+  Via V060 @ (653.150, 2388.150) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row433:part0 (Instance ID 433) @ (653.000, 2388.000) px
+  Pad L1:pad:row419:part0 (Instance ID 419) @ (653.232, 2388.232) px
+  Pad L2:pad:row419:part0 (Instance ID 419) @ (653.232, 2388.232) px
+  Pad L3:pad:row419:part0 (Instance ID 419) @ (653.232, 2388.232) px
+  Copper: (none annotated)
+
+Net 58 (Net-58):
+  Via V063 @ (1465.500, 2315.559) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row436:part0 (Instance ID 436) @ (1465.500, 2315.500) px
+  Pad L1:pad:row422:part0 (Instance ID 422) @ (1465.694, 2315.604) px
+  Pad L2:pad:row422:part0 (Instance ID 422) @ (1465.694, 2315.604) px
+  Pad L3:pad:row422:part0 (Instance ID 422) @ (1465.694, 2315.604) px
+  Copper: (none annotated)
+
+Net 59 (Net-59):
+  Via V064 @ (1394.931, 2315.579) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row437:part0 (Instance ID 437) @ (1395.000, 2315.500) px
+  Pad L1:pad:row423:part0 (Instance ID 423) @ (1394.994, 2315.601) px
+  Pad L2:pad:row423:part0 (Instance ID 423) @ (1394.994, 2315.601) px
+  Pad L3:pad:row423:part0 (Instance ID 423) @ (1394.994, 2315.601) px
+  Copper: (none annotated)
+
+Net 60 (Net-60):
+  Via V065 @ (1253.558, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row438:part0 (Instance ID 438) @ (1253.500, 2315.500) px
+  Pad L1:pad:row424:part0 (Instance ID 424) @ (1253.716, 2315.604) px
+  Pad L2:pad:row424:part0 (Instance ID 424) @ (1253.716, 2315.604) px
+  Pad L3:pad:row424:part0 (Instance ID 424) @ (1253.716, 2315.604) px
+  Copper: (none annotated)
+
+Net 61 (Net-61):
+  Via V066 @ (1183.000, 2315.579) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row439:part0 (Instance ID 439) @ (1183.000, 2315.500) px
+  Pad L1:pad:row425:part0 (Instance ID 425) @ (1183.000, 2315.592) px
+  Pad L2:pad:row425:part0 (Instance ID 425) @ (1183.000, 2315.592) px
+  Pad L3:pad:row425:part0 (Instance ID 425) @ (1183.000, 2315.592) px
+  Copper: (none annotated)
+
+Net 62 (Net-62):
+  Via V067 @ (1112.442, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row440:part0 (Instance ID 440) @ (1112.500, 2315.500) px
+  Pad L1:pad:row426:part0 (Instance ID 426) @ (1112.284, 2315.604) px
+  Pad L2:pad:row426:part0 (Instance ID 426) @ (1112.284, 2315.604) px
+  Pad L3:pad:row426:part0 (Instance ID 426) @ (1112.284, 2315.604) px
+  Copper: (none annotated)
+
+Net 63 (Net-63):
+  Via V068 @ (1041.558, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row441:part0 (Instance ID 441) @ (1042.000, 2315.500) px
+  Pad L1:pad:row427:part0 (Instance ID 427) @ (1041.716, 2315.604) px
+  Pad L2:pad:row427:part0 (Instance ID 427) @ (1041.716, 2315.604) px
+  Pad L3:pad:row427:part0 (Instance ID 427) @ (1041.716, 2315.604) px
+  Copper: (none annotated)
+
+Net 64 (Net-64):
+  Via V069 @ (971.069, 2315.579) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row442:part0 (Instance ID 442) @ (971.000, 2315.500) px
+  Pad L1:pad:row428:part0 (Instance ID 428) @ (971.006, 2315.601) px
+  Pad L2:pad:row428:part0 (Instance ID 428) @ (971.006, 2315.601) px
+  Pad L3:pad:row428:part0 (Instance ID 428) @ (971.006, 2315.601) px
+  Copper: (none annotated)
+
+Net 65 (Net-65):
+  Via V070 @ (900.500, 2315.559) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row443:part0 (Instance ID 443) @ (900.500, 2315.500) px
+  Pad L1:pad:row429:part0 (Instance ID 429) @ (900.306, 2315.604) px
+  Pad L2:pad:row429:part0 (Instance ID 429) @ (900.306, 2315.604) px
+  Pad L3:pad:row429:part0 (Instance ID 429) @ (900.306, 2315.604) px
+  Copper: (none annotated)
+
+Net 66 (Net-66):
+  Via V071 @ (829.558, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row444:part0 (Instance ID 444) @ (830.000, 2315.500) px
+  Pad L1:pad:row430:part0 (Instance ID 430) @ (829.716, 2315.604) px
+  Pad L2:pad:row430:part0 (Instance ID 430) @ (829.716, 2315.604) px
+  Pad L3:pad:row430:part0 (Instance ID 430) @ (829.716, 2315.604) px
+  Copper: (none annotated)
+
+Net 67 (Net-67):
+  Via V072 @ (759.069, 2315.579) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row445:part0 (Instance ID 445) @ (759.000, 2315.500) px
+  Pad L1:pad:row431:part0 (Instance ID 431) @ (759.112, 2315.597) px
+  Pad L2:pad:row431:part0 (Instance ID 431) @ (759.112, 2315.597) px
+  Pad L3:pad:row431:part0 (Instance ID 431) @ (759.112, 2315.597) px
+  Copper: (none annotated)
+
+Net 68 (Net-68):
+  Via V073 @ (688.500, 2315.559) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row446:part0 (Instance ID 446) @ (688.500, 2315.500) px
+  Pad L1:pad:row432:part0 (Instance ID 432) @ (688.396, 2315.604) px
+  Pad L2:pad:row432:part0 (Instance ID 432) @ (688.396, 2315.604) px
+  Pad L3:pad:row432:part0 (Instance ID 432) @ (688.396, 2315.604) px
+  Copper: (none annotated)
+
+Net 69 (Net-69):
+  Via V074 @ (2101.981, 2351.981) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row447:part0 (Instance ID 447) @ (2101.500, 2352.000) px
+  Pad L1:pad:row433:part0 (Instance ID 433) @ (2101.856, 2351.876) px
+  Pad L2:pad:row433:part0 (Instance ID 433) @ (2101.856, 2351.876) px
+  Pad L3:pad:row433:part0 (Instance ID 433) @ (2101.856, 2351.876) px
+  Copper: (none annotated)
+
+Net 70 (Net-70):
+  Via V075 @ (476.019, 2351.981) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row448:part0 (Instance ID 448) @ (476.500, 2352.000) px
+  Pad L1:pad:row434:part0 (Instance ID 434) @ (476.144, 2351.876) px
+  Pad L2:pad:row434:part0 (Instance ID 434) @ (476.144, 2351.876) px
+  Pad L3:pad:row434:part0 (Instance ID 434) @ (476.144, 2351.876) px
+  Copper: (none annotated)
+
+Net 71 (Net-71):
+  Via V076 @ (865.056, 2388.149) px; layers [0, 1, 2, 3]
+  Via V082 @ (815.500, 478.517) px; layers [0, 1, 2, 3]
+  Via V083 @ (414.483, 478.517) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row449:part0 (Instance ID 449) @ (865.000, 2388.000) px
+  Pad L0:pad:row462:part0 (Instance ID 462) @ (414.000, 479.000) px
+  Pad L0:pad:row537:part0 (Instance ID 537) @ (783.000, 656.500) px
+  Pad L0:pad:row620:part0 (Instance ID 620) @ (815.000, 479.000) px
+  Pad L0:pad:row711:part0 (Instance ID 711) @ (832.000, 890.500) px
+  Pad L0:pad:row718:part0 (Instance ID 718) @ (840.000, 1004.500) px
+  Pad L1:pad:row435:part0 (Instance ID 435) @ (865.006, 2388.228) px
+  Pad L1:pad:row445:part0 (Instance ID 445) @ (815.231, 478.864) px
+  Pad L1:pad:row446:part0 (Instance ID 446) @ (414.086, 478.857) px
+  Pad L2:pad:row435:part0 (Instance ID 435) @ (865.006, 2388.228) px
+  Pad L2:pad:row445:part0 (Instance ID 445) @ (815.231, 478.864) px
+  Pad L2:pad:row446:part0 (Instance ID 446) @ (414.086, 478.857) px
+  Pad L3:pad:row435:part0 (Instance ID 435) @ (865.006, 2388.228) px
+  Pad L3:pad:row445:part0 (Instance ID 445) @ (815.431, 478.661) px
+  Pad L3:pad:row446:part0 (Instance ID 446) @ (414.103, 478.677) px
+  Copper: L0:trace:row857:part0
+
+Net 72 (Net-72):
+  Via V077 @ (935.570, 2388.151) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row450:part0 (Instance ID 450) @ (936.000, 2388.000) px
+  Pad L0:pad:row470:part0 (Instance ID 470) @ (934.500, 2124.000) px
+  Pad L1:pad:row436:part0 (Instance ID 436) @ (935.704, 2388.233) px
+  Pad L2:pad:row436:part0 (Instance ID 436) @ (935.704, 2388.233) px
+  Pad L3:pad:row436:part0 (Instance ID 436) @ (935.704, 2388.233) px
+  Copper: L0:trace:row872:part0
+
+Net 73 (Net-73):
+  Via V078 @ (794.499, 2388.161) px; layers [0, 1, 2, 3]
+  Via V080 @ (892.263, 478.523) px; layers [0, 1, 2, 3]
+  Via V081 @ (491.000, 478.521) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row451:part0 (Instance ID 451) @ (794.500, 2388.000) px
+  Pad L0:pad:row461:part0 (Instance ID 461) @ (491.000, 479.000) px
+  Pad L0:pad:row536:part0 (Instance ID 536) @ (928.000, 656.500) px
+  Pad L0:pad:row619:part0 (Instance ID 619) @ (892.000, 479.000) px
+  Pad L0:pad:row710:part0 (Instance ID 710) @ (880.500, 890.500) px
+  Pad L0:pad:row719:part0 (Instance ID 719) @ (872.500, 1004.500) px
+  Pad L1:pad:row437:part0 (Instance ID 437) @ (794.314, 2388.225) px
+  Pad L1:pad:row443:part0 (Instance ID 443) @ (892.086, 478.857) px
+  Pad L1:pad:row444:part0 (Instance ID 444) @ (491.000, 478.857) px
+  Pad L2:pad:row437:part0 (Instance ID 437) @ (794.314, 2388.225) px
+  Pad L2:pad:row443:part0 (Instance ID 443) @ (892.086, 478.857) px
+  Pad L2:pad:row444:part0 (Instance ID 444) @ (491.000, 478.857) px
+  Pad L3:pad:row437:part0 (Instance ID 437) @ (794.314, 2388.225) px
+  Pad L3:pad:row443:part0 (Instance ID 443) @ (892.103, 478.677) px
+  Pad L3:pad:row444:part0 (Instance ID 444) @ (491.000, 478.678) px
+  Copper: L0:trace:row856:part0
+
+Net 74 (Net-74):
+  Via V079 @ (1748.435, 2315.558) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row322:part0 (Instance ID 322) @ (1677.500, 2151.500) px
+  Pad L0:pad:row452:part0 (Instance ID 452) @ (1748.000, 2315.500) px
+  Pad L1:pad:row438:part0 (Instance ID 438) @ (1748.284, 2315.604) px
+  Pad L2:pad:row438:part0 (Instance ID 438) @ (1748.284, 2315.604) px
+  Pad L3:pad:row438:part0 (Instance ID 438) @ (1748.284, 2315.604) px
+  Copper: L0:trace:row968:part0
+
+Net 75 (Net-75):
+  Via V084 @ (815.500, 402.483) px; layers [0, 1, 2, 3]
+  Via V087 @ (414.483, 402.483) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row463:part0 (Instance ID 463) @ (414.000, 402.000) px
+  Pad L0:pad:row599:part0 (Instance ID 599) @ (1065.000, 466.500) px
+  Pad L0:pad:row600:part0 (Instance ID 600) @ (1098.000, 466.500) px
+  Pad L0:pad:row601:part0 (Instance ID 601) @ (1130.000, 466.500) px
+  Pad L0:pad:row602:part0 (Instance ID 602) @ (1163.000, 466.500) px
+  Pad L0:pad:row621:part0 (Instance ID 621) @ (815.000, 402.000) px
+  Pad L1:pad:row447:part0 (Instance ID 447) @ (815.237, 402.073) px
+  Pad L1:pad:row450:part0 (Instance ID 450) @ (414.085, 402.085) px
+  Pad L2:pad:row447:part0 (Instance ID 447) @ (815.237, 402.073) px
+  Pad L2:pad:row450:part0 (Instance ID 450) @ (414.085, 402.085) px
+  Pad L3:pad:row447:part0 (Instance ID 447) @ (815.431, 402.339) px
+  Pad L3:pad:row450:part0 (Instance ID 450) @ (414.103, 402.323) px
+  Copper: L0:trace:row871:part0
+
+Net 76 (Net-76):
+  Via V085 @ (738.500, 478.517) px; layers [0, 1, 2, 3]
+  Via V088 @ (337.500, 478.517) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row464:part0 (Instance ID 464) @ (337.500, 479.000) px
+  Pad L0:pad:row502:part0 (Instance ID 502) @ (513.000, 670.500) px
+  Pad L0:pad:row503:part0 (Instance ID 503) @ (513.000, 683.000) px
+  Pad L0:pad:row552:part0 (Instance ID 552) @ (459.000, 652.000) px
+  Pad L0:pad:row622:part0 (Instance ID 622) @ (738.500, 479.000) px
+  Pad L1:pad:row448:part0 (Instance ID 448) @ (738.607, 478.855) px
+  Pad L1:pad:row451:part0 (Instance ID 451) @ (337.393, 478.855) px
+  Pad L2:pad:row448:part0 (Instance ID 448) @ (738.607, 478.855) px
+  Pad L2:pad:row451:part0 (Instance ID 451) @ (337.393, 478.855) px
+  Pad L3:pad:row448:part0 (Instance ID 448) @ (738.500, 478.654) px
+  Pad L3:pad:row451:part0 (Instance ID 451) @ (337.494, 478.662) px
+  Copper: L0:trace:row868:part0, L3:trace:row463:part0
+
+Net 77 (Net-77):
+  Via V086 @ (815.308, 292.064) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row623:part0 (Instance ID 623) @ (815.000, 292.000) px
+  Pad L1:pad:row449:part0 (Instance ID 449) @ (815.237, 292.016) px
+  Pad L2:pad:row449:part0 (Instance ID 449) @ (815.237, 292.016) px
+  Pad L3:pad:row449:part0 (Instance ID 449) @ (815.308, 292.064) px
+  Copper: (none annotated)
+
+Net 78 (Net-78):
+  Via V089 @ (414.188, 292.064) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row465:part0 (Instance ID 465) @ (414.000, 292.000) px
+  Pad L1:pad:row452:part0 (Instance ID 452) @ (414.085, 292.020) px
+  Pad L2:pad:row452:part0 (Instance ID 452) @ (414.085, 292.020) px
+  Pad L3:pad:row452:part0 (Instance ID 452) @ (414.188, 292.064) px
+  Copper: (none annotated)
+
+Net 79 (Net-79):
+  Via V090 @ (2483.021, 2473.500) px; layers [0, 1, 2, 3]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 80 (Net-80):
+  Via V091 @ (2483.021, 76.500) px; layers [0, 1, 2, 3]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 81 (Net-81):
+  Via V092 @ (76.979, 76.500) px; layers [0, 1, 2, 3]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 82 (Net-82):
+  Via V093 @ (76.979, 2473.500) px; layers [0, 1, 2, 3]
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 83 (Net-83):
+  Via V094 @ (342.961, 694.309) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row504:part0 (Instance ID 504) @ (513.000, 696.000) px
+  Pad L0:pad:row529:part0 (Instance ID 529) @ (342.500, 694.500) px
+  Pad L0:pad:row553:part0 (Instance ID 553) @ (459.000, 700.500) px
+  Pad L0:pad:row569:part0 (Instance ID 569) @ (458.500, 760.000) px
+  Pad L1:pad:row453:part0 (Instance ID 453) @ (342.922, 694.184) px
+  Pad L2:pad:row453:part0 (Instance ID 453) @ (342.922, 694.184) px
+  Pad L3:pad:row453:part0 (Instance ID 453) @ (342.922, 694.184) px
+  Copper: L0:trace:row866:part0
+
+Net 84 (Net-84):
+  Via V095 @ (155.457, 749.192) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row530:part0 (Instance ID 530) @ (155.500, 749.000) px
+  Pad L1:pad:row454:part0 (Instance ID 454) @ (155.414, 749.160) px
+  Pad L2:pad:row454:part0 (Instance ID 454) @ (155.414, 749.160) px
+  Pad L3:pad:row454:part0 (Instance ID 454) @ (155.414, 749.160) px
+  Copper: (none annotated)
+
+Net 85 (Net-85):
+  Via V096 @ (155.454, 639.505) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row531:part0 (Instance ID 531) @ (155.500, 639.500) px
+  Pad L1:pad:row455:part0 (Instance ID 455) @ (155.414, 639.501) px
+  Pad L2:pad:row455:part0 (Instance ID 455) @ (155.414, 639.501) px
+  Pad L3:pad:row455:part0 (Instance ID 455) @ (155.414, 639.501) px
+  Copper: (none annotated)
+
+Net 86 (Net-86):
+  Via V097 @ (1791.667, 2151.451) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row246:part0 (Instance ID 246) @ (1759.500, 2151.500) px
+  Pad L0:pad:row724:part0 (Instance ID 724) @ (1791.590, 2151.410) px
+  Pad L1:pad:row228:part0 (Instance ID 228) @ (1791.590, 2151.410) px
+  Pad L2:pad:row228:part0 (Instance ID 228) @ (1791.590, 2151.410) px
+  Pad L3:pad:row228:part0 (Instance ID 228) @ (1791.590, 2151.410) px
+  Copper: L0:trace:row989:part0
+
+Net 87 (Net-87):
+  Via V098 @ (2116.500, 535.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row725:part0 (Instance ID 725) @ (2116.501, 535.104) px
+  Pad L1:pad:row229:part0 (Instance ID 229) @ (2116.501, 535.104) px
+  Pad L2:pad:row229:part0 (Instance ID 229) @ (2116.501, 535.104) px
+  Pad L3:pad:row229:part0 (Instance ID 229) @ (2116.501, 535.104) px
+  Copper: (none annotated)
+
+Net 88 (Net-88):
+  Via V099 @ (2115.205, 507.084) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row726:part0 (Instance ID 726) @ (2115.353, 507.353) px
+  Pad L1:pad:row230:part0 (Instance ID 230) @ (2115.353, 507.353) px
+  Pad L2:pad:row230:part0 (Instance ID 230) @ (2115.353, 507.353) px
+  Pad L3:pad:row230:part0 (Instance ID 230) @ (2115.353, 507.353) px
+  Copper: (none annotated)
+
+Net 89 (Net-89):
+  Via V100 @ (2113.969, 472.895) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row727:part0 (Instance ID 727) @ (2113.796, 472.657) px
+  Pad L1:pad:row231:part0 (Instance ID 231) @ (2113.796, 472.657) px
+  Pad L2:pad:row231:part0 (Instance ID 231) @ (2113.796, 472.657) px
+  Pad L3:pad:row231:part0 (Instance ID 231) @ (2113.796, 472.657) px
+  Copper: (none annotated)
+
+Net 90 (Net-90):
+  Via V101 @ (2076.227, 471.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row728:part0 (Instance ID 728) @ (2076.325, 471.500) px
+  Pad L1:pad:row232:part0 (Instance ID 232) @ (2076.325, 471.500) px
+  Pad L2:pad:row232:part0 (Instance ID 232) @ (2076.325, 471.500) px
+  Pad L3:pad:row232:part0 (Instance ID 232) @ (2076.325, 471.500) px
+  Copper: (none annotated)
+
+Net 91 (Net-91):
+  Via V102 @ (2037.987, 470.205) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row729:part0 (Instance ID 729) @ (2037.710, 470.352) px
+  Pad L1:pad:row233:part0 (Instance ID 233) @ (2037.710, 470.352) px
+  Pad L2:pad:row233:part0 (Instance ID 233) @ (2037.710, 470.352) px
+  Pad L3:pad:row233:part0 (Instance ID 233) @ (2037.710, 470.352) px
+  Copper: (none annotated)
+
+Net 92 (Net-92):
+  Via V103 @ (2079.422, 506.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row730:part0 (Instance ID 730) @ (2079.499, 505.736) px
+  Pad L1:pad:row234:part0 (Instance ID 234) @ (2079.499, 505.736) px
+  Pad L2:pad:row234:part0 (Instance ID 234) @ (2079.499, 505.736) px
+  Pad L3:pad:row234:part0 (Instance ID 234) @ (2079.499, 505.736) px
+  Copper: (none annotated)
+
+Net 93 (Net-93):
+  Via V104 @ (2038.500, 505.152) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row731:part0 (Instance ID 731) @ (2038.500, 505.325) px
+  Pad L1:pad:row235:part0 (Instance ID 235) @ (2038.500, 505.325) px
+  Pad L2:pad:row235:part0 (Instance ID 235) @ (2038.500, 505.325) px
+  Pad L3:pad:row235:part0 (Instance ID 235) @ (2038.500, 505.325) px
+  Copper: (none annotated)
+
+Net 94 (Net-94):
+  Via V105 @ (1899.374, 1735.374) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row540:part0 (Instance ID 540) @ (1899.000, 1763.000) px
+  Pad L0:pad:row732:part0 (Instance ID 732) @ (1899.408, 1735.136) px
+  Pad L1:pad:row236:part0 (Instance ID 236) @ (1899.408, 1735.136) px
+  Pad L2:pad:row236:part0 (Instance ID 236) @ (1899.408, 1735.136) px
+  Pad L3:pad:row236:part0 (Instance ID 236) @ (1899.408, 1735.136) px
+  Copper: L0:trace:row1010:part0
+
+Net 95 (Net-95):
+  Via V106 @ (1943.502, 1627.592) px; layers [0, 1, 2, 3]
+  Via V114 @ (1943.502, 1546.667) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row359:part0 (Instance ID 359) @ (1631.500, 1293.000) px
+  Pad L0:pad:row542:part0 (Instance ID 542) @ (1944.000, 1762.500) px
+  Pad L0:pad:row733:part0 (Instance ID 733) @ (1943.516, 1627.630) px
+  Pad L0:pad:row741:part0 (Instance ID 741) @ (1943.516, 1546.630) px
+  Pad L1:pad:row237:part0 (Instance ID 237) @ (1943.516, 1627.630) px
+  Pad L1:pad:row245:part0 (Instance ID 245) @ (1943.516, 1546.630) px
+  Pad L2:pad:row237:part0 (Instance ID 237) @ (1943.516, 1627.630) px
+  Pad L2:pad:row245:part0 (Instance ID 245) @ (1943.516, 1546.630) px
+  Pad L3:pad:row237:part0 (Instance ID 237) @ (1943.516, 1627.630) px
+  Pad L3:pad:row245:part0 (Instance ID 245) @ (1943.516, 1546.630) px
+  Copper: L0:trace:row979:part0, L0:trace:row1011:part0, L3:trace:row467:part0
+
+Net 96 (Net-96):
+  Via V108 @ (1795.870, 865.375) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row341:part0 (Instance ID 341) @ (1876.000, 865.500) px
+  Pad L0:pad:row735:part0 (Instance ID 735) @ (1795.994, 865.369) px
+  Pad L1:pad:row239:part0 (Instance ID 239) @ (1795.994, 865.369) px
+  Pad L2:pad:row239:part0 (Instance ID 239) @ (1795.994, 865.369) px
+  Pad L3:pad:row239:part0 (Instance ID 239) @ (1795.994, 865.369) px
+  Copper: L0:trace:row1005:part0
+
+Net 97 (Net-97):
+  Via V109 @ (1843.500, 1106.848) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row336:part0 (Instance ID 336) @ (1845.000, 1082.000) px
+  Pad L0:pad:row736:part0 (Instance ID 736) @ (1843.473, 1106.877) px
+  Pad L1:pad:row240:part0 (Instance ID 240) @ (1843.473, 1106.877) px
+  Pad L2:pad:row240:part0 (Instance ID 240) @ (1843.473, 1106.877) px
+  Pad L3:pad:row240:part0 (Instance ID 240) @ (1843.473, 1106.877) px
+  Copper: L0:trace:row1003:part0
+
+Net 98 (Net-98):
+  Via V110 @ (1880.333, 1139.667) px; layers [0, 1, 2, 3]
+  Via V113 @ (1901.667, 1140.451) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row321:part0 (Instance ID 321) @ (1932.000, 1139.500) px
+  Pad L0:pad:row737:part0 (Instance ID 737) @ (1880.370, 1139.630) px
+  Pad L0:pad:row740:part0 (Instance ID 740) @ (1901.630, 1140.370) px
+  Pad L1:pad:row241:part0 (Instance ID 241) @ (1880.370, 1139.630) px
+  Pad L1:pad:row244:part0 (Instance ID 244) @ (1901.630, 1140.370) px
+  Pad L2:pad:row241:part0 (Instance ID 241) @ (1880.370, 1139.630) px
+  Pad L2:pad:row244:part0 (Instance ID 244) @ (1901.630, 1140.370) px
+  Pad L3:pad:row241:part0 (Instance ID 241) @ (1880.370, 1139.630) px
+  Pad L3:pad:row244:part0 (Instance ID 244) @ (1901.630, 1140.370) px
+  Copper: L0:trace:row1013:part0
+
+Net 99 (Net-99):
+  Via V111 @ (1880.500, 1106.848) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row342:part0 (Instance ID 342) @ (1880.500, 1082.000) px
+  Pad L0:pad:row738:part0 (Instance ID 738) @ (1880.499, 1106.896) px
+  Pad L1:pad:row242:part0 (Instance ID 242) @ (1880.499, 1106.896) px
+  Pad L2:pad:row242:part0 (Instance ID 242) @ (1880.499, 1106.896) px
+  Pad L3:pad:row242:part0 (Instance ID 242) @ (1880.499, 1106.896) px
+  Copper: L0:trace:row1014:part0
+
+Net 100 (Net-100):
+  Via V112 @ (1880.500, 973.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row331:part0 (Instance ID 331) @ (1880.500, 999.000) px
+  Pad L0:pad:row739:part0 (Instance ID 739) @ (1880.500, 973.500) px
+  Pad L1:pad:row243:part0 (Instance ID 243) @ (1880.500, 973.500) px
+  Pad L2:pad:row243:part0 (Instance ID 243) @ (1880.500, 973.500) px
+  Pad L3:pad:row243:part0 (Instance ID 243) @ (1880.500, 973.500) px
+  Copper: L0:trace:row1016:part0
+
+Net 101 (Net-101):
+  Via V115 @ (1953.398, 981.885) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row339:part0 (Instance ID 339) @ (1978.000, 981.000) px
+  Pad L0:pad:row742:part0 (Instance ID 742) @ (1953.375, 981.870) px
+  Pad L1:pad:row246:part0 (Instance ID 246) @ (1953.375, 981.870) px
+  Pad L2:pad:row246:part0 (Instance ID 246) @ (1953.375, 981.870) px
+  Pad L3:pad:row246:part0 (Instance ID 246) @ (1953.375, 981.870) px
+  Copper: L0:trace:row1017:part0
+
+Net 102 (Net-102):
+  Via V116 @ (2000.104, 1546.104) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row250:part0 (Instance ID 250) @ (2000.000, 1519.000) px
+  Pad L0:pad:row743:part0 (Instance ID 743) @ (2000.265, 1546.133) px
+  Pad L1:pad:row247:part0 (Instance ID 247) @ (2000.265, 1546.133) px
+  Pad L2:pad:row247:part0 (Instance ID 247) @ (2000.265, 1546.133) px
+  Pad L3:pad:row247:part0 (Instance ID 247) @ (2000.265, 1546.133) px
+  Copper: L0:trace:row1012:part0
+
+Net 103 (Net-103):
+  Via V118 @ (2095.104, 1548.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row248:part0 (Instance ID 248) @ (2094.500, 1519.000) px
+  Pad L0:pad:row745:part0 (Instance ID 745) @ (2095.195, 1548.135) px
+  Pad L1:pad:row249:part0 (Instance ID 249) @ (2095.195, 1548.135) px
+  Pad L2:pad:row249:part0 (Instance ID 249) @ (2095.195, 1548.135) px
+  Pad L3:pad:row249:part0 (Instance ID 249) @ (2095.195, 1548.135) px
+  Copper: L0:trace:row1030:part0, L0:trace:row1030:part1
+
+Net 104 (Net-104):
+  Via V121 @ (875.896, 1222.896) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row457:part0 (Instance ID 457) @ (876.000, 1193.500) px
+  Pad L0:pad:row712:part0 (Instance ID 712) @ (872.500, 1143.000) px
+  Pad L0:pad:row748:part0 (Instance ID 748) @ (875.720, 1222.795) px
+  Pad L1:pad:row252:part0 (Instance ID 252) @ (875.720, 1222.795) px
+  Pad L2:pad:row252:part0 (Instance ID 252) @ (875.720, 1222.795) px
+  Pad L3:pad:row252:part0 (Instance ID 252) @ (875.720, 1222.795) px
+  Copper: L0:trace:row879:part0, L0:trace:row879:part1
+
+Net 105 (Net-105):
+  Via V122 @ (483.778, 600.420) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row496:part0 (Instance ID 496) @ (513.000, 645.000) px
+  Pad L0:pad:row668:part0 (Instance ID 668) @ (514.000, 600.000) px
+  Pad L0:pad:row749:part0 (Instance ID 749) @ (483.665, 600.388) px
+  Pad L1:pad:row253:part0 (Instance ID 253) @ (483.665, 600.388) px
+  Pad L2:pad:row253:part0 (Instance ID 253) @ (483.665, 600.388) px
+  Pad L3:pad:row253:part0 (Instance ID 253) @ (483.665, 600.388) px
+  Copper: L0:trace:row870:part0
+
+Net 106 (Net-106):
+  Via V123 @ (1212.498, 1103.667) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row344:part0 (Instance ID 344) @ (1212.500, 1143.000) px
+  Pad L0:pad:row750:part0 (Instance ID 750) @ (1212.484, 1103.630) px
+  Pad L1:pad:row254:part0 (Instance ID 254) @ (1212.484, 1103.630) px
+  Pad L2:pad:row254:part0 (Instance ID 254) @ (1212.484, 1103.630) px
+  Pad L3:pad:row254:part0 (Instance ID 254) @ (1212.484, 1103.630) px
+  Copper: L0:trace:row902:part0
+
+Net 107 (Net-107):
+  Via V124 @ (2082.795, 538.987) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row751:part0 (Instance ID 751) @ (2082.624, 538.813) px
+  Pad L1:pad:row255:part0 (Instance ID 255) @ (2082.624, 538.813) px
+  Pad L2:pad:row255:part0 (Instance ID 255) @ (2082.624, 538.813) px
+  Pad L3:pad:row255:part0 (Instance ID 255) @ (2082.624, 538.813) px
+  Copper: (none annotated)
+
+Net 108 (Net-108):
+  Via V125 @ (2358.420, 224.778) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row483:part0 (Instance ID 483) @ (2359.000, 188.500) px
+  Pad L0:pad:row752:part0 (Instance ID 752) @ (2358.484, 224.675) px
+  Pad L1:pad:row256:part0 (Instance ID 256) @ (2358.484, 224.675) px
+  Pad L2:pad:row256:part0 (Instance ID 256) @ (2358.484, 224.675) px
+  Pad L3:pad:row256:part0 (Instance ID 256) @ (2358.484, 224.675) px
+  Copper: L0:trace:row1039:part0
+
+Net 109 (Net-109):
+  Via V126 @ (1403.163, 1371.894) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row352:part0 (Instance ID 352) @ (1388.000, 1408.000) px
+  Pad L0:pad:row753:part0 (Instance ID 753) @ (1403.353, 1371.647) px
+  Pad L1:pad:row257:part0 (Instance ID 257) @ (1403.353, 1371.647) px
+  Pad L2:pad:row257:part0 (Instance ID 257) @ (1403.353, 1371.647) px
+  Pad L3:pad:row257:part0 (Instance ID 257) @ (1403.353, 1371.647) px
+  Copper: L0:trace:row938:part0
+
+Net 110 (Net-110):
+  Via V127 @ (701.502, 1046.667) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row272:part0 (Instance ID 272) @ (701.500, 1073.000) px
+  Pad L0:pad:row754:part0 (Instance ID 754) @ (701.630, 1046.630) px
+  Pad L1:pad:row258:part0 (Instance ID 258) @ (701.630, 1046.630) px
+  Pad L2:pad:row258:part0 (Instance ID 258) @ (701.630, 1046.630) px
+  Pad L3:pad:row258:part0 (Instance ID 258) @ (701.630, 1046.630) px
+  Copper: L0:trace:row862:part0
+
+Net 111 (Net-111):
+  Via V128 @ (615.117, 1047.480) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row270:part0 (Instance ID 270) @ (614.500, 1074.000) px
+  Pad L0:pad:row755:part0 (Instance ID 755) @ (615.273, 1047.387) px
+  Pad L1:pad:row259:part0 (Instance ID 259) @ (615.273, 1047.387) px
+  Pad L2:pad:row259:part0 (Instance ID 259) @ (615.273, 1047.387) px
+  Pad L3:pad:row259:part0 (Instance ID 259) @ (615.273, 1047.387) px
+  Copper: L0:trace:row861:part0
+
+Net 112 (Net-112):
+  Via V129 @ (2038.795, 537.987) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row756:part0 (Instance ID 756) @ (2038.671, 537.868) px
+  Pad L1:pad:row260:part0 (Instance ID 260) @ (2038.671, 537.868) px
+  Pad L2:pad:row260:part0 (Instance ID 260) @ (2038.671, 537.868) px
+  Pad L3:pad:row260:part0 (Instance ID 260) @ (2038.671, 537.868) px
+  Copper: (none annotated)
+
+Net 113 (Net-113):
+  Via V130 @ (1533.848, 855.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row661:part0 (Instance ID 661) @ (1534.000, 822.000) px
+  Pad L0:pad:row757:part0 (Instance ID 757) @ (1533.882, 855.500) px
+  Pad L1:pad:row261:part0 (Instance ID 261) @ (1533.882, 855.500) px
+  Pad L2:pad:row261:part0 (Instance ID 261) @ (1533.882, 855.500) px
+  Pad L3:pad:row261:part0 (Instance ID 261) @ (1533.882, 855.500) px
+  Copper: L0:trace:row959:part0
+
+Net 114 (Net-114):
+  Via V131 @ (1727.592, 1328.498) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row350:part0 (Instance ID 350) @ (1631.500, 1331.500) px
+  Pad L0:pad:row691:part0 (Instance ID 691) @ (1694.000, 1330.000) px
+  Pad L0:pad:row758:part0 (Instance ID 758) @ (1727.630, 1328.500) px
+  Pad L1:pad:row262:part0 (Instance ID 262) @ (1727.630, 1328.500) px
+  Pad L2:pad:row262:part0 (Instance ID 262) @ (1727.630, 1328.500) px
+  Pad L3:pad:row262:part0 (Instance ID 262) @ (1727.630, 1328.500) px
+  Copper: L0:trace:row978:part0, L0:trace:row996:part0
+
+Net 115 (Net-115):
+  Via V132 @ (1780.480, 1123.117) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row273:part0 (Instance ID 273) @ (1742.000, 1123.500) px
+  Pad L0:pad:row351:part0 (Instance ID 351) @ (1631.500, 1166.000) px
+  Pad L0:pad:row681:part0 (Instance ID 681) @ (1694.000, 1123.500) px
+  Pad L0:pad:row759:part0 (Instance ID 759) @ (1780.376, 1123.187) px
+  Pad L1:pad:row263:part0 (Instance ID 263) @ (1780.376, 1123.187) px
+  Pad L2:pad:row263:part0 (Instance ID 263) @ (1780.376, 1123.187) px
+  Pad L3:pad:row263:part0 (Instance ID 263) @ (1780.376, 1123.187) px
+  Copper: L0:trace:row983:part0, L0:trace:row983:part1
+
+Net 116 (Net-116):
+  Via V133 @ (1202.967, 1388.033) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row275:part0 (Instance ID 275) @ (1240.500, 1388.500) px
+  Pad L0:pad:row354:part0 (Instance ID 354) @ (1337.000, 1357.000) px
+  Pad L0:pad:row687:part0 (Instance ID 687) @ (1287.000, 1388.000) px
+  Pad L0:pad:row760:part0 (Instance ID 760) @ (1202.864, 1388.136) px
+  Pad L1:pad:row264:part0 (Instance ID 264) @ (1202.864, 1388.136) px
+  Pad L2:pad:row264:part0 (Instance ID 264) @ (1202.864, 1388.136) px
+  Pad L3:pad:row264:part0 (Instance ID 264) @ (1202.864, 1388.136) px
+  Copper: L0:trace:row895:part0, L0:trace:row895:part1, L0:trace:row895:part2
+
+Net 117 (Net-117):
+  Via V134 @ (1348.500, 979.451) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row277:part0 (Instance ID 277) @ (1348.500, 1014.500) px
+  Pad L0:pad:row355:part0 (Instance ID 355) @ (1388.000, 1115.000) px
+  Pad L0:pad:row683:part0 (Instance ID 683) @ (1348.500, 1061.000) px
+  Pad L0:pad:row761:part0 (Instance ID 761) @ (1348.630, 979.370) px
+  Pad L1:pad:row265:part0 (Instance ID 265) @ (1348.630, 979.370) px
+  Pad L2:pad:row265:part0 (Instance ID 265) @ (1348.630, 979.370) px
+  Pad L3:pad:row265:part0 (Instance ID 265) @ (1348.630, 979.370) px
+  Copper: L0:trace:row915:part0
+
+Net 118 (Net-118):
+  Via V144 @ (1669.104, 1445.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row244:part0 (Instance ID 244) @ (1698.000, 1445.000) px
+  Pad L0:pad:row771:part0 (Instance ID 771) @ (1669.265, 1445.133) px
+  Pad L1:pad:row275:part0 (Instance ID 275) @ (1669.265, 1445.133) px
+  Pad L2:pad:row275:part0 (Instance ID 275) @ (1669.265, 1445.133) px
+  Pad L3:pad:row275:part0 (Instance ID 275) @ (1669.265, 1445.133) px
+  Copper: L0:trace:row974:part0
+
+Net 119 (Net-119):
+  Via V145 @ (1610.549, 1444.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row242:part0 (Instance ID 242) @ (1639.000, 1444.500) px
+  Pad L0:pad:row772:part0 (Instance ID 772) @ (1610.630, 1444.370) px
+  Pad L1:pad:row276:part0 (Instance ID 276) @ (1610.630, 1444.370) px
+  Pad L2:pad:row276:part0 (Instance ID 276) @ (1610.630, 1444.370) px
+  Pad L3:pad:row276:part0 (Instance ID 276) @ (1610.630, 1444.370) px
+  Copper: L0:trace:row975:part0
+
+Net 120 (Net-120):
+  Via V146 @ (1613.828, 1698.795) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row521:part0 (Instance ID 521) @ (1604.000, 1712.500) px
+  Pad L0:pad:row773:part0 (Instance ID 773) @ (1613.612, 1698.665) px
+  Pad L1:pad:row277:part0 (Instance ID 277) @ (1613.612, 1698.665) px
+  Pad L2:pad:row277:part0 (Instance ID 277) @ (1613.612, 1698.665) px
+  Pad L3:pad:row277:part0 (Instance ID 277) @ (1613.612, 1698.665) px
+  Copper: L0:trace:row973:part0
+
+Net 121 (Net-121):
+  Via V147 @ (1446.152, 1659.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row492:part0 (Instance ID 492) @ (1444.000, 1621.000) px
+  Pad L0:pad:row774:part0 (Instance ID 774) @ (1446.273, 1659.387) px
+  Pad L1:pad:row278:part0 (Instance ID 278) @ (1446.273, 1659.387) px
+  Pad L2:pad:row278:part0 (Instance ID 278) @ (1446.273, 1659.387) px
+  Pad L3:pad:row278:part0 (Instance ID 278) @ (1446.273, 1659.387) px
+  Copper: L0:trace:row933:part0
+
+Net 122 (Net-122):
+  Via V148 @ (1529.602, 1578.115) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row363:part0 (Instance ID 363) @ (1529.000, 1408.000) px
+  Pad L0:pad:row686:part0 (Instance ID 686) @ (1528.500, 1484.000) px
+  Pad L0:pad:row690:part0 (Instance ID 690) @ (1529.000, 1526.000) px
+  Pad L0:pad:row775:part0 (Instance ID 775) @ (1529.612, 1578.335) px
+  Pad L1:pad:row279:part0 (Instance ID 279) @ (1529.612, 1578.335) px
+  Pad L2:pad:row279:part0 (Instance ID 279) @ (1529.612, 1578.335) px
+  Pad L3:pad:row279:part0 (Instance ID 279) @ (1529.612, 1578.335) px
+  Copper: L0:trace:row953:part0
+
+Net 123 (Net-123):
+  Via V149 @ (934.500, 1968.207) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row488:part0 (Instance ID 488) @ (934.500, 1997.500) px
+  Pad L0:pad:row776:part0 (Instance ID 776) @ (934.388, 1968.335) px
+  Pad L1:pad:row280:part0 (Instance ID 280) @ (934.388, 1968.335) px
+  Pad L2:pad:row280:part0 (Instance ID 280) @ (934.388, 1968.335) px
+  Pad L3:pad:row280:part0 (Instance ID 280) @ (934.388, 1968.335) px
+  Copper: L0:trace:row874:part0
+
+Net 124 (Net-124):
+  Via V150 @ (1063.896, 1847.896) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row544:part0 (Instance ID 544) @ (1189.500, 1802.000) px
+  Pad L0:pad:row546:part0 (Instance ID 546) @ (1092.000, 1802.000) px
+  Pad L0:pad:row547:part0 (Instance ID 547) @ (1130.500, 1802.000) px
+  Pad L0:pad:row551:part0 (Instance ID 551) @ (1131.000, 1753.500) px
+  Pad L0:pad:row591:part0 (Instance ID 591) @ (1192.500, 1847.000) px
+  Pad L0:pad:row592:part0 (Instance ID 592) @ (1147.000, 1847.000) px
+  Pad L0:pad:row594:part0 (Instance ID 594) @ (1098.500, 1847.000) px
+  Pad L0:pad:row777:part0 (Instance ID 777) @ (1063.657, 1847.796) px
+  Pad L1:pad:row281:part0 (Instance ID 281) @ (1063.657, 1847.796) px
+  Pad L2:pad:row281:part0 (Instance ID 281) @ (1063.657, 1847.796) px
+  Pad L3:pad:row281:part0 (Instance ID 281) @ (1063.657, 1847.796) px
+  Copper: L0:trace:row875:part0, L0:trace:row892:part0
+
+Net 125 (Net-125):
+  Via V151 @ (837.333, 1223.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row458:part0 (Instance ID 458) @ (838.000, 1193.500) px
+  Pad L0:pad:row713:part0 (Instance ID 713) @ (840.000, 1143.000) px
+  Pad L0:pad:row778:part0 (Instance ID 778) @ (837.370, 1223.500) px
+  Pad L1:pad:row282:part0 (Instance ID 282) @ (837.370, 1223.500) px
+  Pad L2:pad:row282:part0 (Instance ID 282) @ (837.370, 1223.500) px
+  Pad L3:pad:row282:part0 (Instance ID 282) @ (837.370, 1223.500) px
+  Copper: L0:trace:row880:part0
+
+Net 126 (Net-126):
+  Via V152 @ (1200.304, 1296.013) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row578:part0 (Instance ID 578) @ (1228.000, 1295.500) px
+  Pad L0:pad:row779:part0 (Instance ID 779) @ (1200.375, 1296.130) px
+  Pad L1:pad:row283:part0 (Instance ID 283) @ (1200.375, 1296.130) px
+  Pad L2:pad:row283:part0 (Instance ID 283) @ (1200.375, 1296.130) px
+  Pad L3:pad:row283:part0 (Instance ID 283) @ (1200.375, 1296.130) px
+  Copper: L0:trace:row897:part0
+
+Net 127 (Net-127):
+  Via V153 @ (1236.795, 1231.987) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row345:part0 (Instance ID 345) @ (1236.500, 1204.000) px
+  Pad L0:pad:row780:part0 (Instance ID 780) @ (1236.625, 1231.870) px
+  Pad L1:pad:row284:part0 (Instance ID 284) @ (1236.625, 1231.870) px
+  Pad L2:pad:row284:part0 (Instance ID 284) @ (1236.625, 1231.870) px
+  Pad L3:pad:row284:part0 (Instance ID 284) @ (1236.625, 1231.870) px
+  Copper: L0:trace:row899:part0
+
+Net 128 (Net-128):
+  Via V154 @ (1369.473, 1805.636) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row453:part0 (Instance ID 453) @ (1370.000, 1778.000) px
+  Pad L0:pad:row781:part0 (Instance ID 781) @ (1369.420, 1805.760) px
+  Pad L1:pad:row285:part0 (Instance ID 285) @ (1369.420, 1805.760) px
+  Pad L2:pad:row285:part0 (Instance ID 285) @ (1369.420, 1805.760) px
+  Pad L3:pad:row285:part0 (Instance ID 285) @ (1369.420, 1805.760) px
+  Copper: L0:trace:row907:part0
+
+Net 129 (Net-129):
+  Via V155 @ (1376.500, 1514.451) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row674:part0 (Instance ID 674) @ (1375.500, 1484.000) px
+  Pad L0:pad:row782:part0 (Instance ID 782) @ (1376.500, 1514.370) px
+  Pad L1:pad:row286:part0 (Instance ID 286) @ (1376.500, 1514.370) px
+  Pad L2:pad:row286:part0 (Instance ID 286) @ (1376.500, 1514.370) px
+  Pad L3:pad:row286:part0 (Instance ID 286) @ (1376.500, 1514.370) px
+  Copper: L0:trace:row908:part0
+
+Net 130 (Net-130):
+  Via V156 @ (1433.104, 1513.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row493:part0 (Instance ID 493) @ (1435.013, 1550.834) px
+  Pad L0:pad:row783:part0 (Instance ID 783) @ (1433.265, 1513.133) px
+  Pad L1:pad:row287:part0 (Instance ID 287) @ (1433.265, 1513.133) px
+  Pad L2:pad:row287:part0 (Instance ID 287) @ (1433.265, 1513.133) px
+  Pad L3:pad:row287:part0 (Instance ID 287) @ (1433.265, 1513.133) px
+  Copper: L0:trace:row936:part0
+
+Net 131 (Net-131):
+  Via V157 @ (1492.848, 1515.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row696:part0 (Instance ID 696) @ (1490.500, 1484.000) px
+  Pad L0:pad:row784:part0 (Instance ID 784) @ (1492.870, 1515.625) px
+  Pad L1:pad:row288:part0 (Instance ID 288) @ (1492.870, 1515.625) px
+  Pad L2:pad:row288:part0 (Instance ID 288) @ (1492.870, 1515.625) px
+  Pad L3:pad:row288:part0 (Instance ID 288) @ (1492.870, 1515.625) px
+  Copper: L0:trace:row937:part0
+
+Net 132 (Net-132):
+  Via V158 @ (806.987, 966.304) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row714:part0 (Instance ID 714) @ (807.500, 1004.500) px
+  Pad L0:pad:row785:part0 (Instance ID 785) @ (806.870, 966.375) px
+  Pad L1:pad:row289:part0 (Instance ID 289) @ (806.870, 966.375) px
+  Pad L2:pad:row289:part0 (Instance ID 289) @ (806.870, 966.375) px
+  Pad L3:pad:row289:part0 (Instance ID 289) @ (806.870, 966.375) px
+  Copper: L0:trace:row863:part0, L0:trace:row863:part1
+
+Net 133 (Net-133):
+  Via V159 @ (507.084, 731.205) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row566:part0 (Instance ID 566) @ (505.000, 760.000) px
+  Pad L0:pad:row786:part0 (Instance ID 786) @ (507.335, 731.388) px
+  Pad L1:pad:row290:part0 (Instance ID 290) @ (507.335, 731.388) px
+  Pad L2:pad:row290:part0 (Instance ID 290) @ (507.335, 731.388) px
+  Pad L3:pad:row290:part0 (Instance ID 290) @ (507.335, 731.388) px
+  Copper: L0:trace:row865:part0
+
+Net 134 (Net-134):
+  Via V160 @ (856.304, 911.987) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row709:part0 (Instance ID 709) @ (856.500, 944.000) px
+  Pad L0:pad:row787:part0 (Instance ID 787) @ (856.375, 911.870) px
+  Pad L1:pad:row291:part0 (Instance ID 291) @ (856.375, 911.870) px
+  Pad L2:pad:row291:part0 (Instance ID 291) @ (856.375, 911.870) px
+  Pad L3:pad:row291:part0 (Instance ID 291) @ (856.375, 911.870) px
+  Copper: L0:trace:row881:part0
+
+Net 135 (Net-135):
+  Via V161 @ (856.333, 885.460) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row698:part0 (Instance ID 698) @ (856.500, 848.000) px
+  Pad L0:pad:row788:part0 (Instance ID 788) @ (856.370, 885.370) px
+  Pad L1:pad:row292:part0 (Instance ID 292) @ (856.370, 885.370) px
+  Pad L2:pad:row292:part0 (Instance ID 292) @ (856.370, 885.370) px
+  Pad L3:pad:row292:part0 (Instance ID 292) @ (856.370, 885.370) px
+  Copper: L0:trace:row882:part0
+
+Net 136 (Net-136):
+  Via V162 @ (583.987, 684.696) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row497:part0 (Instance ID 497) @ (622.000, 696.000) px
+  Pad L0:pad:row499:part0 (Instance ID 499) @ (622.000, 683.000) px
+  Pad L0:pad:row789:part0 (Instance ID 789) @ (583.813, 684.624) px
+  Pad L1:pad:row293:part0 (Instance ID 293) @ (583.813, 684.624) px
+  Pad L2:pad:row293:part0 (Instance ID 293) @ (583.813, 684.624) px
+  Pad L3:pad:row293:part0 (Instance ID 293) @ (583.813, 684.624) px
+  Copper: L0:trace:row867:part0
+
+Net 137 (Net-137):
+  Via V163 @ (578.772, 600.460) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row498:part0 (Instance ID 498) @ (513.000, 657.500) px
+  Pad L0:pad:row667:part0 (Instance ID 667) @ (552.500, 600.000) px
+  Pad L0:pad:row790:part0 (Instance ID 790) @ (578.630, 600.370) px
+  Pad L1:pad:row294:part0 (Instance ID 294) @ (578.630, 600.370) px
+  Pad L2:pad:row294:part0 (Instance ID 294) @ (578.630, 600.370) px
+  Pad L3:pad:row294:part0 (Instance ID 294) @ (578.630, 600.370) px
+  Copper: L0:trace:row869:part0
+
+Net 138 (Net-138):
+  Via V164 @ (1065.013, 296.696) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row595:part0 (Instance ID 595) @ (1065.000, 340.500) px
+  Pad L0:pad:row791:part0 (Instance ID 791) @ (1065.187, 296.624) px
+  Pad L1:pad:row295:part0 (Instance ID 295) @ (1065.187, 296.624) px
+  Pad L2:pad:row295:part0 (Instance ID 295) @ (1065.187, 296.624) px
+  Pad L3:pad:row295:part0 (Instance ID 295) @ (1065.187, 296.624) px
+  Copper: L0:trace:row885:part0
+
+Net 139 (Net-139):
+  Via V165 @ (1229.000, 813.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row693:part0 (Instance ID 693) @ (1199.000, 814.500) px
+  Pad L0:pad:row792:part0 (Instance ID 792) @ (1228.896, 813.501) px
+  Pad L1:pad:row296:part0 (Instance ID 296) @ (1228.896, 813.501) px
+  Pad L2:pad:row296:part0 (Instance ID 296) @ (1228.896, 813.501) px
+  Pad L3:pad:row296:part0 (Instance ID 296) @ (1228.896, 813.501) px
+  Copper: L0:trace:row904:part0
+
+Net 140 (Net-140):
+  Via V166 @ (1290.152, 754.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row466:part0 (Instance ID 466) @ (1257.500, 752.000) px
+  Pad L0:pad:row467:part0 (Instance ID 467) @ (1257.500, 591.500) px
+  Pad L0:pad:row793:part0 (Instance ID 793) @ (1290.187, 754.624) px
+  Pad L1:pad:row297:part0 (Instance ID 297) @ (1290.187, 754.624) px
+  Pad L2:pad:row297:part0 (Instance ID 297) @ (1290.187, 754.624) px
+  Pad L3:pad:row297:part0 (Instance ID 297) @ (1290.187, 754.624) px
+  Copper: L0:trace:row918:part0
+
+Net 141 (Net-141):
+  Via V167 @ (1481.848, 666.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row576:part0 (Instance ID 576) @ (1482.000, 695.500) px
+  Pad L0:pad:row794:part0 (Instance ID 794) @ (1481.839, 666.499) px
+  Pad L1:pad:row298:part0 (Instance ID 298) @ (1481.839, 666.499) px
+  Pad L2:pad:row298:part0 (Instance ID 298) @ (1481.839, 666.499) px
+  Pad L3:pad:row298:part0 (Instance ID 298) @ (1481.839, 666.499) px
+  Copper: L0:trace:row946:part0
+
+Net 142 (Net-142):
+  Via V168 @ (1072.205, 119.916) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row507:part0 (Instance ID 507) @ (1159.500, 129.000) px
+  Pad L0:pad:row672:part0 (Instance ID 672) @ (1101.000, 119.500) px
+  Pad L0:pad:row795:part0 (Instance ID 795) @ (1072.388, 119.665) px
+  Pad L1:pad:row299:part0 (Instance ID 299) @ (1072.388, 119.665) px
+  Pad L2:pad:row299:part0 (Instance ID 299) @ (1072.388, 119.665) px
+  Pad L3:pad:row299:part0 (Instance ID 299) @ (1072.388, 119.665) px
+  Copper: L0:trace:row889:part0, L0:trace:row889:part1
+
+Net 143 (Net-143):
+  Via V169 @ (1348.582, 233.149) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row554:part0 (Instance ID 554) @ (1348.000, 206.000) px
+  Pad L0:pad:row796:part0 (Instance ID 796) @ (1348.612, 233.335) px
+  Pad L1:pad:row300:part0 (Instance ID 300) @ (1348.612, 233.335) px
+  Pad L2:pad:row300:part0 (Instance ID 300) @ (1348.612, 233.335) px
+  Pad L3:pad:row300:part0 (Instance ID 300) @ (1348.612, 233.335) px
+  Copper: L0:trace:row922:part0
+
+Net 144 (Net-144):
+  Via V170 @ (1502.809, 138.221) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row571:part0 (Instance ID 571) @ (1653.000, 250.000) px
+  Pad L0:pad:row628:part0 (Instance ID 628) @ (1503.500, 173.500) px
+  Pad L0:pad:row634:part0 (Instance ID 634) @ (1617.500, 173.500) px
+  Pad L0:pad:row635:part0 (Instance ID 635) @ (1630.000, 173.500) px
+  Pad L0:pad:row638:part0 (Instance ID 638) @ (1646.500, 173.500) px
+  Pad L0:pad:row639:part0 (Instance ID 639) @ (1523.500, 173.500) px
+  Pad L0:pad:row641:part0 (Instance ID 641) @ (1349.000, 365.000) px
+  Pad L0:pad:row660:part0 (Instance ID 660) @ (1701.000, 222.500) px
+  Pad L0:pad:row797:part0 (Instance ID 797) @ (1502.612, 138.335) px
+  Pad L1:pad:row301:part0 (Instance ID 301) @ (1502.612, 138.335) px
+  Pad L2:pad:row301:part0 (Instance ID 301) @ (1502.612, 138.335) px
+  Pad L3:pad:row301:part0 (Instance ID 301) @ (1502.612, 138.335) px
+  Copper: L0:trace:row920:part0, L0:trace:row947:part0, L0:trace:row985:part0
+
+Net 145 (Net-145):
+  Via V171 @ (1349.205, 62.084) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row556:part0 (Instance ID 556) @ (1348.000, 87.000) px
+  Pad L0:pad:row798:part0 (Instance ID 798) @ (1349.388, 62.335) px
+  Pad L1:pad:row302:part0 (Instance ID 302) @ (1349.388, 62.335) px
+  Pad L2:pad:row302:part0 (Instance ID 302) @ (1349.388, 62.335) px
+  Pad L3:pad:row302:part0 (Instance ID 302) @ (1349.388, 62.335) px
+  Copper: L0:trace:row925:part0
+
+Net 146 (Net-146):
+  Via V172 @ (1515.675, 1910.675) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row665:part0 (Instance ID 665) @ (1491.000, 1908.500) px
+  Pad L0:pad:row799:part0 (Instance ID 799) @ (1515.629, 1910.629) px
+  Pad L1:pad:row303:part0 (Instance ID 303) @ (1515.629, 1910.629) px
+  Pad L2:pad:row303:part0 (Instance ID 303) @ (1515.629, 1910.629) px
+  Pad L3:pad:row303:part0 (Instance ID 303) @ (1515.629, 1910.629) px
+  Copper: L0:trace:row949:part0
+
+Net 147 (Net-147):
+  Via V173 @ (1616.500, 1934.608) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row669:part0 (Instance ID 669) @ (1617.000, 1908.000) px
+  Pad L0:pad:row800:part0 (Instance ID 800) @ (1616.500, 1934.540) px
+  Pad L1:pad:row304:part0 (Instance ID 304) @ (1616.500, 1934.540) px
+  Pad L2:pad:row304:part0 (Instance ID 304) @ (1616.500, 1934.540) px
+  Pad L3:pad:row304:part0 (Instance ID 304) @ (1616.500, 1934.540) px
+  Copper: L0:trace:row971:part0
+
+Net 148 (Net-148):
+  Via V174 @ (1728.370, 1369.200) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row362:part0 (Instance ID 362) @ (1631.500, 1344.000) px
+  Pad L0:pad:row692:part0 (Instance ID 692) @ (1694.000, 1368.000) px
+  Pad L0:pad:row801:part0 (Instance ID 801) @ (1728.388, 1369.335) px
+  Pad L1:pad:row305:part0 (Instance ID 305) @ (1728.388, 1369.335) px
+  Pad L2:pad:row305:part0 (Instance ID 305) @ (1728.388, 1369.335) px
+  Pad L3:pad:row305:part0 (Instance ID 305) @ (1728.388, 1369.335) px
+  Copper: L0:trace:row977:part0
+
+Net 149 (Net-149):
+  Via V175 @ (1748.500, 1200.152) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row680:part0 (Instance ID 680) @ (1718.000, 1201.000) px
+  Pad L0:pad:row802:part0 (Instance ID 802) @ (1748.500, 1200.325) px
+  Pad L1:pad:row306:part0 (Instance ID 306) @ (1748.500, 1200.325) px
+  Pad L2:pad:row306:part0 (Instance ID 306) @ (1748.500, 1200.325) px
+  Pad L3:pad:row306:part0 (Instance ID 306) @ (1748.500, 1200.325) px
+  Copper: L0:trace:row1000:part0
+
+Net 150 (Net-150):
+  Via V176 @ (1533.848, 666.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row574:part0 (Instance ID 574) @ (1534.000, 696.000) px
+  Pad L0:pad:row803:part0 (Instance ID 803) @ (1533.896, 666.499) px
+  Pad L1:pad:row307:part0 (Instance ID 307) @ (1533.896, 666.499) px
+  Pad L2:pad:row307:part0 (Instance ID 307) @ (1533.896, 666.499) px
+  Pad L3:pad:row307:part0 (Instance ID 307) @ (1533.896, 666.499) px
+  Copper: L0:trace:row962:part0
+
+Net 151 (Net-151):
+  Via V177 @ (1586.500, 666.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row538:part0 (Instance ID 538) @ (1586.500, 696.000) px
+  Pad L0:pad:row804:part0 (Instance ID 804) @ (1586.630, 666.500) px
+  Pad L1:pad:row308:part0 (Instance ID 308) @ (1586.630, 666.500) px
+  Pad L2:pad:row308:part0 (Instance ID 308) @ (1586.630, 666.500) px
+  Pad L3:pad:row308:part0 (Instance ID 308) @ (1586.630, 666.500) px
+  Copper: L0:trace:row963:part0
+
+Net 152 (Net-152):
+  Via V178 @ (1507.205, 315.013) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row572:part0 (Instance ID 572) @ (1508.500, 287.000) px
+  Pad L0:pad:row805:part0 (Instance ID 805) @ (1507.375, 315.130) px
+  Pad L1:pad:row309:part0 (Instance ID 309) @ (1507.375, 315.130) px
+  Pad L2:pad:row309:part0 (Instance ID 309) @ (1507.375, 315.130) px
+  Pad L3:pad:row309:part0 (Instance ID 309) @ (1507.375, 315.130) px
+  Copper: L0:trace:row964:part0
+
+Net 153 (Net-153):
+  Via V179 @ (1652.987, 316.304) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row570:part0 (Instance ID 570) @ (1653.000, 288.000) px
+  Pad L0:pad:row806:part0 (Instance ID 806) @ (1652.813, 316.376) px
+  Pad L1:pad:row310:part0 (Instance ID 310) @ (1652.813, 316.376) px
+  Pad L2:pad:row310:part0 (Instance ID 310) @ (1652.813, 316.376) px
+  Pad L3:pad:row310:part0 (Instance ID 310) @ (1652.813, 316.376) px
+  Copper: L0:trace:row984:part0
+
+Net 154 (Net-154):
+  Via V180 @ (1802.422, 324.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row807:part0 (Instance ID 807) @ (1802.499, 323.736) px
+  Pad L1:pad:row311:part0 (Instance ID 311) @ (1802.499, 323.736) px
+  Pad L2:pad:row311:part0 (Instance ID 311) @ (1802.499, 323.736) px
+  Pad L3:pad:row311:part0 (Instance ID 311) @ (1802.499, 323.736) px
+  Copper: (none annotated)
+
+Net 155 (Net-155):
+  Via V181 @ (1701.333, 300.460) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row659:part0 (Instance ID 659) @ (1701.000, 275.500) px
+  Pad L0:pad:row808:part0 (Instance ID 808) @ (1701.370, 300.370) px
+  Pad L1:pad:row312:part0 (Instance ID 312) @ (1701.370, 300.370) px
+  Pad L2:pad:row312:part0 (Instance ID 312) @ (1701.370, 300.370) px
+  Pad L3:pad:row312:part0 (Instance ID 312) @ (1701.370, 300.370) px
+  Copper: L0:trace:row1007:part0
+
+Net 156 (Net-156):
+  Via V182 @ (1802.459, 297.283) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row809:part0 (Instance ID 809) @ (1802.500, 297.370) px
+  Pad L1:pad:row313:part0 (Instance ID 313) @ (1802.500, 297.370) px
+  Pad L2:pad:row313:part0 (Instance ID 313) @ (1802.500, 297.370) px
+  Pad L3:pad:row313:part0 (Instance ID 313) @ (1802.500, 297.370) px
+  Copper: (none annotated)
+
+Net 157 (Net-157):
+  Via V183 @ (1831.013, 297.263) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row810:part0 (Instance ID 810) @ (1831.187, 297.376) px
+  Pad L1:pad:row314:part0 (Instance ID 314) @ (1831.187, 297.376) px
+  Pad L2:pad:row314:part0 (Instance ID 314) @ (1831.187, 297.376) px
+  Pad L3:pad:row314:part0 (Instance ID 314) @ (1831.187, 297.376) px
+  Copper: (none annotated)
+
+Net 158 (Net-158):
+  Via V184 @ (1581.340, 236.660) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row656:part0 (Instance ID 656) @ (1581.500, 283.000) px
+  Pad L0:pad:row811:part0 (Instance ID 811) @ (1581.370, 236.630) px
+  Pad L1:pad:row315:part0 (Instance ID 315) @ (1581.370, 236.630) px
+  Pad L2:pad:row315:part0 (Instance ID 315) @ (1581.370, 236.630) px
+  Pad L3:pad:row315:part0 (Instance ID 315) @ (1581.370, 236.630) px
+  Copper: L0:trace:row965:part0
+
+Net 159 (Net-159):
+  Via V185 @ (1666.543, 137.543) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row629:part0 (Instance ID 629) @ (1667.500, 173.500) px
+  Pad L0:pad:row812:part0 (Instance ID 812) @ (1666.516, 137.630) px
+  Pad L1:pad:row316:part0 (Instance ID 316) @ (1666.516, 137.630) px
+  Pad L2:pad:row316:part0 (Instance ID 316) @ (1666.516, 137.630) px
+  Pad L3:pad:row316:part0 (Instance ID 316) @ (1666.516, 137.630) px
+  Copper: L0:trace:row986:part0
+
+Net 160 (Net-160):
+  Via V186 @ (1802.422, 272.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row813:part0 (Instance ID 813) @ (1802.499, 272.104) px
+  Pad L1:pad:row317:part0 (Instance ID 317) @ (1802.499, 272.104) px
+  Pad L2:pad:row317:part0 (Instance ID 317) @ (1802.499, 272.104) px
+  Pad L3:pad:row317:part0 (Instance ID 317) @ (1802.499, 272.104) px
+  Copper: (none annotated)
+
+Net 161 (Net-161):
+  Via V187 @ (1830.422, 272.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row814:part0 (Instance ID 814) @ (1830.473, 272.123) px
+  Pad L1:pad:row318:part0 (Instance ID 318) @ (1830.473, 272.123) px
+  Pad L2:pad:row318:part0 (Instance ID 318) @ (1830.473, 272.123) px
+  Pad L3:pad:row318:part0 (Instance ID 318) @ (1830.473, 272.123) px
+  Copper: (none annotated)
+
+Net 162 (Net-162):
+  Via V188 @ (1802.460, 218.228) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row815:part0 (Instance ID 815) @ (1802.500, 218.370) px
+  Pad L1:pad:row319:part0 (Instance ID 319) @ (1802.500, 218.370) px
+  Pad L2:pad:row319:part0 (Instance ID 319) @ (1802.500, 218.370) px
+  Pad L3:pad:row319:part0 (Instance ID 319) @ (1802.500, 218.370) px
+  Copper: (none annotated)
+
+Net 163 (Net-163):
+  Via V189 @ (1830.418, 244.851) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row816:part0 (Instance ID 816) @ (1830.484, 244.675) px
+  Pad L1:pad:row320:part0 (Instance ID 320) @ (1830.484, 244.675) px
+  Pad L2:pad:row320:part0 (Instance ID 320) @ (1830.484, 244.675) px
+  Pad L3:pad:row320:part0 (Instance ID 320) @ (1830.484, 244.675) px
+  Copper: (none annotated)
+
+Net 164 (Net-164):
+  Via V190 @ (1802.418, 244.149) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row817:part0 (Instance ID 817) @ (1802.500, 244.325) px
+  Pad L1:pad:row321:part0 (Instance ID 321) @ (1802.500, 244.325) px
+  Pad L2:pad:row321:part0 (Instance ID 321) @ (1802.500, 244.325) px
+  Pad L3:pad:row321:part0 (Instance ID 321) @ (1802.500, 244.325) px
+  Copper: (none annotated)
+
+Net 165 (Net-165):
+  Via V191 @ (1829.779, 218.191) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row818:part0 (Instance ID 818) @ (1829.665, 218.388) px
+  Pad L1:pad:row322:part0 (Instance ID 322) @ (1829.665, 218.388) px
+  Pad L2:pad:row322:part0 (Instance ID 322) @ (1829.665, 218.388) px
+  Pad L3:pad:row322:part0 (Instance ID 322) @ (1829.665, 218.388) px
+  Copper: (none annotated)
+
+Net 166 (Net-166):
+  Via V192 @ (1860.304, 272.013) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row819:part0 (Instance ID 819) @ (1860.375, 272.130) px
+  Pad L1:pad:row323:part0 (Instance ID 323) @ (1860.375, 272.130) px
+  Pad L2:pad:row323:part0 (Instance ID 323) @ (1860.375, 272.130) px
+  Pad L3:pad:row323:part0 (Instance ID 323) @ (1860.375, 272.130) px
+  Copper: (none annotated)
+
+Net 167 (Net-167):
+  Via V193 @ (1889.578, 272.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row820:part0 (Instance ID 820) @ (1889.625, 272.130) px
+  Pad L1:pad:row324:part0 (Instance ID 324) @ (1889.625, 272.130) px
+  Pad L2:pad:row324:part0 (Instance ID 324) @ (1889.625, 272.130) px
+  Pad L3:pad:row324:part0 (Instance ID 324) @ (1889.625, 272.130) px
+  Copper: (none annotated)
+
+Net 168 (Net-168):
+  Via V194 @ (2127.582, 268.149) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row821:part0 (Instance ID 821) @ (2127.516, 268.325) px
+  Pad L1:pad:row325:part0 (Instance ID 325) @ (2127.516, 268.325) px
+  Pad L2:pad:row325:part0 (Instance ID 325) @ (2127.516, 268.325) px
+  Pad L3:pad:row325:part0 (Instance ID 325) @ (2127.516, 268.325) px
+  Copper: (none annotated)
+
+Net 169 (Net-169):
+  Via V195 @ (2128.205, 325.916) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row822:part0 (Instance ID 822) @ (2128.388, 325.665) px
+  Pad L1:pad:row326:part0 (Instance ID 326) @ (2128.388, 325.665) px
+  Pad L2:pad:row326:part0 (Instance ID 326) @ (2128.388, 325.665) px
+  Pad L3:pad:row326:part0 (Instance ID 326) @ (2128.388, 325.665) px
+  Copper: (none annotated)
+
+Net 170 (Net-170):
+  Via V196 @ (2206.194, 297.276) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row823:part0 (Instance ID 823) @ (2206.370, 297.370) px
+  Pad L1:pad:row327:part0 (Instance ID 327) @ (2206.370, 297.370) px
+  Pad L2:pad:row327:part0 (Instance ID 327) @ (2206.370, 297.370) px
+  Pad L3:pad:row327:part0 (Instance ID 327) @ (2206.370, 297.370) px
+  Copper: (none annotated)
+
+Net 171 (Net-171):
+  Via V197 @ (2127.540, 296.667) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row824:part0 (Instance ID 824) @ (2127.516, 296.630) px
+  Pad L1:pad:row328:part0 (Instance ID 328) @ (2127.516, 296.630) px
+  Pad L2:pad:row328:part0 (Instance ID 328) @ (2127.516, 296.630) px
+  Pad L3:pad:row328:part0 (Instance ID 328) @ (2127.516, 296.630) px
+  Copper: (none annotated)
+
+Net 172 (Net-172):
+  Via V198 @ (2153.582, 268.149) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row825:part0 (Instance ID 825) @ (2153.516, 268.325) px
+  Pad L1:pad:row329:part0 (Instance ID 329) @ (2153.516, 268.325) px
+  Pad L2:pad:row329:part0 (Instance ID 329) @ (2153.516, 268.325) px
+  Pad L3:pad:row329:part0 (Instance ID 329) @ (2153.516, 268.325) px
+  Copper: (none annotated)
+
+Net 173 (Net-173):
+  Via V199 @ (2180.987, 297.263) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row826:part0 (Instance ID 826) @ (2180.813, 297.376) px
+  Pad L1:pad:row330:part0 (Instance ID 330) @ (2180.813, 297.376) px
+  Pad L2:pad:row330:part0 (Instance ID 330) @ (2180.813, 297.376) px
+  Pad L3:pad:row330:part0 (Instance ID 330) @ (2180.813, 297.376) px
+  Copper: (none annotated)
+
+Net 174 (Net-174):
+  Via V200 @ (2153.540, 296.667) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row827:part0 (Instance ID 827) @ (2153.516, 296.630) px
+  Pad L1:pad:row331:part0 (Instance ID 331) @ (2153.516, 296.630) px
+  Pad L2:pad:row331:part0 (Instance ID 331) @ (2153.516, 296.630) px
+  Pad L3:pad:row331:part0 (Instance ID 331) @ (2153.516, 296.630) px
+  Copper: (none annotated)
+
+Net 175 (Net-175):
+  Via V201 @ (2180.205, 268.084) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row828:part0 (Instance ID 828) @ (2180.388, 268.335) px
+  Pad L1:pad:row332:part0 (Instance ID 332) @ (2180.388, 268.335) px
+  Pad L2:pad:row332:part0 (Instance ID 332) @ (2180.388, 268.335) px
+  Pad L3:pad:row332:part0 (Instance ID 332) @ (2180.388, 268.335) px
+  Copper: (none annotated)
+
+Net 176 (Net-176):
+  Via V202 @ (2127.580, 242.222) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row829:part0 (Instance ID 829) @ (2127.516, 242.325) px
+  Pad L1:pad:row333:part0 (Instance ID 333) @ (2127.516, 242.325) px
+  Pad L2:pad:row333:part0 (Instance ID 333) @ (2127.516, 242.325) px
+  Pad L3:pad:row333:part0 (Instance ID 333) @ (2127.516, 242.325) px
+  Copper: (none annotated)
+
+Net 177 (Net-177):
+  Via V204 @ (2127.540, 215.667) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row831:part0 (Instance ID 831) @ (2127.516, 215.630) px
+  Pad L1:pad:row335:part0 (Instance ID 335) @ (2127.516, 215.630) px
+  Pad L2:pad:row335:part0 (Instance ID 335) @ (2127.516, 215.630) px
+  Pad L3:pad:row335:part0 (Instance ID 335) @ (2127.516, 215.630) px
+  Copper: (none annotated)
+
+Net 178 (Net-178):
+  Via V205 @ (2152.987, 242.205) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row491:part0 (Instance ID 491) @ (2177.000, 234.000) px
+  Pad L0:pad:row832:part0 (Instance ID 832) @ (2152.868, 242.329) px
+  Pad L1:pad:row336:part0 (Instance ID 336) @ (2152.868, 242.329) px
+  Pad L2:pad:row336:part0 (Instance ID 336) @ (2152.868, 242.329) px
+  Pad L3:pad:row336:part0 (Instance ID 336) @ (2152.868, 242.329) px
+  Copper: (none annotated)
+
+Net 179 (Net-179):
+  Via V206 @ (2206.205, 268.084) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row833:part0 (Instance ID 833) @ (2206.388, 268.335) px
+  Pad L1:pad:row337:part0 (Instance ID 337) @ (2206.388, 268.335) px
+  Pad L2:pad:row337:part0 (Instance ID 337) @ (2206.388, 268.335) px
+  Pad L3:pad:row337:part0 (Instance ID 337) @ (2206.388, 268.335) px
+  Copper: (none annotated)
+
+Net 180 (Net-180):
+  Via V207 @ (2152.987, 215.696) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row834:part0 (Instance ID 834) @ (2152.870, 215.625) px
+  Pad L1:pad:row338:part0 (Instance ID 338) @ (2152.870, 215.625) px
+  Pad L2:pad:row338:part0 (Instance ID 338) @ (2152.870, 215.625) px
+  Pad L3:pad:row338:part0 (Instance ID 338) @ (2152.870, 215.625) px
+  Copper: (none annotated)
+
+Net 181 (Net-181):
+  Via V208 @ (2405.205, 224.013) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row481:part0 (Instance ID 481) @ (2404.500, 188.500) px
+  Pad L0:pad:row835:part0 (Instance ID 835) @ (2405.376, 224.187) px
+  Pad L1:pad:row339:part0 (Instance ID 339) @ (2405.376, 224.187) px
+  Pad L2:pad:row339:part0 (Instance ID 339) @ (2405.376, 224.187) px
+  Pad L3:pad:row339:part0 (Instance ID 339) @ (2405.376, 224.187) px
+  Copper: L0:trace:row1040:part0
+
+Net 182 (Net-182):
+  Via V209 @ (1889.541, 297.283) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row836:part0 (Instance ID 836) @ (1889.630, 297.370) px
+  Pad L1:pad:row340:part0 (Instance ID 340) @ (1889.630, 297.370) px
+  Pad L2:pad:row340:part0 (Instance ID 340) @ (1889.630, 297.370) px
+  Pad L3:pad:row340:part0 (Instance ID 340) @ (1889.630, 297.370) px
+  Copper: (none annotated)
+
+Net 183 (Net-183):
+  Via V210 @ (1861.000, 297.227) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row837:part0 (Instance ID 837) @ (1860.995, 297.371) px
+  Pad L1:pad:row341:part0 (Instance ID 341) @ (1860.995, 297.371) px
+  Pad L2:pad:row341:part0 (Instance ID 341) @ (1860.995, 297.371) px
+  Pad L3:pad:row341:part0 (Instance ID 341) @ (1860.995, 297.371) px
+  Copper: (none annotated)
+
+Net 184 (Net-184):
+  Via V211 @ (1683.675, 1807.675) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row455:part0 (Instance ID 455) @ (1709.000, 1808.000) px
+  Pad L0:pad:row838:part0 (Instance ID 838) @ (1683.891, 1807.729) px
+  Pad L1:pad:row342:part0 (Instance ID 342) @ (1683.891, 1807.729) px
+  Pad L2:pad:row342:part0 (Instance ID 342) @ (1683.891, 1807.729) px
+  Pad L3:pad:row342:part0 (Instance ID 342) @ (1683.891, 1807.729) px
+  Copper: L0:trace:row993:part0
+
+Net 185 (Net-185):
+  Via V212 @ (1780.461, 1162.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row274:part0 (Instance ID 274) @ (1742.000, 1161.500) px
+  Pad L0:pad:row361:part0 (Instance ID 361) @ (1631.500, 1178.500) px
+  Pad L0:pad:row682:part0 (Instance ID 682) @ (1694.000, 1161.500) px
+  Pad L0:pad:row839:part0 (Instance ID 839) @ (1780.375, 1161.870) px
+  Pad L1:pad:row343:part0 (Instance ID 343) @ (1780.375, 1161.870) px
+  Pad L2:pad:row343:part0 (Instance ID 343) @ (1780.375, 1161.870) px
+  Pad L3:pad:row343:part0 (Instance ID 343) @ (1780.375, 1161.870) px
+  Copper: L0:trace:row982:part0
+
+Net 186 (Net-186):
+  Via V213 @ (1202.227, 1350.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row276:part0 (Instance ID 276) @ (1240.500, 1350.000) px
+  Pad L0:pad:row365:part0 (Instance ID 365) @ (1337.000, 1344.000) px
+  Pad L0:pad:row688:part0 (Instance ID 688) @ (1287.000, 1349.500) px
+  Pad L0:pad:row840:part0 (Instance ID 840) @ (1202.370, 1350.500) px
+  Pad L1:pad:row344:part0 (Instance ID 344) @ (1202.370, 1350.500) px
+  Pad L2:pad:row344:part0 (Instance ID 344) @ (1202.370, 1350.500) px
+  Pad L3:pad:row344:part0 (Instance ID 344) @ (1202.370, 1350.500) px
+  Copper: L0:trace:row896:part0
+
+Net 187 (Net-187):
+  Via V214 @ (1386.966, 978.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row278:part0 (Instance ID 278) @ (1386.500, 1014.500) px
+  Pad L0:pad:row364:part0 (Instance ID 364) @ (1401.000, 1115.000) px
+  Pad L0:pad:row684:part0 (Instance ID 684) @ (1386.500, 1061.000) px
+  Pad L0:pad:row841:part0 (Instance ID 841) @ (1386.864, 978.136) px
+  Pad L1:pad:row345:part0 (Instance ID 345) @ (1386.864, 978.136) px
+  Pad L2:pad:row345:part0 (Instance ID 345) @ (1386.864, 978.136) px
+  Pad L3:pad:row345:part0 (Instance ID 345) @ (1386.864, 978.136) px
+  Copper: L0:trace:row916:part0
+
+Net 188 (Net-188):
+  Via V215 @ (1855.211, 1779.789) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row588:part0 (Instance ID 588) @ (1852.500, 1757.000) px
+  Pad L0:pad:row842:part0 (Instance ID 842) @ (1855.000, 1780.000) px
+  Pad L1:pad:row346:part0 (Instance ID 346) @ (1855.000, 1780.000) px
+  Pad L2:pad:row346:part0 (Instance ID 346) @ (1855.000, 1780.000) px
+  Pad L3:pad:row346:part0 (Instance ID 346) @ (1855.000, 1780.000) px
+  Copper: L0:trace:row995:part0
+
+Net 189 (Net-189):
+  Via V218 @ (1202.848, 1442.500) px; layers [0, 1, 2, 3]
+  Via V219 @ (1481.163, 1309.000) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row404:part0 (Instance ID 404) @ (1503.500, 1408.000) px
+  Pad L0:pad:row567:part0 (Instance ID 567) @ (505.000, 798.500) px
+  Pad L0:pad:row568:part0 (Instance ID 568) @ (458.500, 798.500) px
+  Pad L0:pad:row845:part0 (Instance ID 845) @ (1202.896, 1442.499) px
+  Pad L0:pad:row846:part0 (Instance ID 846) @ (1481.355, 1309.125) px
+  Pad L1:pad:row349:part0 (Instance ID 349) @ (1202.896, 1442.499) px
+  Pad L1:pad:row350:part0 (Instance ID 350) @ (1481.355, 1309.125) px
+  Pad L2:pad:row349:part0 (Instance ID 349) @ (1202.896, 1442.499) px
+  Pad L2:pad:row350:part0 (Instance ID 350) @ (1481.355, 1309.125) px
+  Pad L3:pad:row349:part0 (Instance ID 349) @ (1202.896, 1442.499) px
+  Pad L3:pad:row350:part0 (Instance ID 350) @ (1481.355, 1309.125) px
+  Copper: L0:trace:row859:part0, L0:trace:row941:part0, L3:trace:row460:part0
+
+Net 190 (Net-190):
+  Via V220 @ (1233.500, 1424.848) px; layers [0, 1, 2, 3]
+  Via V222 @ (1480.500, 1335.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row269:part0 (Instance ID 269) @ (614.500, 1112.500) px
+  Pad L0:pad:row405:part0 (Instance ID 405) @ (1491.000, 1408.000) px
+  Pad L0:pad:row501:part0 (Instance ID 501) @ (622.000, 657.500) px
+  Pad L0:pad:row847:part0 (Instance ID 847) @ (1233.501, 1424.896) px
+  Pad L0:pad:row849:part0 (Instance ID 849) @ (1480.500, 1335.370) px
+  Pad L1:pad:row351:part0 (Instance ID 351) @ (1233.501, 1424.896) px
+  Pad L1:pad:row353:part0 (Instance ID 353) @ (1480.500, 1335.370) px
+  Pad L2:pad:row351:part0 (Instance ID 351) @ (1233.501, 1424.896) px
+  Pad L2:pad:row353:part0 (Instance ID 353) @ (1480.500, 1335.370) px
+  Pad L3:pad:row351:part0 (Instance ID 351) @ (1233.501, 1424.896) px
+  Pad L3:pad:row353:part0 (Instance ID 353) @ (1480.500, 1335.370) px
+  Copper: L0:trace:row858:part0, L0:trace:row939:part0, L3:trace:row461:part0
+
+Net 191 (Net-191):
+  Via V221 @ (1254.969, 1441.105) px; layers [0, 1, 2, 3]
+  Via V223 @ (1480.500, 1361.500) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row271:part0 (Instance ID 271) @ (701.500, 1111.000) px
+  Pad L0:pad:row406:part0 (Instance ID 406) @ (1478.000, 1408.000) px
+  Pad L0:pad:row500:part0 (Instance ID 500) @ (622.000, 645.000) px
+  Pad L0:pad:row848:part0 (Instance ID 848) @ (1254.865, 1441.195) px
+  Pad L0:pad:row850:part0 (Instance ID 850) @ (1480.630, 1361.500) px
+  Pad L1:pad:row352:part0 (Instance ID 352) @ (1254.865, 1441.195) px
+  Pad L1:pad:row354:part0 (Instance ID 354) @ (1480.630, 1361.500) px
+  Pad L2:pad:row352:part0 (Instance ID 352) @ (1254.865, 1441.195) px
+  Pad L2:pad:row354:part0 (Instance ID 354) @ (1480.630, 1361.500) px
+  Pad L3:pad:row352:part0 (Instance ID 352) @ (1254.865, 1441.195) px
+  Pad L3:pad:row354:part0 (Instance ID 354) @ (1480.630, 1361.500) px
+  Copper: L0:trace:row860:part0, L0:trace:row940:part0, L3:trace:row459:part0
+
+Net 192 (Net-192):
+  Via V225 @ (2333.033, 185.967) px; layers [0, 1, 2, 3]
+  Via V226 @ (2265.459, 115.283) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row473:part0 (Instance ID 473) @ (2329.500, 279.500) px
+  Pad L0:pad:row479:part0 (Instance ID 479) @ (2266.500, 152.000) px
+  Pad L0:pad:row852:part0 (Instance ID 852) @ (2333.135, 185.805) px
+  Pad L0:pad:row853:part0 (Instance ID 853) @ (2265.484, 115.370) px
+  Pad L1:pad:row356:part0 (Instance ID 356) @ (2333.135, 185.805) px
+  Pad L1:pad:row357:part0 (Instance ID 357) @ (2265.484, 115.370) px
+  Pad L2:pad:row356:part0 (Instance ID 356) @ (2333.135, 185.805) px
+  Pad L2:pad:row357:part0 (Instance ID 357) @ (2265.484, 115.370) px
+  Pad L3:pad:row356:part0 (Instance ID 356) @ (2333.135, 185.805) px
+  Pad L3:pad:row357:part0 (Instance ID 357) @ (2265.484, 115.370) px
+  Copper: L0:trace:row1035:part0, L0:trace:row1042:part0, L3:trace:row471:part0
+
+Net 193 (Net-193):
+  Via V227 @ (1946.333, 127.460) px; layers [0, 1, 2, 3]
+  Via V228 @ (2009.163, 255.106) px; layers [0, 1, 2, 3]
+  Pad L0:pad:row519:part0 (Instance ID 519) @ (1947.000, 159.000) px
+  Pad L0:pad:row708:part0 (Instance ID 708) @ (2010.000, 286.500) px
+  Pad L0:pad:row854:part0 (Instance ID 854) @ (1946.370, 127.370) px
+  Pad L0:pad:row855:part0 (Instance ID 855) @ (2009.388, 255.335) px
+  Pad L1:pad:row358:part0 (Instance ID 358) @ (1946.370, 127.370) px
+  Pad L1:pad:row359:part0 (Instance ID 359) @ (2009.388, 255.335) px
+  Pad L2:pad:row358:part0 (Instance ID 358) @ (1946.370, 127.370) px
+  Pad L2:pad:row359:part0 (Instance ID 359) @ (2009.388, 255.335) px
+  Pad L3:pad:row358:part0 (Instance ID 358) @ (1946.370, 127.370) px
+  Pad L3:pad:row359:part0 (Instance ID 359) @ (2009.388, 255.335) px
+  Copper: L0:trace:row1021:part0, L0:trace:row1026:part0, L3:trace:row470:part0
+
+Net 194 (Net-194):
+  Pad L0:pad:row228:part0 (Instance ID 228) @ (2043.000, 2118.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 195 (Net-195):
+  Pad L0:pad:row229:part0 (Instance ID 229) @ (2043.000, 2157.000) px
+  Pad L0:pad:row230:part0 (Instance ID 230) @ (1962.000, 2157.000) px
+  Copper: L0:trace:row1009:part0
+
+Net 196 (Net-196):
+  Pad L0:pad:row231:part0 (Instance ID 231) @ (1962.000, 2119.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 197 (Net-197):
+  Pad L0:pad:row232:part0 (Instance ID 232) @ (2201.000, 2122.000) px
+  Copper: L0:trace:row1029:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 198 (Net-198):
+  Pad L0:pad:row233:part0 (Instance ID 233) @ (2201.000, 2160.000) px
+  Pad L0:pad:row235:part0 (Instance ID 235) @ (2127.500, 2160.500) px
+  Copper: L0:trace:row1028:part0, L0:trace:row1028:part1
+
+Net 199 (Net-199):
+  Pad L0:pad:row234:part0 (Instance ID 234) @ (2127.500, 2122.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 200 (Net-200):
+  Pad L0:pad:row243:part0 (Instance ID 243) @ (1639.000, 1406.000) px
+  Pad L0:pad:row245:part0 (Instance ID 245) @ (1698.000, 1407.000) px
+  Pad L0:pad:row399:part0 (Instance ID 399) @ (1631.500, 1357.000) px
+  Copper: L0:trace:row976:part0
+
+Net 201 (Net-201):
+  Pad L0:pad:row247:part0 (Instance ID 247) @ (1759.500, 2113.000) px
+  Pad L0:pad:row282:part0 (Instance ID 282) @ (1655.000, 1961.000) px
+  Pad L0:pad:row323:part0 (Instance ID 323) @ (1677.500, 2113.000) px
+  Pad L0:pad:row325:part0 (Instance ID 325) @ (1635.500, 2113.000) px
+  Copper: L0:trace:row969:part0
+
+Net 202 (Net-202):
+  Pad L0:pad:row249:part0 (Instance ID 249) @ (2094.500, 1481.000) px
+  Pad L0:pad:row252:part0 (Instance ID 252) @ (2137.000, 1481.000) px
+  Pad L0:pad:row358:part0 (Instance ID 358) @ (1631.500, 1255.000) px
+  Copper: L0:trace:row998:part0
+
+Net 203 (Net-203):
+  Pad L0:pad:row251:part0 (Instance ID 251) @ (2000.000, 1481.000) px
+  Pad L0:pad:row254:part0 (Instance ID 254) @ (2042.000, 1481.000) px
+  Pad L0:pad:row360:part0 (Instance ID 360) @ (1631.500, 1268.000) px
+  Copper: L0:trace:row997:part0
+
+Net 204 (Net-204):
+  Pad L0:pad:row256:part0 (Instance ID 256) @ (1661.500, 1809.000) px
+  Pad L0:pad:row261:part0 (Instance ID 261) @ (1617.000, 1866.000) px
+  Pad L0:pad:row523:part0 (Instance ID 523) @ (1604.000, 1809.500) px
+  Copper: L0:trace:row950:part0
+
+Net 205 (Net-205):
+  Pad L0:pad:row257:part0 (Instance ID 257) @ (1661.500, 1770.500) px
+  Pad L0:pad:row456:part0 (Instance ID 456) @ (1709.000, 1769.500) px
+  Pad L0:pad:row522:part0 (Instance ID 522) @ (1604.000, 1777.500) px
+  Copper: L0:trace:row951:part0
+
+Net 206 (Net-206):
+  Pad L0:pad:row258:part0 (Instance ID 258) @ (1452.500, 1866.500) px
+  Pad L0:pad:row296:part0 (Instance ID 296) @ (1353.500, 1961.000) px
+  Pad L0:pad:row666:part0 (Instance ID 666) @ (1452.000, 1908.500) px
+  Copper: L0:trace:row906:part0
+
+Net 207 (Net-207):
+  Pad L0:pad:row259:part0 (Instance ID 259) @ (1490.500, 1866.500) px
+  Pad L0:pad:row524:part0 (Instance ID 524) @ (1466.000, 1777.500) px
+  Pad L0:pad:row560:part0 (Instance ID 560) @ (1412.500, 1778.000) px
+  Copper: L0:trace:row929:part0
+
+Net 208 (Net-208):
+  Pad L0:pad:row260:part0 (Instance ID 260) @ (1578.500, 1866.000) px
+  Pad L0:pad:row287:part0 (Instance ID 287) @ (1578.500, 1961.000) px
+  Pad L0:pad:row670:part0 (Instance ID 670) @ (1578.500, 1908.000) px
+  Copper: L0:trace:row948:part0, L0:trace:row948:part1
+
+Net 209 (Net-209):
+  Pad L0:pad:row283:part0 (Instance ID 283) @ (1729.500, 1981.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 210 (Net-210):
+  Pad L0:pad:row284:part0 (Instance ID 284) @ (1542.500, 1981.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 211 (Net-211):
+  Pad L0:pad:row285:part0 (Instance ID 285) @ (1729.500, 2030.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 212 (Net-212):
+  Pad L0:pad:row286:part0 (Instance ID 286) @ (1542.500, 2030.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 213 (Net-213):
+  Pad L0:pad:row291:part0 (Instance ID 291) @ (1430.000, 1961.000) px
+  Pad L0:pad:row326:part0 (Instance ID 326) @ (1385.000, 2112.500) px
+  Pad L0:pad:row328:part0 (Instance ID 328) @ (1427.000, 2112.500) px
+  Copper: L0:trace:row927:part0
+
+Net 214 (Net-214):
+  Pad L0:pad:row292:part0 (Instance ID 292) @ (1504.500, 1981.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 215 (Net-215):
+  Pad L0:pad:row293:part0 (Instance ID 293) @ (1317.500, 1981.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 216 (Net-216):
+  Pad L0:pad:row294:part0 (Instance ID 294) @ (1504.500, 2030.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 217 (Net-217):
+  Pad L0:pad:row295:part0 (Instance ID 295) @ (1317.500, 2030.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 218 (Net-218):
+  Pad L0:pad:row297:part0 (Instance ID 297) @ (1932.000, 1040.000) px
+  Pad L0:pad:row330:part0 (Instance ID 330) @ (1880.500, 1024.500) px
+  Copper: L0:trace:row1015:part0
+
+Net 219 (Net-219):
+  Pad L0:pad:row298:part0 (Instance ID 298) @ (1932.000, 1057.000) px
+  Pad L0:pad:row337:part0 (Instance ID 337) @ (1845.000, 1056.500) px
+  Pad L0:pad:row343:part0 (Instance ID 343) @ (1880.500, 1056.500) px
+  Copper: L0:trace:row1004:part0
+
+Net 220 (Net-220):
+  Pad L0:pad:row299:part0 (Instance ID 299) @ (1932.000, 1073.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 221 (Net-221):
+  Pad L0:pad:row300:part0 (Instance ID 300) @ (1932.000, 1090.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 222 (Net-222):
+  Pad L0:pad:row301:part0 (Instance ID 301) @ (1932.000, 1106.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 223 (Net-223):
+  Pad L0:pad:row302:part0 (Instance ID 302) @ (1932.000, 1123.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 224 (Net-224):
+  Pad L0:pad:row303:part0 (Instance ID 303) @ (1932.000, 1156.000) px
+  Pad L0:pad:row335:part0 (Instance ID 335) @ (1870.000, 1162.500) px
+  Copper: L0:trace:row1002:part0
+
+Net 225 (Net-225):
+  Pad L0:pad:row304:part0 (Instance ID 304) @ (1932.000, 1173.000) px
+  Pad L0:pad:row333:part0 (Instance ID 333) @ (1870.500, 1199.000) px
+  Copper: L0:trace:row1001:part0
+
+Net 226 (Net-226):
+  Pad L0:pad:row305:part0 (Instance ID 305) @ (1932.000, 1189.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 227 (Net-227):
+  Pad L0:pad:row306:part0 (Instance ID 306) @ (1932.000, 1206.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 228 (Net-228):
+  Pad L0:pad:row307:part0 (Instance ID 307) @ (1932.000, 1222.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 229 (Net-229):
+  Pad L0:pad:row308:part0 (Instance ID 308) @ (2078.000, 1222.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 230 (Net-230):
+  Pad L0:pad:row309:part0 (Instance ID 309) @ (2078.000, 1206.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 231 (Net-231):
+  Pad L0:pad:row310:part0 (Instance ID 310) @ (2078.000, 1189.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 232 (Net-232):
+  Pad L0:pad:row311:part0 (Instance ID 311) @ (2078.000, 1173.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 233 (Net-233):
+  Pad L0:pad:row312:part0 (Instance ID 312) @ (2078.000, 1156.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 234 (Net-234):
+  Pad L0:pad:row313:part0 (Instance ID 313) @ (2078.000, 1139.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 235 (Net-235):
+  Pad L0:pad:row318:part0 (Instance ID 318) @ (2078.000, 1057.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 236 (Net-236):
+  Pad L0:pad:row319:part0 (Instance ID 319) @ (2078.000, 1040.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 237 (Net-237):
+  Pad L0:pad:row332:part0 (Instance ID 332) @ (1845.000, 1199.000) px
+  Pad L0:pad:row356:part0 (Instance ID 356) @ (1631.500, 1242.000) px
+  Copper: L0:trace:row999:part0
+
+Net 238 (Net-238):
+  Pad L0:pad:row334:part0 (Instance ID 334) @ (1844.000, 1162.500) px
+  Pad L0:pad:row357:part0 (Instance ID 357) @ (1631.500, 1229.500) px
+  Copper: L0:trace:row980:part0
+
+Net 239 (Net-239):
+  Pad L0:pad:row346:part0 (Instance ID 346) @ (1261.000, 1143.000) px
+  Pad L0:pad:row381:part0 (Instance ID 381) @ (1337.000, 1191.000) px
+  Copper: L0:trace:row912:part0
+
+Net 240 (Net-240):
+  Pad L0:pad:row347:part0 (Instance ID 347) @ (1261.000, 1204.000) px
+  Pad L0:pad:row379:part0 (Instance ID 379) @ (1337.000, 1217.000) px
+  Copper: L0:trace:row910:part0, L0:trace:row911:part0
+
+Net 241 (Net-241):
+  Pad L0:pad:row348:part0 (Instance ID 348) @ (1212.500, 1204.000) px
+  Pad L0:pad:row380:part0 (Instance ID 380) @ (1337.000, 1204.000) px
+  Copper: L0:trace:row900:part0
+
+Net 242 (Net-242):
+  Pad L0:pad:row349:part0 (Instance ID 349) @ (1236.500, 1143.000) px
+  Pad L0:pad:row382:part0 (Instance ID 382) @ (1337.000, 1178.500) px
+  Copper: L0:trace:row901:part0
+
+Net 243 (Net-243):
+  Pad L0:pad:row370:part0 (Instance ID 370) @ (1567.500, 1115.000) px
+  Pad L0:pad:row654:part0 (Instance ID 654) @ (1586.000, 822.000) px
+  Copper: L0:trace:row958:part0
+
+Net 244 (Net-244):
+  Pad L0:pad:row371:part0 (Instance ID 371) @ (1337.000, 1331.500) px
+  Pad L0:pad:row716:part0 (Instance ID 716) @ (807.500, 1143.000) px
+  Copper: L0:trace:row877:part0
+
+Net 245 (Net-245):
+  Pad L0:pad:row372:part0 (Instance ID 372) @ (1337.000, 1319.000) px
+  Pad L0:pad:row715:part0 (Instance ID 715) @ (905.000, 1143.000) px
+  Copper: L0:trace:row878:part0
+
+Net 246 (Net-246):
+  Pad L0:pad:row373:part0 (Instance ID 373) @ (1337.000, 1306.000) px
+  Pad L0:pad:row579:part0 (Instance ID 579) @ (1266.500, 1295.500) px
+  Copper: L0:trace:row909:part0
+
+Net 247 (Net-247):
+  Pad L0:pad:row374:part0 (Instance ID 374) @ (1337.000, 1293.000) px
+  Pad L0:pad:row550:part0 (Instance ID 550) @ (1092.500, 1753.500) px
+  Copper: L0:trace:row876:part0, L0:trace:row876:part1
+
+Net 248 (Net-248):
+  Pad L0:pad:row375:part0 (Instance ID 375) @ (1337.000, 1280.500) px
+  Pad L0:pad:row548:part0 (Instance ID 548) @ (1189.000, 1753.500) px
+  Copper: L0:trace:row894:part0
+
+Net 249 (Net-249):
+  Pad L0:pad:row376:part0 (Instance ID 376) @ (1337.000, 1268.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 250 (Net-250):
+  Pad L0:pad:row377:part0 (Instance ID 377) @ (1337.000, 1255.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 251 (Net-251):
+  Pad L0:pad:row378:part0 (Instance ID 378) @ (1337.000, 1229.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 252 (Net-252):
+  Pad L0:pad:row383:part0 (Instance ID 383) @ (1427.000, 1115.000) px
+  Pad L0:pad:row384:part0 (Instance ID 384) @ (1439.500, 1115.000) px
+  Pad L0:pad:row630:part0 (Instance ID 630) @ (1604.500, 173.500) px
+  Pad L0:pad:row631:part0 (Instance ID 631) @ (1579.000, 173.500) px
+  Pad L0:pad:row632:part0 (Instance ID 632) @ (1591.500, 173.500) px
+  Pad L0:pad:row633:part0 (Instance ID 633) @ (1566.000, 173.500) px
+  Pad L0:pad:row636:part0 (Instance ID 636) @ (1553.500, 173.500) px
+  Pad L0:pad:row657:part0 (Instance ID 657) @ (1605.500, 229.000) px
+  Pad L0:pad:row658:part0 (Instance ID 658) @ (1557.000, 229.000) px
+  Copper: L0:trace:row943:part0, L0:trace:row944:part0
+
+Net 253 (Net-253):
+  Pad L0:pad:row385:part0 (Instance ID 385) @ (1452.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 254 (Net-254):
+  Pad L0:pad:row386:part0 (Instance ID 386) @ (1465.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 255 (Net-255):
+  Pad L0:pad:row387:part0 (Instance ID 387) @ (1478.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 256 (Net-256):
+  Pad L0:pad:row388:part0 (Instance ID 388) @ (1491.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 257 (Net-257):
+  Pad L0:pad:row389:part0 (Instance ID 389) @ (1503.500, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 258 (Net-258):
+  Pad L0:pad:row390:part0 (Instance ID 390) @ (1516.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 259 (Net-259):
+  Pad L0:pad:row391:part0 (Instance ID 391) @ (1529.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 260 (Net-260):
+  Pad L0:pad:row392:part0 (Instance ID 392) @ (1542.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 261 (Net-261):
+  Pad L0:pad:row393:part0 (Instance ID 393) @ (1555.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 262 (Net-262):
+  Pad L0:pad:row394:part0 (Instance ID 394) @ (1580.000, 1115.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 263 (Net-263):
+  Pad L0:pad:row395:part0 (Instance ID 395) @ (1631.500, 1191.000) px
+  Pad L0:pad:row679:part0 (Instance ID 679) @ (1679.500, 1201.000) px
+  Copper: L0:trace:row981:part0
+
+Net 264 (Net-264):
+  Pad L0:pad:row396:part0 (Instance ID 396) @ (1631.500, 1204.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 265 (Net-265):
+  Pad L0:pad:row397:part0 (Instance ID 397) @ (1631.500, 1217.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 266 (Net-266):
+  Pad L0:pad:row398:part0 (Instance ID 398) @ (1631.500, 1280.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 267 (Net-267):
+  Pad L0:pad:row400:part0 (Instance ID 400) @ (1580.000, 1408.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 268 (Net-268):
+  Pad L0:pad:row403:part0 (Instance ID 403) @ (1516.000, 1408.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 269 (Net-269):
+  Pad L0:pad:row407:part0 (Instance ID 407) @ (1452.000, 1408.000) px
+  Pad L0:pad:row495:part0 (Instance ID 495) @ (1474.490, 1590.166) px
+  Pad L0:pad:row695:part0 (Instance ID 695) @ (1452.000, 1484.000) px
+  Copper: L0:trace:row934:part0
+
+Net 270 (Net-270):
+  Pad L0:pad:row408:part0 (Instance ID 408) @ (1439.500, 1408.000) px
+  Pad L0:pad:row494:part0 (Instance ID 494) @ (1403.987, 1581.166) px
+  Pad L0:pad:row673:part0 (Instance ID 673) @ (1414.000, 1484.000) px
+  Copper: L0:trace:row935:part0
+
+Net 271 (Net-271):
+  Pad L0:pad:row409:part0 (Instance ID 409) @ (1427.000, 1408.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 272 (Net-272):
+  Pad L0:pad:row410:part0 (Instance ID 410) @ (1414.000, 1408.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 273 (Net-273):
+  Pad L0:pad:row411:part0 (Instance ID 411) @ (1401.000, 1408.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 274 (Net-274):
+  Pad L0:pad:row412:part0 (Instance ID 412) @ (1631.500, 1319.000) px
+  Pad L0:pad:row526:part0 (Instance ID 526) @ (1466.000, 1712.500) px
+  Copper: L0:trace:row952:part0
+
+Net 275 (Net-275):
+  Pad L0:pad:row413:part0 (Instance ID 413) @ (1631.500, 1306.000) px
+  Pad L0:pad:row527:part0 (Instance ID 527) @ (1604.000, 1745.000) px
+  Copper: L0:trace:row972:part0
+
+Net 276 (Net-276):
+  Pad L0:pad:row454:part0 (Instance ID 454) @ (1370.000, 1740.000) px
+  Pad L0:pad:row525:part0 (Instance ID 525) @ (1466.000, 1745.000) px
+  Pad L0:pad:row561:part0 (Instance ID 561) @ (1412.500, 1740.000) px
+  Copper: L0:trace:row931:part0, L0:trace:row932:part0
+
+Net 277 (Net-277):
+  Pad L0:pad:row471:part0 (Instance ID 471) @ (934.500, 2085.500) px
+  Pad L0:pad:row489:part0 (Instance ID 489) @ (934.500, 2036.000) px
+  Copper: L0:trace:row873:part0
+
+Net 278 (Net-278):
+  Pad L0:pad:row472:part0 (Instance ID 472) @ (2291.000, 279.500) px
+  Pad L0:pad:row477:part0 (Instance ID 477) @ (2290.500, 221.000) px
+  Pad L0:pad:row485:part0 (Instance ID 485) @ (2291.000, 357.000) px
+  Copper: L0:trace:row1034:part0
+
+Net 279 (Net-279):
+  Pad L0:pad:row476:part0 (Instance ID 476) @ (2266.500, 221.000) px
+  Copper: L0:trace:row1036:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 280 (Net-280):
+  Pad L0:pad:row478:part0 (Instance ID 478) @ (2315.000, 152.000) px
+  Pad L0:pad:row480:part0 (Instance ID 480) @ (2404.500, 150.000) px
+  Pad L0:pad:row482:part0 (Instance ID 482) @ (2359.000, 150.000) px
+  Copper: L0:trace:row1041:part0
+
+Net 281 (Net-281):
+  Pad L0:pad:row484:part0 (Instance ID 484) @ (2244.500, 357.000) px
+  Copper: L0:trace:row1033:part0, L0:trace:row1033:part1
+  Status: 1 annotated terminal(s); retained for review
+
+Net 282 (Net-282):
+  Pad L0:pad:row487:part0 (Instance ID 487) @ (2222.500, 234.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 283 (Net-283):
+  Pad L0:pad:row505:part0 (Instance ID 505) @ (622.000, 670.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 284 (Net-284):
+  Pad L0:pad:row506:part0 (Instance ID 506) @ (1282.500, 226.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 285 (Net-285):
+  Pad L0:pad:row508:part0 (Instance ID 508) @ (1282.500, 129.000) px
+  Pad L0:pad:row557:part0 (Instance ID 557) @ (1348.000, 125.500) px
+  Pad L0:pad:row558:part0 (Instance ID 558) @ (1286.000, 83.500) px
+  Copper: L0:trace:row924:part0
+
+Net 286 (Net-286):
+  Pad L0:pad:row509:part0 (Instance ID 509) @ (1282.500, 161.000) px
+  Pad L0:pad:row555:part0 (Instance ID 555) @ (1348.000, 168.000) px
+  Copper: L0:trace:row923:part0
+
+Net 287 (Net-287):
+  Pad L0:pad:row510:part0 (Instance ID 510) @ (1282.500, 194.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 288 (Net-288):
+  Pad L0:pad:row511:part0 (Instance ID 511) @ (1159.500, 226.000) px
+  Pad L0:pad:row565:part0 (Instance ID 565) @ (1101.000, 235.500) px
+  Pad L0:pad:row596:part0 (Instance ID 596) @ (1098.000, 340.500) px
+  Pad L0:pad:row597:part0 (Instance ID 597) @ (1130.000, 340.500) px
+  Pad L0:pad:row598:part0 (Instance ID 598) @ (1163.000, 340.500) px
+  Copper: L0:trace:row886:part0
+
+Net 289 (Net-289):
+  Pad L0:pad:row512:part0 (Instance ID 512) @ (1159.500, 194.000) px
+  Pad L0:pad:row559:part0 (Instance ID 559) @ (1247.500, 83.500) px
+  Pad L0:pad:row564:part0 (Instance ID 564) @ (1101.000, 197.000) px
+  Copper: L0:trace:row887:part0
+
+Net 290 (Net-290):
+  Pad L0:pad:row513:part0 (Instance ID 513) @ (1159.500, 161.000) px
+  Pad L0:pad:row671:part0 (Instance ID 671) @ (1101.000, 158.000) px
+  Copper: L0:trace:row888:part0
+
+Net 291 (Net-291):
+  Pad L0:pad:row516:part0 (Instance ID 516) @ (1947.000, 228.000) px
+  Copper: L0:trace:row1023:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 292 (Net-292):
+  Pad L0:pad:row517:part0 (Instance ID 517) @ (1971.500, 228.000) px
+  Pad L0:pad:row608:part0 (Instance ID 608) @ (1971.500, 364.000) px
+  Pad L0:pad:row707:part0 (Instance ID 707) @ (1972.000, 286.500) px
+  Copper: L0:trace:row1019:part0
+
+Net 293 (Net-293):
+  Pad L0:pad:row518:part0 (Instance ID 518) @ (1996.000, 159.000) px
+  Pad L0:pad:row582:part0 (Instance ID 582) @ (2085.500, 157.000) px
+  Pad L0:pad:row584:part0 (Instance ID 584) @ (2040.000, 157.000) px
+  Copper: L0:trace:row1027:part0
+
+Net 294 (Net-294):
+  Pad L0:pad:row532:part0 (Instance ID 532) @ (783.000, 720.000) px
+  Pad L0:pad:row562:part0 (Instance ID 562) @ (778.000, 809.500) px
+  Copper: L0:trace:row864:part0
+
+Net 295 (Net-295):
+  Pad L0:pad:row533:part0 (Instance ID 533) @ (783.000, 592.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 296 (Net-296):
+  Pad L0:pad:row534:part0 (Instance ID 534) @ (928.000, 720.000) px
+  Pad L0:pad:row581:part0 (Instance ID 581) @ (934.000, 809.500) px
+  Copper: L0:trace:row884:part0
+
+Net 297 (Net-297):
+  Pad L0:pad:row535:part0 (Instance ID 535) @ (928.000, 592.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 298 (Net-298):
+  Pad L0:pad:row539:part0 (Instance ID 539) @ (1586.500, 734.000) px
+  Pad L0:pad:row655:part0 (Instance ID 655) @ (1586.000, 784.000) px
+  Copper: L0:trace:row960:part0
+
+Net 299 (Net-299):
+  Pad L0:pad:row541:part0 (Instance ID 541) @ (1899.000, 1801.000) px
+  Pad L0:pad:row543:part0 (Instance ID 543) @ (1944.000, 1800.500) px
+  Pad L0:pad:row586:part0 (Instance ID 586) @ (1852.500, 1805.500) px
+  Copper: L0:trace:row994:part0
+
+Net 300 (Net-300):
+  Pad L0:pad:row545:part0 (Instance ID 545) @ (1227.500, 1802.000) px
+  Pad L0:pad:row549:part0 (Instance ID 549) @ (1227.500, 1753.500) px
+  Pad L0:pad:row589:part0 (Instance ID 589) @ (1241.500, 1847.000) px
+  Copper: L0:trace:row893:part0
+
+Net 301 (Net-301):
+  Pad L0:pad:row563:part0 (Instance ID 563) @ (816.500, 809.500) px
+  Pad L0:pad:row580:part0 (Instance ID 580) @ (895.500, 809.500) px
+  Pad L0:pad:row697:part0 (Instance ID 697) @ (856.500, 810.000) px
+  Copper: L0:trace:row883:part0
+
+Net 302 (Net-302):
+  Pad L0:pad:row573:part0 (Instance ID 573) @ (1508.500, 248.500) px
+  Pad L0:pad:row637:part0 (Instance ID 637) @ (1540.500, 173.500) px
+  Copper: L0:trace:row966:part0
+
+Net 303 (Net-303):
+  Pad L0:pad:row575:part0 (Instance ID 575) @ (1534.000, 734.000) px
+  Pad L0:pad:row662:part0 (Instance ID 662) @ (1534.000, 783.500) px
+  Copper: L0:trace:row961:part0
+
+Net 304 (Net-304):
+  Pad L0:pad:row577:part0 (Instance ID 577) @ (1482.000, 734.000) px
+  Pad L0:pad:row664:part0 (Instance ID 664) @ (1482.000, 783.000) px
+  Copper: L0:trace:row945:part0
+
+Net 305 (Net-305):
+  Pad L0:pad:row587:part0 (Instance ID 587) @ (1788.500, 1781.500) px
+  Pad L0:pad:row615:part0 (Instance ID 615) @ (1795.500, 1868.000) px
+  Copper: L0:trace:row992:part0
+
+Net 306 (Net-306):
+  Pad L0:pad:row607:part0 (Instance ID 607) @ (1925.500, 364.000) px
+  Copper: L0:trace:row1018:part0
+  Status: 1 annotated terminal(s); retained for review
+
+Net 307 (Net-307):
+  Pad L0:pad:row611:part0 (Instance ID 611) @ (1990.000, 2047.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 308 (Net-308):
+  Pad L0:pad:row624:part0 (Instance ID 624) @ (1696.000, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 309 (Net-309):
+  Pad L0:pad:row625:part0 (Instance ID 625) @ (1474.500, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 310 (Net-310):
+  Pad L0:pad:row626:part0 (Instance ID 626) @ (1696.000, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 311 (Net-311):
+  Pad L0:pad:row627:part0 (Instance ID 627) @ (1474.500, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 312 (Net-312):
+  Pad L0:pad:row640:part0 (Instance ID 640) @ (1349.000, 403.000) px
+  Pad L0:pad:row653:part0 (Instance ID 653) @ (1283.000, 403.500) px
+  Copper: L0:trace:row919:part0
+
+Net 313 (Net-313):
+  Pad L0:pad:row675:part0 (Instance ID 675) @ (2196.000, 367.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 314 (Net-314):
+  Pad L0:pad:row676:part0 (Instance ID 676) @ (2196.000, 328.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 315 (Net-315):
+  Pad L0:pad:row677:part0 (Instance ID 677) @ (2154.000, 366.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 316 (Net-316):
+  Pad L0:pad:row678:part0 (Instance ID 678) @ (2154.000, 328.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 317 (Net-317):
+  Pad L0:pad:row699:part0 (Instance ID 699) @ (1832.000, 367.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 318 (Net-318):
+  Pad L0:pad:row700:part0 (Instance ID 700) @ (1832.000, 328.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 319 (Net-319):
+  Pad L0:pad:row701:part0 (Instance ID 701) @ (1877.000, 367.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 320 (Net-320):
+  Pad L0:pad:row702:part0 (Instance ID 702) @ (1877.000, 328.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 321 (Net-321):
+  Pad L0:pad:row704:part0 (Instance ID 704) @ (1903.000, 240.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 322 (Net-322):
+  Pad L0:pad:row706:part0 (Instance ID 706) @ (1858.000, 240.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 323 (Net-323):
+  Pad L0:pad:row717:part0 (Instance ID 717) @ (905.000, 1004.500) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 324 (Net-324):
+  Pad L1:pad:row439:part0 (Instance ID 439) @ (1696.000, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 325 (Net-325):
+  Pad L1:pad:row440:part0 (Instance ID 440) @ (1474.756, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 326 (Net-326):
+  Pad L1:pad:row441:part0 (Instance ID 441) @ (1695.874, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 327 (Net-327):
+  Pad L1:pad:row442:part0 (Instance ID 442) @ (1474.843, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 328 (Net-328):
+  Pad L2:pad:row439:part0 (Instance ID 439) @ (1696.000, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 329 (Net-329):
+  Pad L2:pad:row440:part0 (Instance ID 440) @ (1474.756, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 330 (Net-330):
+  Pad L2:pad:row441:part0 (Instance ID 441) @ (1695.874, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 331 (Net-331):
+  Pad L2:pad:row442:part0 (Instance ID 442) @ (1474.843, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 332 (Net-332):
+  Pad L3:pad:row439:part0 (Instance ID 439) @ (1696.000, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 333 (Net-333):
+  Pad L3:pad:row440:part0 (Instance ID 440) @ (1474.756, 159.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 334 (Net-334):
+  Pad L3:pad:row441:part0 (Instance ID 441) @ (1695.874, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
+
+Net 335 (Net-335):
+  Pad L3:pad:row442:part0 (Instance ID 442) @ (1474.843, 57.000) px
+  Copper: (none annotated)
+  Status: 1 annotated terminal(s); retained for review
