@@ -3,6 +3,7 @@ import re
 import math
 import matplotlib.pyplot as plt
 
+#Color Code Matched and Not matched Pairs.
 
 class NetlistValidator:
 
