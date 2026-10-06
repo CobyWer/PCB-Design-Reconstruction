@@ -1,8 +1,8 @@
-#PCB Comparison Tests
+# PCB Comparison Tests
 These 4 programs conduct 4 different tests to compare the reconstructed board to the ground truth board to examine the quality of the reconstruction the 4 tests are summarized below.
 
 
-##1. Netlist / connectivity comparison
+## 1. Netlist / connectivity comparison
 
 
 
@@ -11,14 +11,14 @@ These 4 programs conduct 4 different tests to compare the reconstructed board to
 **Component-to-net mapping:** Confirms each part is tied to the same signal, even if reference designators differ.
 
 
-##2. Physical layout comparison
+## 2. Physical layout comparison
 
 **Footprint/placement diff:** Compare X/Y coordinates, rotation, and layer of each component between board files. Both tools expose this via scripting (KiCad's pcbnew Python module, Altium's IPCB_Board COM/scripting objects).
 **Trace geometry:** Compare copper polygons/segments per layer — width, layer count, via placement, stackup. Useful for spotting impedance-relevant differences (trace width changes suggest a different controlled-impedance target).
 **Layer stackup comparison:** Copper layer count, dielectric thickness, material — importable from Gerber job files or ODB++/IPC-2581 if you have them.
 
 
-##3. Design rule / manufacturing-level comparison
+## 3. Design rule / manufacturing-level comparison
 **(To Be Completed)**
 
 Run DRC on both designs with the same rule set and compare violation counts/types.
