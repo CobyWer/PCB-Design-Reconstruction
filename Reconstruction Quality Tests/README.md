@@ -26,7 +26,7 @@ Compare clearance, via size, and annular ring specs extracted from each design.
 If you have Gerbers for the original, tools like Gerbv, CAM350, or scripted image-diff-on-Gerber-primitives (not raster images, but vector primitive diffs) can catch geometric drift layer by layer.
 
 
-##4. Electrical/simulation-level comparison
+## 4. Electrical/simulation-level comparison
 **(To Be Completed)**
 
 If both have SPICE-capable models attached, compare simulated behavior (Altium's mixed-signal simulation, or export to ngspice from KiCad) rather than just topology — useful when you suspect a functionally-equivalent-but-differently-implemented sub-circuit.
